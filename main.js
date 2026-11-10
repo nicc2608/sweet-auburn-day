@@ -98,20 +98,21 @@ const brandMap = (map) => {
   const paint = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
   const layers = map.getStyle().layers;
 
-  paint('background', 'background-color', color('--cream'));
-  paint('park', 'fill-color', color('--sky'));
-  paint('park', 'fill-opacity', 0.25);
-  paint('water', 'fill-color', color('--sky'));
-  paint('landuse_residential', 'fill-color', color('--cream'));
-  paint('building', 'fill-color', color('--sky'));
-  paint('building', 'fill-opacity', 0.12);
+  paint('background', 'background-color', color('--white'));
+  paint('park', 'fill-color', color('--gold'));
+  paint('park', 'fill-opacity', 0.35);
+  paint('water', 'fill-color', color('--gold'));
+  paint('water', 'fill-opacity', 0.5);
+  paint('landuse_residential', 'fill-color', color('--white'));
+  paint('building', 'fill-color', color('--gold'));
+  paint('building', 'fill-opacity', 0.25);
   layers.forEach(({ id, type }) => {
     if (type === 'line' && /^highway_(minor|major)/.test(id)) {
-      paint(id, 'line-color', color('--sky'));
-      paint(id, 'line-opacity', 0.4);
+      paint(id, 'line-color', color('--ink'));
+      paint(id, 'line-opacity', 0.14);
     }
-    if (type === 'line' && /motorway.*inner|motorway_subtle/.test(id)) paint(id, 'line-color', color('--cream'));
-    if (type === 'line' && /motorway.*casing/.test(id)) paint(id, 'line-color', color('--sky'));
+    if (type === 'line' && /motorway.*inner|motorway_subtle/.test(id)) paint(id, 'line-color', color('--white'));
+    if (type === 'line' && /motorway.*casing/.test(id)) paint(id, 'line-color', color('--gold'));
     if (type === 'symbol') paint(id, 'text-color', color('--ink'));
   });
 
@@ -123,7 +124,7 @@ const brandMap = (map) => {
     'source-layer': 'transportation_name',
     filter: ['==', ['index-of', 'Auburn Avenue', ['get', 'name']], 0],
     layout: { 'line-cap': 'round', 'line-join': 'round' },
-    paint: { 'line-color': color('--orange'), 'line-width': 5 },
+    paint: { 'line-color': color('--brown'), 'line-width': 5 },
   }, firstLabel && firstLabel.id);
 };
 
