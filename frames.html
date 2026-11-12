@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweet Auburn Day | Save the date frames</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Every font in the picker is loaded here. To add one, add it to this URL and to the <select> below. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Archivo+Black&family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Dela+Gothic+One&family=Inter+Tight:wght@900&family=Unbounded:wght@800&family=Familjen+Grotesk:wght@700&family=DM+Sans:wght@400;500&display=swap">
+  <style>
+    /* ===== Typography: change these to try fonts. Sizes are in frame pixels. ===== */
+    :root {
+      --font-headline: "BBH Hegarty";  /* SAVE THE DATE */
+      --font-label: "BBH Hegarty";     /* TUESDAY 8 DEC / AUBURN AVENUE */
+      --font-badge: "BBH Hegarty";     /* 50 and the ring text */
+
+      --ink: #020202;
+      --brown: #854302;
+      --yellow: #fdd12c;
+      --cream: #fff8ea;
+      --white: #ffffff;
+    }
+
+    /* ===== Page around the frames (not exported) ===== */
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e9e5dc; color: var(--ink); font: 400 15px/1.4 "DM Sans", system-ui, sans-serif; }
+    .bar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 12px 20px; background: var(--ink); color: var(--white); }
+    .bar strong { font-weight: 500; margin-right: auto; }
+    .bar label { display: flex; align-items: center; gap: 8px; }
+    .bar select, .bar button { font: inherit; padding: 6px 10px; border: 0; border-radius: 4px; background: var(--white); color: var(--ink); }
+    .bar button { background: var(--yellow); cursor: pointer; }
+    .stage { display: grid; gap: 40px; justify-items: center; padding: 40px 16px 80px; }
+    .stage .cap { margin: 0 0 12px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+    .stage figure { margin: 0; display: grid; justify-items: center; }
+    /* Frames keep their real pixel size; .fit only scales the preview. */
+    .fit { width: calc(var(--w) * var(--zoom)); height: calc(var(--h) * var(--zoom)); box-shadow: 0 10px 30px rgb(0 0 0 / .15); }
+    .fit > .frame { transform: scale(var(--zoom)); transform-origin: 0 0; }
+
+    /* ===== Shared pieces ===== */
+    .frame { position: relative; overflow: hidden; }
+    .frame > * { position: absolute; margin: 0; }
+    .circle { border-radius: 50%; overflow: hidden; background: #f7ca2a; }
+    .circle img { position: absolute; left: var(--px); top: 0; height: 100%; width: auto; max-width: none; }
+    .duo .circle img { filter: url(#duotone); }
+    /* Rules for the shared symbols target their parts directly; colors come in through these variables. */
+    .logo { height: auto; --logo-word: var(--ink); --logo-script: var(--brown); }
+    #logo .lw { fill: var(--logo-word); }
+    #logo .ls { fill: var(--logo-script); }
+    .labels { display: grid; justify-items: start; }
+    .labels span { display: block; font-family: var(--font-label); font-weight: 400; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    .headline { font-family: var(--font-headline); font-weight: 400; text-transform: uppercase; white-space: nowrap; }
+    .headline span { display: block; }
+    .badge { display: block; --badge-bg: var(--brown); --badge-fg: var(--white); }
+    #badge .disc { fill: var(--badge-bg); }
+    #badge text { font-family: var(--font-badge); fill: var(--badge-fg); }
+
+    /* ===== Frame 1: post, 2246 x 2808 ===== */
+    .post { --w: 2246px; --h: 2808px; width: var(--w); height: var(--h); background: var(--white); }
+    .post .circle { left: 157px; top: 385px; width: 2436px; height: 2436px; --px: -543px; }
+    .post .logo { left: 55px; top: 55px; width: 659px; }
+    .post .badge { left: 1593px; top: 197px; width: 467px; height: 467px; }
+    .post .labels { left: 82px; top: 1410px; gap: 9px; }
+    .post .labels span { padding: 19.15px 42px 19.15px 43px; font-size: 75.7px; background: var(--ink); color: var(--cream); }
+    .post .headline { left: 82px; top: 1694px; font-size: 337px; line-height: 261px; color: var(--ink); }
+
+    /* ===== Frame 2: banner, 1280 x 400 ===== */
+    .banner { --w: 1280px; --h: 400px; width: var(--w); height: var(--h); background: var(--cream); }
+    .banner .circle { left: 516px; top: -241px; width: 882px; height: 882px; --px: -170px; }
+    .banner .logo { left: 39px; top: 41px; width: 226px; }
+    .banner .badge { left: 819px; top: 213px; width: 167px; height: 167px; }
+    .banner .headline span:first-child { position: relative; top: 2px; }
+    .banner .labels { left: 20px; top: 238px; gap: 4px; }
+    .banner .labels span { padding: 7.9px 20px 7.9px 19px; font-size: 32.2px; background: var(--yellow); color: var(--ink); }
+    .banner .headline { left: 627px; top: 56.5px; transform: translateX(-50%); font-size: 118.5px; line-height: 92px; text-align: center; color: var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <strong>Save the date frames</strong>
+    <label>Headline <select data-var="--font-headline"></select></label>
+    <label>Labels <select data-var="--font-label"></select></label>
+    <label>Badge <select data-var="--font-badge"></select></label>
+    <label><input type="checkbox" id="duo"> Yellow duotone photo</label>
+    <label>Zoom <select id="zoom"><option value="fit" selected>Fit</option><option value="0.5">50%</option><option value="1">100%</option></select></label>
+  </div>
+
+  <!-- Shared logo and badge, drawn once and reused in both frames. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="logo" viewBox="0 0 331 220">
+<path d="M82.7295 132.631C74.7635 132.631 68.6221 130.881 64.3053 127.381C59.9885 123.837 57.8301 118.811 57.8301 112.304V84.439H76.5214V110.891C76.5214 115.782 78.5908 118.228 82.7295 118.228C86.8683 118.228 88.9377 115.782 88.9377 110.891V84.439H107.629V112.304C107.629 118.811 105.471 123.837 101.154 127.381C96.837 130.881 90.6956 132.631 82.7295 132.631Z" class="lw"/>
+<g>
+<path d="M259.563 72.2676C250.911 72.987 246.803 64.6171 251.874 52.161L262.098 27.1522L124.358 35.7016L128.239 26.2184L265.98 17.6689L272.405 2.04677L283.643 1.11234L277.218 16.7345L298.268 14.9843L294.386 24.4676L273.337 26.2178L263.112 51.2266C260.867 56.6222 259.23 61.7876 262.709 61.4984C266.455 61.1869 273.004 54.6251 279.651 42.7565L285.374 46.7711C276.221 63.0691 267.59 71.6002 259.563 72.2676Z" class="ls"/>
+<path d="M232.204 74.5424C222.661 75.336 216.032 71.2171 215.283 62.2086C214.274 50.0784 224.303 35.6833 236.88 34.6377C243.747 34.0666 246.846 37.8504 247.202 42.1316C247.892 50.4266 238.265 59.9385 227.153 61.3115C228.007 64.0245 230.155 66.0912 233.99 65.7723C241.304 65.1642 250.73 56.4772 257.377 44.6086L263.099 48.6233C253.947 64.9213 244.513 73.519 232.204 74.5424ZM227.191 53.1356C235.903 52.0521 238.037 45.3185 237.896 43.6239C237.807 42.5536 236.611 42.204 235.451 42.3004C231.794 42.6045 228.449 47.7324 227.191 53.1356Z" class="ls"/>
+<path d="M195.837 77.5664C186.294 78.3599 179.665 74.241 178.916 65.2325C177.907 53.1024 187.936 38.7073 200.512 37.6616C207.38 37.0906 210.479 40.8743 210.835 45.1556C211.525 53.4505 201.898 62.9624 190.786 64.3354C191.64 67.0485 193.787 69.1151 197.623 68.7962C204.937 68.1881 214.363 59.5011 221.01 47.6325L226.732 51.6472C217.579 67.9452 208.146 76.543 195.837 77.5664ZM190.824 56.1596C199.535 55.076 201.67 48.3425 201.529 46.6478C201.44 45.5775 200.243 45.2279 199.084 45.3243C195.427 45.6284 192.081 50.7563 190.824 56.1596Z" class="ls"/>
+<path d="M143.324 81.9327C138.508 82.3332 134.889 79.85 133.618 75.3754C129.292 80.5848 125.129 83.4456 120.58 83.8238C111.928 84.5432 107.262 75.9502 112.802 63.7246L121.226 45.1521L131.573 44.2918L124.285 62.5004C122.047 67.9852 120.248 73.3438 123.726 73.0546C127.472 72.7431 132.238 66.3296 138.885 54.461L143.971 43.261L155.209 42.3266L147.03 60.6093C145.208 64.6225 144.598 68.086 145.571 71.1484C150.759 69.819 155.71 63.4799 160.194 55.8325C159.749 48.3255 163.117 42.3875 168.796 39.4007L178.012 42.2268C175.083 48.0385 172.123 53.4935 169.194 58.2275C170.145 59.9446 171.483 60.9111 173.534 60.7405C175.496 60.5774 180.045 59.1214 184.73 50.6491L190.452 54.6638C185.21 63.9907 179.218 69.6979 173.064 70.2096C169.407 70.5136 166.13 68.9002 163.834 66.1274C156.734 75.7884 149.924 81.3839 143.324 81.9327Z" class="ls"/>
+<path d="M82.9691 94.1357C68.2523 95.3594 57.0902 86.4084 56.0148 73.4755C55.3103 65.0022 59.2953 58.9231 64.8407 55.4085L73.1721 58.398C68.7786 62.8047 67.1946 67.5166 67.558 71.8871C68.2106 79.736 74.8694 84.2117 83.1643 83.522C91.1024 82.862 96.0758 77.8682 95.5937 72.0707C94.7409 61.8135 77.2904 55.002 76.0222 39.7501C75.4067 32.3471 78.5675 21.7562 93.0167 20.5548C106.039 19.4721 112.712 27.3593 113.313 34.5839C113.772 40.1138 110.754 45.933 105.201 48.2807L98.4531 43.8124C102.11 41.3529 102.438 37.7333 102.275 35.7711C101.941 31.7574 99.1099 29.0291 94.4719 29.4148C89.923 29.793 87.1204 32.8101 87.5134 37.5373C88.5072 49.4891 105.95 56.2114 107.137 70.4822C108.108 82.1664 98.5778 92.8379 82.9691 94.1357Z" class="ls"/>
+</g>
+<g>
+<path d="M135.19 182.299C130.641 182.677 127.223 180.447 125.908 176.515C121.767 180.721 116.905 183.819 112.178 184.212C107.094 184.635 101.669 182.033 101.039 174.451C99.9558 161.429 113.642 144.575 126.843 143.477C130.054 143.21 132.625 143.894 134.439 145.181L148.032 112.078L159.27 111.144L138.739 161.258C136.494 166.654 134.857 171.819 138.336 171.53C142.082 171.218 148.631 164.657 155.278 152.788L161.001 156.803C151.848 173.101 143.217 181.632 135.19 182.299ZM115.198 174.082C117.963 173.852 123.538 170.695 126.579 164.065L127.954 161.167L129.293 157.822C129.94 155.883 130.252 154.24 130.163 153.17C130.023 151.475 128.804 150.858 127.555 150.962C122.471 151.385 110.985 163.386 111.579 170.521C111.764 172.751 113.057 174.26 115.198 174.082ZM180.939 178.495C176.657 178.851 173.358 176.97 171.805 173.417C168.259 177.214 164.171 179.889 159.711 180.26C154.627 180.683 149.202 178.081 148.542 170.142C147.489 157.477 159.391 140.771 172.592 139.673C176.07 139.384 178.835 140.232 180.76 141.778L182.046 138.887L191.069 142.627L184.555 157.179C182.123 162.5 180.606 168.015 184.174 167.719C187.831 167.414 194.38 160.853 201.027 148.984L206.749 152.999C197.597 169.297 188.966 177.828 180.939 178.495ZM162.73 170.13C165.495 169.9 169.287 166.891 172.328 160.261L173.926 156.806C175.295 153.818 176.046 150.971 175.912 149.366C175.771 147.671 174.553 147.054 173.304 147.158C168.22 147.581 158.518 159.434 159.104 166.48C159.297 168.799 160.59 170.308 162.73 170.13ZM191.611 212.633C184.565 213.219 179.645 209.138 179.111 202.716C178.155 191.21 192.575 185.341 209.017 176.789L209.322 176.135L210.304 173.898C207.836 175.54 205.487 176.454 203.079 176.654C194.427 177.374 189.761 168.781 195.301 156.555L203.725 137.983L214.071 137.122L206.784 155.331C204.546 160.816 202.746 166.174 206.314 165.878C209.971 165.574 215.628 159.086 222.275 147.217L227.361 136.017L238.421 135.098L223.334 168.594C232.277 162.731 240.565 155.486 246.357 145.215L252.079 149.23C243.715 164.205 230.164 174.043 217.653 181.28C209.08 200.224 202.671 211.714 191.611 212.633ZM188.165 200.347C188.313 202.131 189.992 202.889 191.955 202.726C196.86 202.318 200.318 196.373 203.887 188.532C194.58 193.257 187.86 196.69 188.165 200.347Z" class="ls"/>
+</g>
+<path d="M277.909 131.025V84.439H295.759L312.803 104.804V84.439H330.921V131.025H313.071L296.027 110.66V131.025H277.909Z" class="lw"/>
+<path d="M223.292 131.025V84.439H259.709C264.683 84.439 268.412 85.5482 270.899 87.7665C273.431 89.9406 274.697 92.8466 274.697 96.4848C274.697 98.3039 274.313 100.034 273.544 101.676C272.775 103.273 271.487 104.648 269.678 105.802C267.915 106.956 265.496 107.754 262.422 108.198V109.529C265.496 109.973 267.915 110.616 269.678 111.459C271.487 112.302 272.775 113.455 273.544 114.92C274.313 116.384 274.697 118.292 274.697 120.643V131.025H255.301V122.573C255.301 119.467 253.719 117.914 250.554 117.914H242.687V131.025H223.292ZM242.687 104.471H252.656C253.515 104.471 254.193 104.205 254.691 103.672C255.188 103.096 255.437 102.386 255.437 101.543C255.437 100.655 255.188 99.9455 254.691 99.4131C254.193 98.8807 253.515 98.6144 252.656 98.6144H242.687V104.471Z" class="lw"/>
+<path d="M192.771 132.631C184.548 132.631 178.208 130.881 173.752 127.381C169.296 123.837 167.068 118.811 167.068 112.304V84.439H186.362V110.891C186.362 115.782 188.498 118.228 192.771 118.228C197.043 118.228 199.179 115.782 199.179 110.891V84.439H218.473V112.304C218.473 118.811 216.245 123.837 211.789 127.381C207.333 130.881 200.994 132.631 192.771 132.631Z" class="lw"/>
+<path d="M114.055 131.025V84.439H149.28C154.163 84.439 157.825 85.5038 160.267 87.6334C162.753 89.7631 163.996 92.5583 163.996 96.0189C163.996 97.7493 163.618 99.4131 162.864 101.01C162.109 102.563 160.844 103.872 159.068 104.937C157.337 106.002 154.962 106.645 151.943 106.867V108.198C156.649 108.464 160.067 109.595 162.198 111.592C164.373 113.544 165.461 116.029 165.461 119.046C165.461 122.551 164.195 125.435 161.665 127.697C159.179 129.916 155.761 131.025 151.411 131.025H114.055ZM132.433 102.608H142.088C142.932 102.608 143.598 102.364 144.086 101.875C144.574 101.387 144.818 100.744 144.818 99.9455C144.818 99.1469 144.574 98.5035 144.086 98.0155C143.598 97.5274 142.932 97.2834 142.088 97.2834H132.433V102.608ZM132.433 118.181H143.154C143.997 118.181 144.663 117.937 145.151 117.449C145.64 116.96 145.884 116.317 145.884 115.519C145.884 114.72 145.64 114.077 145.151 113.589C144.663 113.1 143.997 112.856 143.154 112.856H132.433V118.181Z" class="lw"/>
+<path d="M0 131.025L17.5611 84.439H41.8764L59.4374 131.025H40.1203L37.8914 123.771H21.6812L19.3172 131.025H0ZM26.8144 107.732L25.3284 112.324H34.4467L33.0283 107.732L30.5968 97.6827H29.381L26.8144 107.732Z" class="lw"/>
+      </symbol>
+      <symbol id="badge" viewBox="0 0 200 200">
+        <circle class="disc" cx="100" cy="100" r="100"/>
+        <!-- Ring runs counterclockwise from the left so the letters face the center, as in the design. -->
+        <path id="ring" fill="none" d="M100 100m-87 0a87 87 0 1 0 174 0a87 87 0 1 0 -174 0"/>
+        <text font-size="13.6" transform="rotate(-39 100 100)"><textPath href="#ring" textLength="540" lengthAdjust="spacing">50TH ANNIVERSARY • 50TH ANNIVERSARY • </textPath></text>
+        <text font-size="96" x="96" y="133" text-anchor="middle" letter-spacing="-4" transform="rotate(8 100 100)">50</text>
+      </symbol>
+      <!-- Optional: maps the photo to brown shadows and yellow highlights, like the original design. -->
+      <filter id="duotone" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values=".33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 1 0"/>
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="0.40 0.97"/>
+          <feFuncG type="table" tableValues="0.22 0.79"/>
+          <feFuncB type="table" tableValues="0.02 0.16"/>
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+
+  <main class="stage">
+    <figure>
+      <h2 class="cap">Post · 2246 × 2808 <button type="button" data-export="post">Export PNG</button></h2>
+      <div class="fit" style="--w:2246px; --h:2808px">
+        <div class="frame post" id="post">
+          <div class="circle"><img src="Landing/Photo/Auburn%20panorama.webp" alt=""></div>
+          <svg class="logo" viewBox="0 0 331 220"><use href="#logo"/></svg>
+          <svg class="badge" viewBox="0 0 200 200"><use href="#badge"/></svg>
+          <p class="labels"><span>Tuesday 8 Dec</span><span>Auburn Avenue</span></p>
+          <h1 class="headline"><span>Save</span><span>the</span><span>date</span></h1>
+        </div>
+      </div>
+    </figure>
+
+    <figure>
+      <h2 class="cap">Banner · 1280 × 400 <button type="button" data-export="banner">Export PNG</button></h2>
+      <div class="fit" style="--w:1280px; --h:400px">
+        <div class="frame banner" id="banner">
+          <div class="circle"><img src="Landing/Photo/Auburn%20panorama.webp" alt=""></div>
+          <svg class="logo" viewBox="0 0 331 220"><use href="#logo"/></svg>
+          <svg class="badge" viewBox="0 0 200 200"><use href="#badge"/></svg>
+          <p class="labels"><span>Tuesday 8 Dec</span><span>Auburn Avenue</span></p>
+          <p class="headline"><span>Save</span><span>the</span><span>date</span></p>
+        </div>
+      </div>
+    </figure>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+  <script>
+    const FONTS = ['BBH Hegarty', 'Archivo Black', 'Anton', 'Bricolage Grotesque', 'Dela Gothic One', 'Inter Tight', 'Unbounded', 'Familjen Grotesk'];
+    const root = document.documentElement;
+
+    document.querySelectorAll('select[data-var]').forEach((select) => {
+      const current = getComputedStyle(root).getPropertyValue(select.dataset.var).trim().replace(/"/g, '');
+      FONTS.forEach((name) => select.add(new Option(name, name, false, name === current)));
+      select.addEventListener('change', () => root.style.setProperty(select.dataset.var, `"${select.value}"`));
+    });
+
+    document.getElementById('duo').addEventListener('change', (event) => document.body.classList.toggle('duo', event.target.checked));
+
+    /* Preview zoom: "Fit" scales each frame to the window width. */
+    const zoom = document.getElementById('zoom');
+    const applyZoom = () => document.querySelectorAll('.fit').forEach((fit) => {
+      const w = parseFloat(fit.style.getPropertyValue('--w'));
+      const z = zoom.value === 'fit' ? Math.min(1, (document.documentElement.clientWidth - 32) / w) : Number(zoom.value);
+      fit.style.setProperty('--zoom', z);
+    });
+    zoom.addEventListener('change', applyZoom);
+    window.addEventListener('resize', applyZoom);
+    applyZoom();
+
+    /* Export at the frame's real size. */
+    document.querySelectorAll('[data-export]').forEach((button) => button.addEventListener('click', async () => {
+      const frame = document.getElementById(button.dataset.export);
+      button.disabled = true;
+      try {
+        await document.fonts.ready;
+        const url = await htmlToImage.toPng(frame, { pixelRatio: 1, width: frame.offsetWidth, height: frame.offsetHeight, style: { transform: 'none' } });
+        const link = Object.assign(document.createElement('a'), { href: url, download: `sweet-auburn-${button.dataset.export}.png` });
+        link.click();
+      } catch (error) {
+        alert('Export failed. Take a screenshot at 100% zoom instead.');
+      } finally {
+        button.disabled = false;
+      }
+    }));
+  </script>
+</body>
+</html>
