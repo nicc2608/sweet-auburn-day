@@ -7,14 +7,17 @@
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Every font in the picker is loaded here. To add one, add it to this URL and to the <select> below. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Archivo+Black&family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Dela+Gothic+One&family=Inter+Tight:wght@900&family=Unbounded:wght@800&family=Familjen+Grotesk:wght@700&family=DM+Sans:wght@400;500&display=swap">
+  <!-- Page UI font and the default frame font. The fonts in the picker are loaded from the FONTS list in the script at the bottom. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=DM+Sans:wght@400;500&display=swap">
   <style>
     /* ===== Typography: change these to try fonts. Sizes are in frame pixels. ===== */
     :root {
       --font-headline: "BBH Hegarty";  /* SAVE THE DATE */
       --font-label: "BBH Hegarty";     /* TUESDAY 8 DEC / AUBURN AVENUE */
       --font-badge: "BBH Hegarty";     /* 50 and the ring text */
+      --weight-headline: 400;
+      --weight-label: 400;
+      --weight-badge: 400;
 
       --ink: #020202;
       --brown: #854302;
@@ -50,12 +53,12 @@
     #logo .lw { fill: var(--logo-word); }
     #logo .ls { fill: var(--logo-script); }
     .labels { display: grid; justify-items: start; }
-    .labels span { display: block; font-family: var(--font-label); font-weight: 400; line-height: 1; text-transform: uppercase; white-space: nowrap; }
-    .headline { font-family: var(--font-headline); font-weight: 400; text-transform: uppercase; white-space: nowrap; }
+    .labels span { display: block; font-family: var(--font-label); font-weight: var(--weight-label); line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    .headline { font-family: var(--font-headline); font-weight: var(--weight-headline); text-transform: uppercase; white-space: nowrap; }
     .headline span { display: block; }
     .badge { display: block; --badge-bg: var(--yellow); --badge-fg: var(--ink); }
     #badge .disc { fill: var(--badge-bg); }
-    #badge text { font-family: var(--font-badge); fill: var(--badge-fg); }
+    #badge text { font-family: var(--font-badge); font-weight: var(--weight-badge); fill: var(--badge-fg); }
 
     /* ===== Frame 1: post, 2246 x 2808 ===== */
     .post { --w: 2246px; --h: 2808px; width: var(--w); height: var(--h); background: var(--white); }
@@ -161,13 +164,49 @@
 
   <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
   <script>
-    const FONTS = ['BBH Hegarty', 'Archivo Black', 'Anton', 'Bricolage Grotesque', 'Dela Gothic One', 'Inter Tight', 'Unbounded', 'Familjen Grotesk'];
+    /* Fonts in the picker: [Google Fonts family name, weight used]. To add one, add a line here. */
+    const FONTS = {
+      'Original set': [
+        ['BBH Hegarty', 400], ['Archivo Black', 400], ['Anton', 400], ['Bricolage Grotesque', 800],
+        ['Dela Gothic One', 400], ['Inter Tight', 900], ['Unbounded', 800], ['Familjen Grotesk', 700],
+      ],
+      'Modern sans': [
+        ['Space Grotesk', 700], ['Syne', 800], ['Manrope', 800], ['Plus Jakarta Sans', 800],
+        ['Outfit', 800], ['Sora', 800], ['Urbanist', 900], ['Lexend', 800],
+        ['Epilogue', 900], ['Archivo', 900], ['Hanken Grotesk', 900], ['Schibsted Grotesk', 900],
+        ['Onest', 900], ['Geist', 900], ['Instrument Sans', 700], ['Funnel Display', 800],
+        ['Host Grotesk', 800], ['Red Hat Display', 900], ['Rethink Sans', 800], ['Big Shoulders Display', 900],
+      ],
+      'Modern serif': [
+        ['Fraunces', 900], ['DM Serif Display', 400], ['Playfair Display', 900], ['Instrument Serif', 400],
+        ['Young Serif', 400], ['Bodoni Moda', 900], ['Gloock', 400], ['Abril Fatface', 400],
+        ['Newsreader', 800], ['Libre Caslon Display', 400], ['Roboto Serif', 900], ['Noto Serif Display', 900],
+      ],
+    };
     const root = document.documentElement;
+    const all = Object.values(FONTS).flat();
+
+    /* One stylesheet request for every font in the list. */
+    const families = all.map(([name, weight]) => `family=${name.replace(/ /g, '+')}${weight === 400 ? '' : `:wght@${weight}`}`);
+    document.head.append(Object.assign(document.createElement('link'), {
+      rel: 'stylesheet',
+      href: `https://fonts.googleapis.com/css2?${families.join('&')}&display=swap`,
+    }));
 
     document.querySelectorAll('select[data-var]').forEach((select) => {
+      const part = select.dataset.var.replace('--font-', '');
       const current = getComputedStyle(root).getPropertyValue(select.dataset.var).trim().replace(/"/g, '');
-      FONTS.forEach((name) => select.add(new Option(name, name, false, name === current)));
-      select.addEventListener('change', () => root.style.setProperty(select.dataset.var, `"${select.value}"`));
+      Object.entries(FONTS).forEach(([group, fonts]) => {
+        const optgroup = document.createElement('optgroup');
+        optgroup.label = group;
+        fonts.forEach(([name, weight]) => optgroup.append(new Option(name, `${name}|${weight}`, false, name === current)));
+        select.append(optgroup);
+      });
+      select.addEventListener('change', () => {
+        const [name, weight] = select.value.split('|');
+        root.style.setProperty(select.dataset.var, `"${name}"`);
+        root.style.setProperty(`--weight-${part}`, weight);
+      });
     });
 
     document.getElementById('duo').addEventListener('change', (event) => document.body.classList.toggle('duo', event.target.checked));
