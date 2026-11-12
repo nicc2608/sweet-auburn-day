@@ -69,10 +69,10 @@
     .post .headline { left: 82px; top: 1694px; font-size: 337px; line-height: 261px; color: var(--ink); }
 
     /* ===== Frame 2: banner, 1280 x 400 ===== */
-    .banner { --w: 1280px; --h: 400px; width: var(--w); height: var(--h); background: var(--cream); }
+    .banner { --w: 1280px; --h: 400px; width: var(--w); height: var(--h); background: var(--white); }
     .banner .circle { left: 516px; top: -241px; width: 882px; height: 882px; --px: -116px; --py: 215px; --ph: 540px; }
-    /* Cream wash behind the headline (the banner background color, so it blends in), fading out before the steeple. */
-    .banner .circle::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(255 248 234 / .95) 0%, rgb(255 248 234 / .8) 22%, rgb(255 248 234 / .35) 34%, rgb(255 248 234 / 0) 46%); }
+    /* White wash behind the headline, matching the background, fading out before the steeple. */
+    .banner .circle::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(255 255 255 / .95) 0%, rgb(255 255 255 / .8) 22%, rgb(255 255 255 / .35) 34%, rgb(255 255 255 / 0) 46%); }
     .banner .logo { left: 39px; top: 41px; width: 226px; }
     .banner .badge { left: 819px; top: 213px; width: 167px; height: 167px; }
     .banner .headline span:first-child { position: relative; top: 2px; }
