@@ -42,7 +42,8 @@
     .frame { position: relative; overflow: hidden; }
     .frame > * { position: absolute; margin: 0; }
     .circle { border-radius: 50%; overflow: hidden; background: #f7ca2a; }
-    .circle img { position: absolute; left: var(--px); top: 0; height: 100%; width: auto; max-width: none; }
+    /* --px / --py move the photo inside the circle, --ph sets its height (scale). */
+    .circle img { position: absolute; left: var(--px); top: var(--py, 0px); height: var(--ph, 100%); width: auto; max-width: none; }
     .duo .circle img { filter: url(#duotone); }
     /* Rules for the shared symbols target their parts directly; colors come in through these variables. */
     .logo { height: auto; --logo-word: var(--ink); --logo-script: var(--brown); }
@@ -52,7 +53,7 @@
     .labels span { display: block; font-family: var(--font-label); font-weight: 400; line-height: 1; text-transform: uppercase; white-space: nowrap; }
     .headline { font-family: var(--font-headline); font-weight: 400; text-transform: uppercase; white-space: nowrap; }
     .headline span { display: block; }
-    .badge { display: block; --badge-bg: var(--brown); --badge-fg: var(--white); }
+    .badge { display: block; --badge-bg: var(--yellow); --badge-fg: var(--ink); }
     #badge .disc { fill: var(--badge-bg); }
     #badge text { font-family: var(--font-badge); fill: var(--badge-fg); }
 
@@ -69,7 +70,9 @@
 
     /* ===== Frame 2: banner, 1280 x 400 ===== */
     .banner { --w: 1280px; --h: 400px; width: var(--w); height: var(--h); background: var(--cream); }
-    .banner .circle { left: 516px; top: -241px; width: 882px; height: 882px; --px: -170px; }
+    .banner .circle { left: 516px; top: -241px; width: 882px; height: 882px; --px: -116px; --py: 215px; --ph: 540px; }
+    /* Cream wash behind the headline (the banner background color, so it blends in), fading out before the steeple. */
+    .banner .circle::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(255 248 234 / .95) 0%, rgb(255 248 234 / .8) 22%, rgb(255 248 234 / .35) 34%, rgb(255 248 234 / 0) 46%); }
     .banner .logo { left: 39px; top: 41px; width: 226px; }
     .banner .badge { left: 819px; top: 213px; width: 167px; height: 167px; }
     .banner .headline span:first-child { position: relative; top: 2px; }
@@ -114,7 +117,7 @@
         <!-- Ring runs counterclockwise from the left so the letters face the center, as in the design. -->
         <path id="ring" fill="none" d="M100 100m-87 0a87 87 0 1 0 174 0a87 87 0 1 0 -174 0"/>
         <text font-size="13.6" transform="rotate(-39 100 100)"><textPath href="#ring" textLength="540" lengthAdjust="spacing">50TH ANNIVERSARY • 50TH ANNIVERSARY • </textPath></text>
-        <text font-size="96" x="96" y="133" text-anchor="middle" letter-spacing="-4" transform="rotate(8 100 100)">50</text>
+        <text font-size="84" x="97" y="129" text-anchor="middle" letter-spacing="-3.5" transform="rotate(8 100 100)">50</text>
       </symbol>
       <!-- Optional: maps the photo to brown shadows and yellow highlights, like the original design. -->
       <filter id="duotone" color-interpolation-filters="sRGB">
