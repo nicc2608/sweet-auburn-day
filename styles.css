@@ -55,7 +55,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .nav-links a:not(.btn) { position: relative; font: 400 15px/1.2 var(--display); text-transform: uppercase; text-decoration: none; color: var(--white); }
 .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
 .nav-links a:not(.btn):hover::after { transform: scaleX(1); }
-.hero { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: max(720px, min(calc(100svh - 93px), 860px)); padding: 48px 0 64px var(--gutter); overflow: hidden; background: var(--white); color: var(--ink); }
+.hero { --hero-h: max(720px, min(calc(100svh - 93px), 860px)); position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: var(--hero-h); padding: 48px 0 64px var(--gutter); overflow: hidden; background: var(--white); color: var(--ink); }
 .menu-toggle { display: none; padding: 0; border: 0; background: none; color: var(--gold); cursor: pointer; }
 
 /* Left edge stays clear of the text as the window narrows; the crop falls on the right. */
@@ -72,7 +72,9 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .hero-actions { display: flex; gap: 12px; padding-top: 8px; }
 .hero .btn-outline { border-color: var(--ink); color: var(--ink); }
 .hero .btn-outline:hover { background: var(--ink); color: var(--white); }
-.hero-badge { position: absolute; right: var(--gutter); bottom: 56px; z-index: 2; width: 168px; }
+/* Centered on the upper left edge of the photo circle: 8% across and 12% down the photo box (after its 1.06 scale).
+   The photo is as tall as the hero and 743/777 as wide, offset by the same right value as .hero-photo. */
+.hero-badge { --photo-w: calc(var(--hero-h) * 743 / 777); position: absolute; top: calc(var(--hero-h) * .12 - 84px); right: calc(min(0px, (100vw - 1440px) * .5) + var(--photo-w) * .92 - 84px); z-index: 2; width: 168px; }
 .hero-badge svg { width: 100%; height: auto; overflow: visible; }
 .badge-disc { fill: var(--gold); }
 .hero-badge text { font-family: var(--display); fill: var(--ink); }
@@ -238,26 +240,27 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 
 /* Phones: the hero fills the screen, with the mural centered on top and the text at the bottom. */
 @media (max-width: 600px) {
-  .hero { --disc: min(150vw, 64svh); display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - 84px); padding: 0 20px 28px; }
-  /* The disc is wider than the screen and its top runs up under the menu, so the photo reads big.
-     Its lower part fades out to the white page, which lets the text start over it and stay legible. */
-  .hero-photo { position: relative; top: auto; right: auto; width: var(--disc); margin: calc(var(--disc) * -.18) calc(50% - var(--disc) / 2) 0; flex-shrink: 0; }
+  .hero { --ph: min(118vw, 54svh); display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - 84px); padding: 0 20px 28px; }
+  /* No circle on phones: the photo runs edge to edge under the menu, and its lower part fades out
+     to the white page, which lets the text start over it and stay legible. */
+  .hero-photo { position: relative; top: auto; right: auto; width: auto; height: var(--ph); aspect-ratio: auto; margin: 0 -20px; flex-shrink: 0; border-radius: 0; }
   /* The fade is a mask on the photo rather than a white overlay, so no grey edge shows where the circle ends. */
   .hero-photo img { object-fit: cover; object-position: 50% 50%; -webkit-mask-image: linear-gradient(to bottom, #000 48%, rgb(0 0 0 / .2) 68%, transparent 82%); mask-image: linear-gradient(to bottom, #000 48%, rgb(0 0 0 / .2) 68%, transparent 82%); }
-  .hero-content { margin-top: calc(var(--disc) * -.2); }
+  .hero-content { margin-top: calc(var(--ph) * -.24); }
   .hero-date { order: 1; }
   .hero-intro { order: 2; }
   .hero-actions { order: 3; flex-direction: row; }
   .hero-actions .btn { padding: 16px 12px; font-size: 14px; }
   .hero-actions .btn-gold { flex: 0 0 34%; }
   .hero-actions .btn-outline { flex: 1; }
-  .hero-badge { top: calc(var(--disc) * .5 - 96px); right: 16px; width: 92px; }
+  .hero-badge { top: calc(var(--ph) * .42 - 46px); right: 16px; width: 92px; }
   .badge-ring text { font-size: 17px; }
 }
 
 /* Short phone screens, including browser bars: a smaller disc so everything fits in one view. */
 @media (max-width: 600px) and (max-height: 760px) {
-  .hero { --disc: min(130vw, 46svh); }
+  .hero { --ph: min(100vw, 38svh); }
+  .hero-content { margin-top: calc(var(--ph) * -.3); }
 }
 
 /* Motion. Everything above renders complete when JS is off or reduced motion is set. */
