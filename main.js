@@ -39,6 +39,12 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+/* Menu turns solid once the page leaves the top */
+const nav = document.querySelector('.nav');
+const setNav = () => nav.classList.toggle('solid', window.scrollY > 8);
+setNav();
+window.addEventListener('scroll', setNav, { passive: true });
+
 /* Scroll reveals */
 if (motion) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
