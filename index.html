@@ -15,7 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=DM+Sans:wght@400;500&display=swap">
-  <link rel="preload" as="image" href="Landing/Photo/Mural%20duotone%20yellow.png">
+  <link rel="preload" as="image" href="Landing/Photo/Hero%20Auburn.webp" media="(min-width: 1181px)">
+  <link rel="preload" as="image" href="Landing/Photo/Hero%20Auburn%20square.webp" media="(max-width: 1180px)">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -54,10 +55,17 @@
 
   <header class="hero" id="top">
     <div class="hero-photo" aria-hidden="true">
-      <img src="Landing/Photo/Mural%20duotone%20yellow.png" alt="" width="880" height="920" data-parallax>
+      <picture>
+        <source media="(max-width: 1180px)" srcset="Landing/Photo/Hero%20Auburn%20square.webp" width="777" height="777">
+        <img src="Landing/Photo/Hero%20Auburn.webp" alt="" width="743" height="777" data-parallax>
+      </picture>
     </div>
 
-    <div class="hero-badge hero-in" style="--i:7" role="img" aria-label="50th anniversary">
+
+    <div class="hero-content" id="main">
+      <p class="hero-date hero-in" style="--i:0"><span>Tuesday 8 Dec</span><span>Auburn Avenue</span></p>
+      <h1 class="headline" aria-label="Enjoy Sweet Auburn">
+        <span class="line hero-in" style="--i:2" aria-hidden="true">ENJOY<span class="hero-badge">
       <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
         <circle class="badge-disc" cx="100" cy="100" r="100"/>
         <g class="badge-ring">
@@ -66,12 +74,7 @@
         </g>
         <text class="badge-num" x="100" y="122" text-anchor="middle">50</text>
       </svg>
-    </div>
-
-    <div class="hero-content" id="main">
-      <p class="hero-date hero-in" style="--i:0"><span>Tuesday 8 Dec</span><span>Auburn Avenue</span></p>
-      <h1 class="headline" aria-label="Enjoy Sweet Auburn">
-        <span class="line hero-in" style="--i:2" aria-hidden="true">ENJOY</span>
+    </span></span>
         <span class="line hero-in" style="--i:3" aria-hidden="true">SWEET</span>
         <span class="line hero-in" style="--i:4" aria-hidden="true">AUBURN</span>
       </h1>
