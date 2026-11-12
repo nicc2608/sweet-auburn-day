@@ -59,7 +59,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .menu-toggle { display: none; padding: 0; border: 0; background: none; color: var(--gold); cursor: pointer; }
 
 /* Left edge stays clear of the text as the window narrows; the crop falls on the right. */
-.hero-photo { position: absolute; top: 0; right: min(0px, calc((100vw - 1440px) * .5)); height: 100%; aspect-ratio: 880 / 920; }
+.hero-photo { position: absolute; top: 0; right: min(0px, calc((100vw - 1440px) * .5)); height: 100%; aspect-ratio: 743 / 777; }
+.hero-photo picture { display: contents; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; transform: translate(var(--mx, 0px), calc(var(--parallax, 0px) + var(--my, 0px))) scale(1.06); transform-origin: 70% 50%; transition: transform .6s var(--ease); will-change: transform; }
 
 .hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; }
@@ -173,7 +174,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .hero-photo { position: relative; top: auto; right: auto; width: min(97vw, 620px); height: auto; aspect-ratio: 1; margin: 16px max(-60px, -15vw) 16px auto; overflow: hidden; border-radius: 50%; }
   .hero-photo img { transform: none; object-position: 50% 50%; }
   .hero-date { font-size: clamp(25px, 7.6vw, 46px); }
-  .hero-badge { top: 24px; right: 40px; bottom: auto; width: 136px; }
+  /* Sits on the lower right of the disc, clear of the steeple. */
+  .hero-badge { top: calc(36px + min(97vw, 620px) - 150px); right: 24px; bottom: auto; width: 136px; }
   .headline { font-size: min(15.9vw, 118px); }
   .hero-intro { font-size: 17px; line-height: 1.45; }
   .about { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; padding: 96px 40px; }
@@ -236,25 +238,26 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 
 /* Phones: the hero fills the screen, with the mural centered on top and the text at the bottom. */
 @media (max-width: 600px) {
-  .hero { --disc: min(108vw, 40svh); display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - 84px); padding: 0 20px 28px; }
-  /* On white the ink headline can't sit on the mural, so the disc stays above the text.
-     It is larger than the space it takes: the top quarter runs up under the menu and is cut. */
-  .hero-photo { position: relative; top: auto; right: auto; width: var(--disc); margin: calc(var(--disc) * -.25) auto auto; flex-shrink: 0; }
-  .hero-photo img { object-fit: cover; }
-  .hero-content { margin-top: 20px; }
+  .hero { --disc: min(150vw, 64svh); display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - 84px); padding: 0 20px 28px; }
+  /* The disc is wider than the screen and its top runs up under the menu, so the photo reads big.
+     Its lower part fades out to the white page, which lets the text start over it and stay legible. */
+  .hero-photo { position: relative; top: auto; right: auto; width: var(--disc); margin: calc(var(--disc) * -.18) calc(50% - var(--disc) / 2) 0; flex-shrink: 0; }
+  /* The fade is a mask on the photo rather than a white overlay, so no grey edge shows where the circle ends. */
+  .hero-photo img { object-fit: cover; object-position: 50% 50%; -webkit-mask-image: linear-gradient(to bottom, #000 48%, rgb(0 0 0 / .2) 68%, transparent 82%); mask-image: linear-gradient(to bottom, #000 48%, rgb(0 0 0 / .2) 68%, transparent 82%); }
+  .hero-content { margin-top: calc(var(--disc) * -.2); }
   .hero-date { order: 1; }
   .hero-intro { order: 2; }
-  .hero-actions { order: 3; }
-  .hero-badge { top: calc(var(--disc) * .75 - 88px); right: max(12px, calc(50% - var(--disc) / 2)); width: 96px; }
+  .hero-actions { order: 3; flex-direction: row; }
+  .hero-actions .btn { padding: 16px 12px; font-size: 14px; }
+  .hero-actions .btn-gold { flex: 0 0 34%; }
+  .hero-actions .btn-outline { flex: 1; }
+  .hero-badge { top: calc(var(--disc) * .5 - 96px); right: 16px; width: 92px; }
   .badge-ring text { font-size: 17px; }
 }
 
-/* Short phone screens, including browser bars: buttons share a row so everything fits in one view. */
+/* Short phone screens, including browser bars: a smaller disc so everything fits in one view. */
 @media (max-width: 600px) and (max-height: 760px) {
-  .hero { --disc: min(100vw, 33svh); }
-  .hero-actions { flex-direction: row; }
-  .hero-actions .btn { padding: 16px 12px; font-size: 14px; }
-  .hero-actions .btn-outline { flex: 1; }
+  .hero { --disc: min(130vw, 46svh); }
 }
 
 /* Motion. Everything above renders complete when JS is off or reduced motion is set. */

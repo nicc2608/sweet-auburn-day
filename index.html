@@ -15,7 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=DM+Sans:wght@400;500&display=swap">
-  <link rel="preload" as="image" href="Landing/Photo/Mural%20duotone%20yellow.png">
+  <link rel="preload" as="image" href="Landing/Photo/Hero%20Auburn.webp" media="(min-width: 1181px)">
+  <link rel="preload" as="image" href="Landing/Photo/Hero%20Auburn%20square.webp" media="(max-width: 1180px)">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -54,7 +55,10 @@
 
   <header class="hero" id="top">
     <div class="hero-photo" aria-hidden="true">
-      <img src="Landing/Photo/Mural%20duotone%20yellow.png" alt="" width="880" height="920" data-parallax>
+      <picture>
+        <source media="(max-width: 1180px)" srcset="Landing/Photo/Hero%20Auburn%20square.webp" width="777" height="777">
+        <img src="Landing/Photo/Hero%20Auburn.webp" alt="" width="743" height="777" data-parallax>
+      </picture>
     </div>
 
     <div class="hero-badge hero-in" style="--i:7" role="img" aria-label="50th anniversary">
