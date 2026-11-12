@@ -41,24 +41,34 @@
     .fit { width: calc(var(--w) * var(--zoom)); height: calc(var(--h) * var(--zoom)); box-shadow: 0 10px 30px rgb(0 0 0 / .15); }
     .fit > .frame { transform: scale(var(--zoom)); transform-origin: 0 0; }
 
+    .sheet { position: fixed; inset: 0; z-index: 20; display: none; place-items: center; padding: 16px; background: rgb(2 2 2 / .8); }
+    .sheet.open { display: grid; }
+    .sheet-box { display: grid; gap: 12px; justify-items: center; max-width: min(560px, 100%); padding: 16px; background: var(--white); border-radius: 8px; text-align: center; }
+    .sheet-box img { max-width: 100%; max-height: 60vh; height: auto; box-shadow: 0 2px 10px rgb(0 0 0 / .2); }
+    .sheet-box p { margin: 0; font-size: 14px; }
+    .sheet-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .sheet-actions a, .sheet-actions button { padding: 10px 16px; border: 0; border-radius: 4px; background: var(--yellow); color: var(--ink); font: 500 15px/1.2 "DM Sans", sans-serif; text-decoration: none; cursor: pointer; }
+    .sheet-actions .ghost { background: #e9e5dc; }
+
     /* ===== Shared pieces ===== */
     .frame { position: relative; overflow: hidden; }
     .frame > * { position: absolute; margin: 0; }
     .circle { border-radius: 50%; overflow: hidden; background: #f7ca2a; }
     /* --px / --py move the photo inside the circle, --ph sets its height (scale). */
     .circle img { position: absolute; left: var(--px); top: var(--py, 0px); height: var(--ph, 100%); width: auto; max-width: none; }
-    .duo .circle img { filter: url(#duotone); }
-    /* Rules for the shared symbols target their parts directly; colors come in through these variables. */
+    .duo #post .circle img { filter: url(#duotone-post); }
+    .duo #banner .circle img { filter: url(#duotone-banner); }
+    /* The logo and badge are drawn once as symbols and copied into each frame on load (see the script), so each frame exports on its own. */
     .logo { height: auto; --logo-word: var(--ink); --logo-script: var(--brown); }
-    #logo .lw { fill: var(--logo-word); }
-    #logo .ls { fill: var(--logo-script); }
+    .logo .lw { fill: var(--logo-word); }
+    .logo .ls { fill: var(--logo-script); }
     .labels { display: grid; justify-items: start; }
     .labels span { display: block; font-family: var(--font-label); font-weight: var(--weight-label); line-height: 1; text-transform: uppercase; white-space: nowrap; }
     .headline { font-family: var(--font-headline); font-weight: var(--weight-headline); text-transform: uppercase; white-space: nowrap; }
     .headline span { display: block; }
     .badge { display: block; --badge-bg: var(--yellow); --badge-fg: var(--ink); }
-    #badge .disc { fill: var(--badge-bg); }
-    #badge text { font-family: var(--font-badge); font-weight: var(--weight-badge); fill: var(--badge-fg); }
+    .badge .disc { fill: var(--badge-bg); }
+    .badge text { font-family: var(--font-badge); font-weight: var(--weight-badge); fill: var(--badge-fg); }
 
     /* ===== Frame 1: post, 2246 x 2808 ===== */
     .post { --w: 2246px; --h: 2808px; width: var(--w); height: var(--h); background: var(--white); }
@@ -162,6 +172,19 @@
     </figure>
   </main>
 
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Exported image">
+    <div class="sheet-box">
+      <p id="sheet-status">Rendering…</p>
+      <img id="sheet-img" alt="Exported frame" hidden>
+      <div class="sheet-actions">
+        <a id="sheet-download" download hidden>Download PNG</a>
+        <button type="button" id="sheet-share" hidden>Share / Save to Photos</button>
+        <button type="button" class="ghost" id="sheet-close">Close</button>
+      </div>
+      <p id="sheet-hint" hidden>On a phone you can also press and hold the image to save it.</p>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
   <script>
     /* Fonts in the picker: [Google Fonts family name, weight used]. To add one, add a line here. */
@@ -222,17 +245,104 @@
     window.addEventListener('resize', applyZoom);
     applyZoom();
 
-    /* Export at the frame's real size. */
+    /* Copy the shared logo and badge symbols into each frame, with ids unique to that frame,
+       so an exported frame carries everything it draws. The duotone filter is copied too. */
+    document.querySelectorAll('.frame').forEach((frame) => {
+      frame.querySelectorAll('svg use').forEach((use) => {
+        const svg = use.ownerSVGElement;
+        const symbol = document.querySelector(use.getAttribute('href'));
+        [...symbol.childNodes].forEach((node) => svg.append(node.cloneNode(true)));
+        use.remove();
+      });
+      frame.querySelectorAll('[id]').forEach((el) => {
+        const id = el.id;
+        el.id = `${id}-${frame.id}`;
+        frame.querySelectorAll(`[href="#${id}"]`).forEach((ref) => ref.setAttribute('href', `#${el.id}`));
+      });
+      const filter = document.getElementById('duotone').cloneNode(true);
+      filter.id = `duotone-${frame.id}`;
+      frame.querySelector('.badge').append(filter);
+    });
+
+    /* Fonts for the export: only the families in use, subset to the characters on the frames, inlined as data URLs.
+       Embedding the full stylesheet (40 families) is what made exports hang, especially on phones. */
+    const EXPORT_TEXT = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 •&';
+    const toDataUrl = (blob) => new Promise((resolve) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.readAsDataURL(blob); });
+    const fontCache = new Map();
+    const fontCSS = async (name, weight) => {
+      const key = `${name}|${weight}`;
+      if (!fontCache.has(key)) {
+        fontCache.set(key, (async () => {
+          const url = `https://fonts.googleapis.com/css2?family=${name.replace(/ /g, '+')}${String(weight) === '400' ? '' : `:wght@${weight}`}&text=${encodeURIComponent(EXPORT_TEXT)}`;
+          let css = await (await fetch(url)).text();
+          for (const [, src] of css.matchAll(/url\((https:[^)]+)\)/g)) {
+            css = css.replace(src, await toDataUrl(await (await fetch(src)).blob()));
+          }
+          return css;
+        })());
+      }
+      return fontCache.get(key);
+    };
+    const exportFontCSS = async () => {
+      const style = getComputedStyle(root);
+      const used = new Set(['headline', 'label', 'badge'].map((part) => `${style.getPropertyValue(`--font-${part}`).trim().replace(/"/g, '')}|${style.getPropertyValue(`--weight-${part}`).trim()}`));
+      return (await Promise.all([...used].map((key) => fontCSS(...key.split('|'))))).join('\n');
+    };
+
+    /* Export at the frame's real size, then show the result with download and share options.
+       Phones often block a download or share started after a long render, so those need a fresh tap. */
+    const sheet = document.getElementById('sheet');
+    const sheetImg = document.getElementById('sheet-img');
+    const sheetStatus = document.getElementById('sheet-status');
+    const sheetDownload = document.getElementById('sheet-download');
+    const sheetShare = document.getElementById('sheet-share');
+    const sheetHint = document.getElementById('sheet-hint');
+    let sheetFile = null;
+    let sheetUrl = null;
+    const closeSheet = () => {
+      sheet.classList.remove('open');
+      if (sheetUrl) URL.revokeObjectURL(sheetUrl);
+      sheetUrl = null;
+      sheetFile = null;
+    };
+    document.getElementById('sheet-close').addEventListener('click', closeSheet);
+    sheetShare.addEventListener('click', async () => {
+      try { await navigator.share({ files: [sheetFile] }); } catch (error) { /* cancelled */ }
+    });
+
     document.querySelectorAll('[data-export]').forEach((button) => button.addEventListener('click', async () => {
-      const frame = document.getElementById(button.dataset.export);
+      const id = button.dataset.export;
+      const frame = document.getElementById(id);
       button.disabled = true;
+      [sheetImg, sheetDownload, sheetShare, sheetHint].forEach((el) => { el.hidden = true; });
+      sheetStatus.textContent = 'Rendering…';
+      sheet.classList.add('open');
       try {
         await document.fonts.ready;
-        const url = await htmlToImage.toPng(frame, { pixelRatio: 1, width: frame.offsetWidth, height: frame.offsetHeight, style: { transform: 'none' } });
-        const link = Object.assign(document.createElement('a'), { href: url, download: `sweet-auburn-${button.dataset.export}.png` });
-        link.click();
+        const options = {
+          pixelRatio: 1,
+          width: frame.offsetWidth,
+          height: frame.offsetHeight,
+          style: { transform: 'none' },
+          fontEmbedCSS: await exportFontCSS(),
+          cacheBust: false,
+        };
+        await htmlToImage.toBlob(frame, options); // first pass warms up images and fonts in Safari
+        const blob = await htmlToImage.toBlob(frame, options);
+        const name = `sweet-auburn-${id}.png`;
+        sheetFile = new File([blob], name, { type: 'image/png' });
+        sheetUrl = URL.createObjectURL(blob);
+        sheetImg.src = sheetUrl;
+        sheetDownload.href = sheetUrl;
+        sheetDownload.download = name;
+        sheetStatus.textContent = `${name} · ${frame.offsetWidth} × ${frame.offsetHeight}`;
+        sheetImg.hidden = false;
+        sheetDownload.hidden = false;
+        sheetShare.hidden = !(navigator.canShare && navigator.canShare({ files: [sheetFile] }));
+        sheetHint.hidden = !matchMedia('(pointer: coarse)').matches;
       } catch (error) {
-        alert('Export failed. Take a screenshot at 100% zoom instead.');
+        console.error(error);
+        sheetStatus.textContent = 'Export failed. Try again, or take a screenshot at 100% zoom.';
       } finally {
         button.disabled = false;
       }
