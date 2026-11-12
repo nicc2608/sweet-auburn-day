@@ -68,13 +68,16 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .hero-date span { display: block; }
 .headline { font: 400 clamp(90px, 8.2vw, 118px)/.92 var(--display); color: var(--ink); }
 .headline .line { display: block; }
+.headline .line:first-child { position: relative; width: fit-content; }
 .hero-intro { max-width: 420px; font-size: 18px; line-height: 1.4; }
 .hero-actions { display: flex; gap: 12px; padding-top: 8px; }
 .hero .btn-outline { border-color: var(--ink); color: var(--ink); }
 .hero .btn-outline:hover { background: var(--ink); color: var(--white); }
-/* Centered on the upper left edge of the photo circle: 8% across and 12% down the photo box (after its 1.06 scale).
-   The photo is as tall as the hero and 743/777 as wide, offset by the same right value as .hero-photo. */
-.hero-badge { --photo-w: calc(var(--hero-h) * 743 / 777); position: absolute; top: calc(var(--hero-h) * .12 - 84px); right: calc(min(0px, (100vw - 1440px) * .5) + var(--photo-w) * .92 - 84px); z-index: 2; width: 168px; }
+/* The badge lives inside the ENJOY line, centered on its height. On desktop its center sits on the left edge
+   of the photo circle, level with ENJOY, which on most screens puts it right after the Y.
+   The circle's edge there is the photo box's left side less 2% of its width (after the 1.06 scale);
+   the photo is as tall as the hero, 743/777 as wide, and offset by the same right value as .hero-photo. */
+.hero-badge { --photo-w: calc(var(--hero-h) * 743 / 777); --size: 168px; position: absolute; z-index: 2; top: calc(.46em - var(--size) / 2); left: max(100% + 12px, 100vw - min(0px, (100vw - 1440px) * .5) - var(--photo-w) * 1.02 - var(--gutter) - var(--size) / 2); width: var(--size); }
 .hero-badge svg { width: 100%; height: auto; overflow: visible; }
 .badge-disc { fill: var(--gold); }
 .hero-badge text { font-family: var(--display); fill: var(--ink); }
@@ -177,7 +180,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .hero-photo img { transform: none; object-position: 50% 50%; }
   .hero-date { font-size: clamp(25px, 7.6vw, 46px); }
   /* Sits on the lower right of the disc, clear of the steeple. */
-  .hero-badge { top: calc(36px + min(97vw, 620px) - 150px); right: 24px; bottom: auto; width: 136px; }
+  /* Photo is above the text here, so the badge just touches the Y. */
+  .hero-badge { --size: 120px; left: calc(100% + 12px); }
   .headline { font-size: min(15.9vw, 118px); }
   .hero-intro { font-size: 17px; line-height: 1.45; }
   .about { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; padding: 96px 40px; }
@@ -253,7 +257,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .hero-actions .btn { padding: 16px 12px; font-size: 14px; }
   .hero-actions .btn-gold { flex: 0 0 34%; }
   .hero-actions .btn-outline { flex: 1; }
-  .hero-badge { top: calc(var(--ph) * .42 - 46px); right: 16px; width: 92px; }
+  .hero-badge { --size: 88px; left: calc(100% + 8px); }
   .badge-ring text { font-size: 17px; }
 }
 
