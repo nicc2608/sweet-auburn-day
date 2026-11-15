@@ -125,7 +125,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .event:hover .event-icon { transform: rotate(-8deg) scale(1.08); }
 
 /* Paper texture: fine grain from an SVG noise filter, multiplied over the yellow. */
-.partners { display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply; }
+.partners { display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply; }
 .partners-top { display: grid; grid-template-columns: 480px minmax(0, 1fr); gap: 80px; }
 .partners-copy { display: grid; gap: 24px; align-content: start; }
 .partners-copy > p:last-child { font-size: 18px; }
@@ -231,7 +231,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .eyebrow { font-size: 14px; }
   .hero-actions { flex-direction: column; }
   .about, .schedule, .partners, .where { padding: var(--section-y) 20px; }
-  .partners { gap: 32px; }
+  .partners { gap: 32px; background-size: 360px 360px, 600px 600px; }
   .partners-top { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .partners-copy { gap: 20px; }
   .partners-copy > p:last-child { font-size: 17px; }
