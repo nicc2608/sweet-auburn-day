@@ -108,15 +108,21 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .schedule-copy p:last-child { font-size: 18px; }
 .events { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .events > li { display: grid; }
-/* Same yellow for all six; hover flips to ink. The lift lives on the article so it doesn't fight the reveal transform on the li. */
-.event { display: grid; grid-template-rows: auto auto 1fr; gap: 12px; min-height: 240px; padding: 32px; background: var(--gold); color: var(--ink); transition: background-color .25s, color .25s, transform .25s var(--ease), box-shadow .25s var(--ease); }
-.event .time { font: 400 16px/1.2 var(--display); text-transform: uppercase; color: var(--brown); transition: color .25s; padding-bottom: 16px; margin-bottom: 4px; border-bottom: 1px solid rgb(2 2 2 / .25); }
+/* Six cards in three colors; each has an event icon, the time, the title, a note and the location. */
+.event { --card-bg: var(--gold); --card-fg: var(--ink); --card-accent: var(--brown); --card-line: rgb(2 2 2 / .25); display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 12px; min-height: 280px; padding: 32px; background: var(--card-bg); color: var(--card-fg); transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+.event-k { --card-bg: var(--ink); --card-fg: var(--white); --card-accent: var(--gold); --card-line: rgb(255 255 255 / .3); }
+.event-b { --card-bg: var(--brown); --card-fg: var(--white); --card-accent: var(--gold); --card-line: rgb(255 255 255 / .3); }
+.event-icon { width: 40px; height: 40px; color: var(--card-accent); transition: transform .3s var(--ease); }
+.event .time { font: 400 16px/1.2 var(--display); text-transform: uppercase; color: var(--card-accent); padding-bottom: 16px; margin-bottom: 4px; border-bottom: 1px solid var(--card-line); }
 .event .act { font: 400 26px/1.1 var(--display); text-transform: uppercase; }
-.event .tag { font-size: 17px; line-height: 1.4; align-self: end; }
-.event:hover { background: var(--ink); color: var(--white); transform: translateY(-6px); box-shadow: 0 14px 28px rgb(2 2 2 / .18); }
-.event:hover .time { color: var(--gold); border-color: rgb(255 255 255 / .3); }
+.event .tag { font-size: 17px; line-height: 1.4; }
+.event .loc { display: flex; align-items: flex-start; gap: 8px; padding-top: 16px; border-top: 1px solid var(--card-line); font-weight: 500; font-size: 16px; line-height: 1.3; }
+.event .loc .icon { flex: none; width: 18px; height: 18px; margin-top: 1px; color: var(--card-accent); }
+.event:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgb(2 2 2 / .22); }
+.event:hover .event-icon { transform: rotate(-8deg) scale(1.08); }
 
-.partners { display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background: var(--gold); }
+/* Paper texture: fine grain from an SVG noise filter, multiplied over the yellow. */
+.partners { display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply; }
 .partners-top { display: grid; grid-template-columns: 480px minmax(0, 1fr); gap: 80px; }
 .partners-copy { display: grid; gap: 24px; align-content: start; }
 .partners-copy > p:last-child { font-size: 18px; }
@@ -134,13 +140,15 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .card-brown { background: var(--white); color: var(--ink); }
 .card-yellow { background: var(--ink); color: var(--white); }
 .card-yellow h3 { color: var(--gold); }
-.receive { display: grid; gap: 12px; }
+.receive { display: grid; gap: 14px; }
+.receive li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; align-items: start; }
+.receive .icon { width: 24px; height: 24px; color: var(--gold); }
 .levels > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid rgb(2 2 2 / .2); }
-.levels > div:last-child { margin-bottom: 0; }
-.levels dt { font-weight: 500; }
+.levels > div:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+.levels dt { font-weight: 700; }
 .levels .amount { font: 400 32px/1.05 var(--display); }
+.levels .amount-free { align-self: center; font-size: 16px; text-transform: uppercase; }
 .levels .perk { grid-column: 1 / -1; font-size: 16px; }
-.levels-note { font-size: 16px; }
 .steps { display: grid; gap: 16px; }
 .steps li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; }
 .step-num { font: 400 22px/1.1 var(--display); }
@@ -149,6 +157,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .where { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 640px); grid-template-areas: "head map" "info map"; grid-template-rows: auto 1fr; gap: 40px 80px; padding: var(--section-y) var(--gutter); background: var(--white); }
 .where .eyebrow { color: var(--ink); }
 .where-head { grid-area: head; display: grid; gap: 24px; }
+.where-head .tone { display: block; }
+.where-intro { font-size: 18px; line-height: 1.5; }
 .where-info { grid-area: info; }
 .map-card { grid-area: map; align-self: start; margin: 0; padding: 16px; background: var(--white); color: var(--ink); }
 .map { width: 100%; aspect-ratio: 1; background: var(--white); border: 1.5px solid var(--ink); font-family: var(--body); }
