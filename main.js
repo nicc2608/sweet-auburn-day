@@ -91,10 +91,12 @@ if (motion) {
 /* Event map: MapLibre with free OpenFreeMap tiles, loaded only when the section gets close.
    Locations are approximate until HDDC confirms them. Offsets (in pixels) keep the close pins apart. */
 const MAP_PLACES = [
-  { n: 1, name: 'Oakland Cemetery Visitors Center', query: 'Oakland Cemetery Visitors Center, Atlanta, GA', lng: -84.3742, lat: 33.7487, offset: [0, 0] },
-  { n: 2, name: 'Haugabrooks Gallery', query: 'Haugabrooks Gallery, 364 Auburn Ave NE, Atlanta, GA', lng: -84.37572, lat: 33.75567, offset: [20, 6] },
-  { n: 3, name: 'Front Porch on Auburn', query: 'Front Porch on Auburn, 348 Auburn Ave NE, Atlanta, GA', lng: -84.37617, lat: 33.75559, offset: [-6, 18] },
-  { n: 4, name: 'Madam C.J. Walker Museum', query: 'Madam C.J. Walker Museum, 54 Hilliard St NE, Atlanta, GA', lng: -84.37672, lat: 33.75578, offset: [-16, -14] },
+  // Coffee Was Black: placed next to Haugabrooks until HDDC confirms the exact address.
+  { n: 1, name: 'Coffee Was Black (passport pickup)', query: 'Coffee Was Black, Auburn Ave NE, Atlanta, GA', lng: -84.37545, lat: 33.75572, offset: [22, -16] },
+  { n: 2, name: 'Haugabrooks Gallery & Events', query: 'Haugabrooks Gallery, 364 Auburn Ave NE, Atlanta, GA', lng: -84.37572, lat: 33.75567, offset: [20, 6] },
+  { n: 3, name: 'Municipal Market', query: 'Sweet Auburn Municipal Market, 209 Edgewood Ave SE, Atlanta, GA', lng: -84.37970, lat: 33.75432, offset: [0, 0] },
+  { n: 4, name: 'Front Porch on Auburn', query: 'Front Porch on Auburn, 348 Auburn Ave NE, Atlanta, GA', lng: -84.37617, lat: 33.75559, offset: [-6, 18] },
+  { n: 5, name: 'Madam C.J. Walker Museum', query: 'Madam C.J. Walker Museum, 54 Hilliard St NE, Atlanta, GA', lng: -84.37672, lat: 33.75578, offset: [-16, -14] },
 ];
 const MAPLIBRE = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl';
 
