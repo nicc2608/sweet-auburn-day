@@ -40,6 +40,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 /* 1976 over 2026, a size up from the other headlines, with "& still sweet" in script below. */
 .years { display: block; font-size: 2.15em; line-height: .88; }
 .years span { display: block; }
+.years-title .script { margin-top: .5em; }
 .script .script-svg { display: block; height: .92em; width: auto; overflow: visible; transform: rotate(-7deg); transform-origin: 0 60%; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
