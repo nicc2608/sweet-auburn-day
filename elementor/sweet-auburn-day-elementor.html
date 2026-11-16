@@ -1,0 +1,666 @@
+<!-- Sweet Auburn Day landing. Paste into one Elementor HTML widget on a full-width page. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+#sad-landing{display:block;position:relative;text-align:left}
+#sad-landing h1,#sad-landing h2,#sad-landing h3,#sad-landing h4,#sad-landing p,#sad-landing ul,#sad-landing ol,#sad-landing li,#sad-landing dl,#sad-landing dt,#sad-landing dd,#sad-landing figure,#sad-landing figcaption{color:inherit;font-family:inherit;letter-spacing:normal;margin:0;padding:0;border:0;background:none}
+#sad-landing img,#sad-landing svg{border:0;box-shadow:none;border-radius:0}
+#sad-landing a{box-shadow:none}
+#sad-landing{--ink: #020202;
+  --brown: #7c4816; 
+  --gold: #f5d155; 
+  --yellow: #f5d155;
+  --white: #ffffff;
+
+  --nav-h: 93px;
+
+  --display: "BBH Hegarty", "Arial Black", sans-serif;
+  --body: "DM Sans", system-ui, sans-serif;
+
+  --gutter: max(80px, calc((100vw - 1440px) / 2 + 80px));
+  --section-y: 120px;
+  --h2: 76px;
+  --ease: cubic-bezier(.2, .7, .2, 1);}
+#sad-landing *,#sad-landing *::before,#sad-landing *::after{box-sizing: border-box;}
+#sad-landing{scroll-behavior: smooth; -webkit-text-size-adjust: 100%;}
+#sad-landing{margin: 0; background: var(--white); color: var(--ink); font: 400 20px/1.5 var(--body); -webkit-font-smoothing: antialiased; overflow-x: clip;}
+#sad-landing h1,#sad-landing h2,#sad-landing h3,#sad-landing p,#sad-landing ul,#sad-landing ol,#sad-landing dl,#sad-landing dd{margin: 0; padding: 0;}
+#sad-landing ul,#sad-landing ol{list-style: none;}
+#sad-landing img,#sad-landing svg{display: block; max-width: 100%;}
+#sad-landing img{height: auto;}
+#sad-landing a{color: inherit;}
+#sad-landing a:not([href]){text-decoration: underline;}
+#sad-landing b{font-weight: inherit;}
+#sad-landing section{scroll-margin-top: 80px;}
+#sad-landing :focus-visible{outline: 3px solid currentColor; outline-offset: 3px;}
+#sad-landing h2{font: 400 var(--h2)/1 var(--display); text-transform: uppercase;}
+#sad-landing .eyebrow{font: 500 15px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brown);}
+#sad-landing .tone{color: var(--brown);}
+#sad-landing .script{display: block; margin-top: .06em;}
+#sad-landing .years{display: block; font-size: 2.15em; line-height: .88;}
+#sad-landing .years span{display: block;}
+#sad-landing .years-title .script{margin-top: .5em;}
+#sad-landing .fit-title{width: fit-content;}
+#sad-landing .fit-title .script{margin-top: .4em;}
+#sad-landing .where-head .fit-title .script{margin-top: .3em;}
+#sad-landing .where-head .fit-title .script .script-svg{transform: rotate(-3deg);}
+#sad-landing .fit-title .script .script-svg{width: 100%; height: auto;}
+#sad-landing .script .script-svg{display: block; height: .92em; width: auto; overflow: visible; transform: rotate(-7deg); transform-origin: 0 60%;}
+#sad-landing .sr-only{position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;}
+#sad-landing .skip{position: absolute; left: 16px; top: -60px; z-index: 40; padding: 12px 16px; background: var(--white); color: var(--ink);}
+#sad-landing .skip:focus{top: 16px;}
+#sad-landing .btn{display: inline-flex; align-items: center; justify-content: center; padding: 18px 28px; border: 1.5px solid transparent; font: 400 16px/1.2 var(--display); text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color .2s, color .2s, transform .2s var(--ease);}
+#sad-landing .btn:hover{transform: translateY(-2px);}
+#sad-landing .btn:active{transform: translateY(0);}
+#sad-landing .btn-gold{background: var(--gold); color: var(--ink);}
+#sad-landing .btn-gold:hover{background: var(--white);}
+#sad-landing .btn-ink{background: var(--ink); color: var(--white);}
+#sad-landing .btn-ink:hover{background: var(--gold); color: var(--ink);}
+#sad-landing .btn-outline{border-color: var(--white); color: var(--white);}
+#sad-landing .btn-outline:hover{background: var(--white); color: var(--ink);}
+#sad-landing .nav{--nav-fg: var(--white); --logo-word: #ffffff; --logo-script: #fdd12c; --toggle: var(--gold); position: sticky; top: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); padding: 0 var(--gutter); background: var(--ink); transition: background-color .3s, box-shadow .3s;}
+#sad-landing.js .nav:not(.solid){--nav-fg: var(--ink); --logo-word: #020202; --logo-script: #854302; --toggle: var(--ink); background: transparent;}
+#sad-landing .nav-logo svg > path{fill: var(--logo-word); transition: fill .3s;}
+#sad-landing .nav-logo .logo-sweet path,#sad-landing .nav-logo .logo-day path{fill: var(--logo-script); transition: fill .3s;}
+#sad-landing .nav-logo{display: block; width: 104px;}
+#sad-landing .nav-logo svg{width: 100%; height: auto; overflow: visible;}
+#sad-landing .nav-links{display: flex; align-items: center; gap: 32px;}
+#sad-landing .nav-links a:not(.btn){position: relative; font: 400 15px/1.2 var(--display); text-transform: uppercase; text-decoration: none; color: var(--nav-fg); transition: color .3s;}
+#sad-landing .nav-links a:not(.btn)::after{content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease);}
+#sad-landing .nav-links a:not(.btn):hover::after{transform: scaleX(1);}
+#sad-landing .hero{--hero-h: max(calc(720px + var(--nav-h)), min(100svh, calc(860px + var(--nav-h)))); position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: var(--hero-h); margin-top: calc(-1 * var(--nav-h)); padding: calc(48px + var(--nav-h)) 0 64px var(--gutter); overflow: hidden; background: var(--white); color: var(--ink);}
+#sad-landing .menu-toggle{display: none; padding: 0; border: 0; background: none; color: var(--toggle); cursor: pointer; transition: color .3s;}
+#sad-landing .hero-photo{position: absolute; top: 0; right: min(0px, calc((100vw - 1440px) * .5)); height: 100%; aspect-ratio: 743 / 777;}
+#sad-landing .hero-photo picture{display: contents;}
+#sad-landing .hero-photo img{width: 100%; height: 100%; object-fit: cover; transform: translate(var(--mx, 0px), calc(var(--parallax, 0px) + var(--my, 0px))) scale(1.06); transform-origin: 70% 50%; transition: transform .6s var(--ease); will-change: transform;}
+#sad-landing .hero-content{position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px;}
+#sad-landing .hero-date{font: 400 clamp(30px, 3.2vw, 46px)/1.08 var(--display); text-transform: uppercase; color: var(--brown);}
+#sad-landing .hero-date span{display: block;}
+#sad-landing .headline{font: 400 clamp(90px, 8.2vw, 118px)/.92 var(--display); color: var(--ink);}
+#sad-landing .headline .line{display: block;}
+#sad-landing .headline .line:first-child{position: relative; width: fit-content;}
+#sad-landing .hero-intro{max-width: 420px; font-size: 18px; line-height: 1.4;}
+#sad-landing .hero-actions{display: flex; gap: 12px; padding-top: 8px;}
+#sad-landing .hero .btn-outline{border-color: var(--ink); color: var(--ink);}
+#sad-landing .hero .btn-outline:hover{background: var(--ink); color: var(--white);}
+#sad-landing .hero-badge{--photo-w: calc(var(--hero-h) * 743 / 777); --size: 168px; position: absolute; z-index: 2; top: calc(.46em - var(--size) / 2); left: max(100% + 12px, 100vw - min(0px, (100vw - 1440px) * .5) - var(--photo-w) * 1.02 - var(--gutter) - var(--size) / 2); width: var(--size);}
+#sad-landing .hero-badge svg{width: 100%; height: auto; overflow: visible;}
+#sad-landing .badge-disc{fill: var(--gold);}
+#sad-landing .hero-badge text{font-family: var(--display); fill: var(--ink);}
+#sad-landing .badge-ring text{font-size: 16px;}
+#sad-landing .badge-ring{transform-origin: 100px 100px;}
+#sad-landing .badge-num{font-size: 66px;}
+#sad-landing .about{display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 640px); justify-content: space-between; align-items: center; gap: 80px; padding: var(--section-y) var(--gutter); background: var(--gold); color: var(--ink);}
+#sad-landing .about .eyebrow{color: var(--ink);}
+#sad-landing .about-copy{display: grid; gap: 24px;}
+#sad-landing .accent{display: block; color: var(--brown);}
+#sad-landing .about .accent{color: var(--brown);}
+#sad-landing .about-photo{width: 100%; aspect-ratio: 640 / 500; object-fit: cover;}
+#sad-landing .schedule{display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background: var(--white);}
+#sad-landing .schedule-copy{display: grid; grid-template-columns: 480px minmax(0, 560px); justify-content: space-between; align-items: end; gap: 24px 80px;}
+#sad-landing .schedule-copy .eyebrow{grid-column: 1 / -1;}
+#sad-landing .schedule-copy p:last-child{font-size: 18px;}
+#sad-landing .events{display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: event;}
+#sad-landing .events > li{display: grid;}
+#sad-landing .event{--card-bg: var(--gold); --card-fg: var(--ink); --card-accent: var(--brown); --card-line: rgb(2 2 2 / .25); position: relative; overflow: hidden; isolation: isolate; counter-increment: event; display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; min-height: 280px; padding: 32px; background: var(--card-bg); color: var(--card-fg); transition: transform .25s var(--ease), box-shadow .25s var(--ease);}
+#sad-landing .event::before{content: counter(event, decimal-leading-zero); position: absolute; z-index: -1; top: -.2em; right: -.06em; font: 400 132px/1 var(--display); color: var(--card-fg); opacity: .1; pointer-events: none; transition: transform .4s var(--ease), opacity .4s;}
+#sad-landing .event:hover::before{transform: translateY(6px); opacity: .16;}
+#sad-landing .event-k{--card-bg: var(--ink); --card-fg: var(--white); --card-accent: var(--gold); --card-line: rgb(255 255 255 / .3);}
+#sad-landing .event-b{--card-bg: var(--brown); --card-fg: var(--white); --card-accent: var(--gold); --card-line: rgb(255 255 255 / .3);}
+#sad-landing .event .time{font: 400 16px/1.2 var(--display); text-transform: uppercase; color: var(--card-accent); padding-bottom: 16px; margin-bottom: 4px; border-bottom: 1px solid var(--card-line);}
+#sad-landing .event .act{font: 400 26px/1.1 var(--display); text-transform: uppercase;}
+#sad-landing .event .tag{font-size: 17px; line-height: 1.4;}
+#sad-landing .event .loc{display: flex; align-items: flex-start; gap: 8px; padding-top: 16px; border-top: 1px solid var(--card-line); font-weight: 500; font-size: 16px; line-height: 1.3;}
+#sad-landing .event .loc .icon{flex: none; width: 18px; height: 18px; margin-top: 1px; color: var(--card-accent);}
+#sad-landing .event:hover{transform: translateY(-6px); box-shadow: 0 14px 28px rgb(2 2 2 / .22);}
+#sad-landing .partners{display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply;}
+#sad-landing .partners-top{display: grid; grid-template-columns: 480px minmax(0, 1fr); gap: 80px;}
+#sad-landing .partners-copy{display: grid; gap: 24px; align-content: start;}
+#sad-landing .partners-copy > p:last-child{font-size: 18px;}
+#sad-landing .way{display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px 16px; padding: 28px 0; border-bottom: 1px solid rgb(2 2 2 / .25);}
+#sad-landing .way:first-child{padding-top: 0;}
+#sad-landing .way:last-child{padding-bottom: 0; border-bottom: 0;}
+#sad-landing .way-num{grid-row: 1 / span 2; font: 400 28px/1.1 var(--display); color: var(--brown);}
+#sad-landing .way h3{font: 400 24px/1.15 var(--display); text-transform: uppercase;}
+#sad-landing .way p{font-size: 18px; line-height: 1.45;}
+#sad-landing .partner-cards{display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;}
+#sad-landing .partner-card{display: grid; gap: 24px; align-content: start; padding: 32px; font-size: 18px; line-height: 1.4;}
+#sad-landing .partner-card h3{font: 400 16px/1.2 var(--display); text-transform: uppercase;}
+#sad-landing .card-ink{background: var(--ink); color: var(--white);}
+#sad-landing .card-ink h3{color: var(--gold);}
+#sad-landing .card-brown{background: var(--white); color: var(--ink);}
+#sad-landing .card-yellow{background: var(--ink); color: var(--white);}
+#sad-landing .card-yellow h3{color: var(--gold);}
+#sad-landing .receive{display: grid; gap: 14px;}
+#sad-landing .receive li{display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; align-items: start;}
+#sad-landing .receive .icon{width: 24px; height: 24px; color: var(--gold);}
+#sad-landing .levels > div{display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid rgb(2 2 2 / .2);}
+#sad-landing .levels > div:last-child{margin-bottom: 0; padding-bottom: 0; border-bottom: 0;}
+#sad-landing .levels dt{font-weight: 700;}
+#sad-landing .levels .amount{font: 400 32px/1.05 var(--display);}
+#sad-landing .levels .amount-free{align-self: center; font-size: 16px; text-transform: uppercase;}
+#sad-landing .levels .perk{grid-column: 1 / -1; font-size: 16px;}
+#sad-landing .steps{display: grid; gap: 16px;}
+#sad-landing .steps li{display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px;}
+#sad-landing .step-num{font: 400 22px/1.1 var(--display);}
+#sad-landing .steps strong{font-weight: 500; text-decoration: underline; text-underline-offset: 3px;}
+#sad-landing .where{display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 640px); grid-template-areas: "head map" "info map"; grid-template-rows: auto 1fr; gap: 40px 80px; padding: var(--section-y) var(--gutter); background: var(--white);}
+#sad-landing .where .eyebrow{color: var(--ink);}
+#sad-landing .where-head{grid-area: head; display: grid; gap: 24px;}
+#sad-landing .where-head .tone{display: block;}
+#sad-landing .where-head h2{font-size: calc(var(--h2) * .78);}
+#sad-landing .where-intro{font-size: 18px; line-height: 1.5;}
+#sad-landing .where-info{grid-area: info;}
+#sad-landing .map-card{grid-area: map; align-self: start; margin: 0; padding: 16px; background: var(--white); color: var(--ink);}
+#sad-landing .map{width: 100%; aspect-ratio: 1; background: var(--white); border: 1.5px solid var(--ink); font-family: var(--body);}
+#sad-landing .map-card figcaption{padding-top: 12px; font-size: 14px; line-height: 1.35;}
+#sad-landing .map-pin{display: block; text-decoration: none;}
+#sad-landing .map-pin span{display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 2px solid var(--white); border-radius: 50%; background: var(--ink); color: var(--gold); font: 400 15px/1 var(--display); box-shadow: 0 2px 6px rgb(2 2 2 / .35); transition: transform .2s var(--ease), background-color .2s;}
+#sad-landing .map-pin:hover span,#sad-landing .map-pin:focus-visible span{background: var(--ink); transform: scale(1.15);}
+#sad-landing .place{display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 2px 16px; padding: 16px 0; border-bottom: 1px solid rgb(2 2 2 / .25);}
+#sad-landing .place:first-child{padding-top: 0;}
+#sad-landing .place-num{grid-row: 1 / span 2; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 2px solid var(--white); border-radius: 50%; background: var(--ink); color: var(--gold); font: 400 18px/1 var(--display);}
+#sad-landing .place h3{font: 500 22px/1.25 var(--body);}
+#sad-landing .place p{font-size: 17px; line-height: 1.4;}
+#sad-landing .where-note{padding-top: 20px; font-size: 17px; line-height: 1.4;}
+#sad-landing .where-cta{display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; margin-top: 32px;}
+#sad-landing .where-cta p{font: 400 20px/1.2 var(--display); text-transform: uppercase;}
+#sad-landing .footer{display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px var(--gutter); background: var(--ink); color: var(--white); font-size: 16px;}
+#sad-landing .footer img{width: 130px;}
+#sad-landing .footer p{display: flex; gap: 10px;}
+#sad-landing .footer a{text-underline-offset: 3px;}
+#sad-landing .sticky-rsvp{display: none;}
+#sad-landing .toast{position: fixed; left: 50%; bottom: 96px; z-index: 40; width: max-content; max-width: calc(100vw - 40px); padding: 14px 20px; background: var(--ink); color: var(--white); font-size: 16px; text-align: center; opacity: 0; visibility: hidden; transform: translate(-50%, 8px); transition: opacity .2s, transform .2s, visibility .2s;}
+#sad-landing .toast.show{opacity: 1; visibility: visible; transform: translate(-50%, 0);}
+@media (max-width: 1180px){#sad-landing{--nav-h: 84px;}
+#sad-landing .hero{display: block; min-height: 0; padding: calc(20px + var(--nav-h)) 20px 48px;}
+#sad-landing .nav{padding: 0 20px;}
+#sad-landing.js .nav:has(.nav-links.open){--nav-fg: var(--white); --logo-word: #ffffff; --logo-script: #fdd12c; --toggle: var(--gold); background: var(--ink);}
+#sad-landing.js .nav:has(.nav-links.open) .nav-links a:not(.btn){color: var(--white);}
+#sad-landing .nav-logo{width: 96px;}
+#sad-landing .menu-toggle{display: block;}
+#sad-landing .nav-links{position: absolute; top: 100%; left: 0; right: 0; z-index: 5; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 20px; background: var(--ink); box-shadow: 0 16px 24px rgb(2 2 2 / .35);}
+#sad-landing .nav-links.open{display: flex;}
+#sad-landing .nav-links a:not(.btn){padding: 16px 0; border-bottom: 1px solid rgb(255 255 255 / .3);}
+#sad-landing .nav-links a:not(.btn)::after{display: none;}
+#sad-landing .nav-links .btn{margin-top: 16px;}
+#sad-landing .hero-photo{position: relative; top: auto; right: auto; width: min(97vw, 620px); height: auto; aspect-ratio: 1; margin: 16px max(-60px, -15vw) 16px auto; overflow: hidden; border-radius: 50%;}
+#sad-landing .hero-photo img{transform: none; object-position: 50% 50%;}
+#sad-landing .hero-date{font-size: clamp(25px, 7.6vw, 46px);}
+#sad-landing .hero-badge{--size: 120px; left: calc(100% + 12px);}
+#sad-landing .headline{font-size: min(15.9vw, 118px);}
+#sad-landing .hero-intro{font-size: 17px; line-height: 1.45;}
+#sad-landing .about{grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; padding: 96px 40px;}
+#sad-landing .schedule,#sad-landing .partners,#sad-landing .where{padding: 96px 40px;}
+#sad-landing .where{grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 48px;}
+#sad-landing .partners{gap: 56px;}
+#sad-landing .partners-top{grid-template-columns: 300px minmax(0, 1fr); gap: 48px;}
+#sad-landing .footer{padding: 48px 40px;}
+#sad-landing .schedule{gap: 48px;}
+#sad-landing .schedule-copy{grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px;}
+#sad-landing .events{grid-template-columns: repeat(2, minmax(0, 1fr));}
+#sad-landing{--h2: 60px;}}
+@media (max-width: 1000px){#sad-landing .partner-cards{grid-template-columns: minmax(0, 1fr);}}
+@media (max-width: 820px){#sad-landing{--section-y: 64px; --h2: clamp(36px, 12.4vw, 50px);}
+#sad-landing{font-size: 17px;}
+#sad-landing .eyebrow{font-size: 14px;}
+#sad-landing .hero-actions{flex-direction: column;}
+#sad-landing .about,#sad-landing .schedule,#sad-landing .partners,#sad-landing .where{padding: var(--section-y) 20px;}
+#sad-landing .partners{gap: 32px; background-size: 360px 360px, 600px 600px;}
+#sad-landing .partners-top{grid-template-columns: minmax(0, 1fr); gap: 32px;}
+#sad-landing .partners-copy{gap: 20px;}
+#sad-landing .partners-copy > p:last-child{font-size: 17px;}
+#sad-landing .way{grid-template-columns: 48px minmax(0, 1fr); gap: 6px 8px; padding: 20px 0;}
+#sad-landing .way-num{font-size: 22px;}
+#sad-landing .way h3{font-size: 20px;}
+#sad-landing .way p{font-size: 16px;}
+#sad-landing .partner-cards{grid-template-columns: minmax(0, 1fr); gap: 12px;}
+#sad-landing .partner-card{padding: 24px 20px; font-size: 17px;}
+#sad-landing .about{grid-template-columns: minmax(0, 1fr); gap: 20px;}
+#sad-landing .about-copy{gap: 20px;}
+#sad-landing .about-photo{aspect-ratio: 350 / 270;}
+#sad-landing .schedule{gap: 32px;}
+#sad-landing .schedule-copy{grid-template-columns: minmax(0, 1fr); gap: 20px;}
+#sad-landing .schedule-copy p:last-child{font-size: 17px;}
+#sad-landing .events{grid-template-columns: minmax(0, 1fr); gap: 12px;}
+#sad-landing .event{min-height: 0; padding: 24px 20px; gap: 10px;}
+#sad-landing .event::before{font-size: 104px;}
+#sad-landing .event .act{font-size: 22px;}
+#sad-landing .event .tag{font-size: 16px;}
+#sad-landing .where{grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "map" "info"; grid-template-rows: none; gap: 24px;}
+#sad-landing .where-head{gap: 20px;}
+#sad-landing .map-card{padding: 8px;}
+#sad-landing .map-card figcaption{padding: 8px 4px 4px; font-size: 13px;}
+#sad-landing .place h3{font-size: 20px;}
+#sad-landing .place p,#sad-landing .where-note{font-size: 16px;}
+#sad-landing .where-cta p{font-size: 18px;}
+#sad-landing .where-cta .btn{width: 100%;}
+#sad-landing .footer{flex-direction: column; align-items: flex-start; gap: 20px; padding: 40px 20px; font-size: 15px;}
+#sad-landing .footer p{flex-direction: column; gap: 4px;}
+#sad-landing .footer .sep{display: none;}
+#sad-landing .sticky-rsvp{position: fixed; left: 20px; right: 20px; bottom: 16px; z-index: 20; display: flex; border-color: var(--ink); box-shadow: 0 8px 24px rgb(2 2 2 / .35); opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity .25s, transform .25s var(--ease), visibility .25s;}
+#sad-landing .sticky-rsvp.show{opacity: 1; visibility: visible; transform: none;}}
+@media (max-width: 600px){#sad-landing .hero{--ph: calc(min(118vw, 54svh) + var(--nav-h)); display: flex; flex-direction: column; justify-content: flex-end; min-height: 100svh; padding: 0 20px 28px;}
+#sad-landing.js .nav:not(.solid){--logo-word: #ffffff; --logo-script: #fdd12c; --toggle: var(--white); background: linear-gradient(rgb(2 2 2 / .45), rgb(2 2 2 / 0));}
+#sad-landing .hero-photo{position: relative; top: auto; right: auto; width: auto; height: var(--ph); aspect-ratio: auto; margin: 0 -20px; flex-shrink: 0; border-radius: 0;}
+#sad-landing .hero-photo img{object-fit: cover; object-position: 50% 50%; -webkit-mask-image: linear-gradient(to bottom, #000 48%, rgb(0 0 0 / .2) 68%, transparent 82%); mask-image: linear-gradient(to bottom, #000 48%, rgb(0 0 0 / .2) 68%, transparent 82%);}
+#sad-landing .hero-content{margin-top: calc((var(--ph) - var(--nav-h)) * -.24);}
+#sad-landing .hero-date{order: 1;}
+#sad-landing .hero-intro{order: 2;}
+#sad-landing .hero-actions{order: 3; flex-direction: row;}
+#sad-landing .hero-actions .btn{padding: 16px 12px; font-size: 14px;}
+#sad-landing .hero-actions .btn-gold{flex: 0 0 34%;}
+#sad-landing .hero-actions .btn-outline{flex: 1;}
+#sad-landing .hero-badge{--size: 88px; left: calc(100% + 8px);}
+#sad-landing .badge-ring text{font-size: 17px;}}
+@media (max-width: 600px) and (max-height: 760px){#sad-landing .hero{--ph: calc(min(100vw, 38svh) + var(--nav-h));}
+#sad-landing .hero-content{margin-top: calc((var(--ph) - var(--nav-h)) * -.3);}}
+#sad-landing.motion .hero-photo{animation: photo-open 1.4s var(--ease) .1s both;}
+#sad-landing.motion .hero-in{animation: rise .9s var(--ease) both; animation-delay: calc(.25s + var(--i, 0) * .09s);}
+#sad-landing.motion .logo-sweet{animation: write-on .9s cubic-bezier(.45, 0, .35, 1) .8s both;}
+#sad-landing.motion .logo-day{animation: write-on .9s cubic-bezier(.45, 0, .35, 1) 1.6s both;}
+#sad-landing.motion .badge-ring{animation: spin 26s linear infinite;}
+#sad-landing.motion .reveal{opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i, 0) * .08s);}
+#sad-landing.motion .reveal.in-view{opacity: 1; transform: none;}
+@keyframes photo-open{ from { clip-path: circle(0 at 75% 45%); } to { clip-path: circle(120% at 75% 45%); } }
+@keyframes rise{ from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes spin{ to { transform: rotate(360deg); } }
+@keyframes write-on{ from { clip-path: inset(-20% 100% -20% -5%); } to { clip-path: inset(-20% -5% -20% -5%); } }
+@media (prefers-reduced-motion: reduce){#sad-landing{scroll-behavior: auto;}
+#sad-landing *,#sad-landing *::before,#sad-landing *::after{transition: none !important; animation: none !important;}
+#sad-landing .event:hover{transform: none;}}
+</style>
+<div id="sad-landing">
+<a class="skip" href="#main">Skip to content</a>
+
+  <nav class="nav" aria-label="Main">
+  <a class="nav-logo" href="#top" aria-label="Sweet Auburn Day, back to top"><svg aria-hidden="true" focusable="false" viewBox="0 0 331 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M82.7295 132.631C74.7635 132.631 68.6221 130.881 64.3053 127.381C59.9885 123.837 57.8301 118.811 57.8301 112.304V84.439H76.5214V110.891C76.5214 115.782 78.5908 118.228 82.7295 118.228C86.8683 118.228 88.9377 115.782 88.9377 110.891V84.439H107.629V112.304C107.629 118.811 105.471 123.837 101.154 127.381C96.837 130.881 90.6956 132.631 82.7295 132.631Z" fill="#FFFFFF"/>
+<g class="logo-sweet">
+<path d="M259.563 72.2676C250.911 72.987 246.803 64.6171 251.874 52.161L262.098 27.1522L124.358 35.7016L128.239 26.2184L265.98 17.6689L272.405 2.04677L283.643 1.11234L277.218 16.7345L298.268 14.9843L294.386 24.4676L273.337 26.2178L263.112 51.2266C260.867 56.6222 259.23 61.7876 262.709 61.4984C266.455 61.1869 273.004 54.6251 279.651 42.7565L285.374 46.7711C276.221 63.0691 267.59 71.6002 259.563 72.2676Z" fill="#F5D155"/>
+<path d="M232.204 74.5424C222.661 75.336 216.032 71.2171 215.283 62.2086C214.274 50.0784 224.303 35.6833 236.88 34.6377C243.747 34.0666 246.846 37.8504 247.202 42.1316C247.892 50.4266 238.265 59.9385 227.153 61.3115C228.007 64.0245 230.155 66.0912 233.99 65.7723C241.304 65.1642 250.73 56.4772 257.377 44.6086L263.099 48.6233C253.947 64.9213 244.513 73.519 232.204 74.5424ZM227.191 53.1356C235.903 52.0521 238.037 45.3185 237.896 43.6239C237.807 42.5536 236.611 42.204 235.451 42.3004C231.794 42.6045 228.449 47.7324 227.191 53.1356Z" fill="#F5D155"/>
+<path d="M195.837 77.5664C186.294 78.3599 179.665 74.241 178.916 65.2325C177.907 53.1024 187.936 38.7073 200.512 37.6616C207.38 37.0906 210.479 40.8743 210.835 45.1556C211.525 53.4505 201.898 62.9624 190.786 64.3354C191.64 67.0485 193.787 69.1151 197.623 68.7962C204.937 68.1881 214.363 59.5011 221.01 47.6325L226.732 51.6472C217.579 67.9452 208.146 76.543 195.837 77.5664ZM190.824 56.1596C199.535 55.076 201.67 48.3425 201.529 46.6478C201.44 45.5775 200.243 45.2279 199.084 45.3243C195.427 45.6284 192.081 50.7563 190.824 56.1596Z" fill="#F5D155"/>
+<path d="M143.324 81.9327C138.508 82.3332 134.889 79.85 133.618 75.3754C129.292 80.5848 125.129 83.4456 120.58 83.8238C111.928 84.5432 107.262 75.9502 112.802 63.7246L121.226 45.1521L131.573 44.2918L124.285 62.5004C122.047 67.9852 120.248 73.3438 123.726 73.0546C127.472 72.7431 132.238 66.3296 138.885 54.461L143.971 43.261L155.209 42.3266L147.03 60.6093C145.208 64.6225 144.598 68.086 145.571 71.1484C150.759 69.819 155.71 63.4799 160.194 55.8325C159.749 48.3255 163.117 42.3875 168.796 39.4007L178.012 42.2268C175.083 48.0385 172.123 53.4935 169.194 58.2275C170.145 59.9446 171.483 60.9111 173.534 60.7405C175.496 60.5774 180.045 59.1214 184.73 50.6491L190.452 54.6638C185.21 63.9907 179.218 69.6979 173.064 70.2096C169.407 70.5136 166.13 68.9002 163.834 66.1274C156.734 75.7884 149.924 81.3839 143.324 81.9327Z" fill="#F5D155"/>
+<path d="M82.9691 94.1357C68.2523 95.3594 57.0902 86.4084 56.0148 73.4755C55.3103 65.0022 59.2953 58.9231 64.8407 55.4085L73.1721 58.398C68.7786 62.8047 67.1946 67.5166 67.558 71.8871C68.2106 79.736 74.8694 84.2117 83.1643 83.522C91.1024 82.862 96.0758 77.8682 95.5937 72.0707C94.7409 61.8135 77.2904 55.002 76.0222 39.7501C75.4067 32.3471 78.5675 21.7562 93.0167 20.5548C106.039 19.4721 112.712 27.3593 113.313 34.5839C113.772 40.1138 110.754 45.933 105.201 48.2807L98.4531 43.8124C102.11 41.3529 102.438 37.7333 102.275 35.7711C101.941 31.7574 99.1099 29.0291 94.4719 29.4148C89.923 29.793 87.1204 32.8101 87.5134 37.5373C88.5072 49.4891 105.95 56.2114 107.137 70.4822C108.108 82.1664 98.5778 92.8379 82.9691 94.1357Z" fill="#F5D155"/>
+</g>
+<g class="logo-day">
+<path d="M135.19 182.299C130.641 182.677 127.223 180.447 125.908 176.515C121.767 180.721 116.905 183.819 112.178 184.212C107.094 184.635 101.669 182.033 101.039 174.451C99.9558 161.429 113.642 144.575 126.843 143.477C130.054 143.21 132.625 143.894 134.439 145.181L148.032 112.078L159.27 111.144L138.739 161.258C136.494 166.654 134.857 171.819 138.336 171.53C142.082 171.218 148.631 164.657 155.278 152.788L161.001 156.803C151.848 173.101 143.217 181.632 135.19 182.299ZM115.198 174.082C117.963 173.852 123.538 170.695 126.579 164.065L127.954 161.167L129.293 157.822C129.94 155.883 130.252 154.24 130.163 153.17C130.023 151.475 128.804 150.858 127.555 150.962C122.471 151.385 110.985 163.386 111.579 170.521C111.764 172.751 113.057 174.26 115.198 174.082ZM180.939 178.495C176.657 178.851 173.358 176.97 171.805 173.417C168.259 177.214 164.171 179.889 159.711 180.26C154.627 180.683 149.202 178.081 148.542 170.142C147.489 157.477 159.391 140.771 172.592 139.673C176.07 139.384 178.835 140.232 180.76 141.778L182.046 138.887L191.069 142.627L184.555 157.179C182.123 162.5 180.606 168.015 184.174 167.719C187.831 167.414 194.38 160.853 201.027 148.984L206.749 152.999C197.597 169.297 188.966 177.828 180.939 178.495ZM162.73 170.13C165.495 169.9 169.287 166.891 172.328 160.261L173.926 156.806C175.295 153.818 176.046 150.971 175.912 149.366C175.771 147.671 174.553 147.054 173.304 147.158C168.22 147.581 158.518 159.434 159.104 166.48C159.297 168.799 160.59 170.308 162.73 170.13ZM191.611 212.633C184.565 213.219 179.645 209.138 179.111 202.716C178.155 191.21 192.575 185.341 209.017 176.789L209.322 176.135L210.304 173.898C207.836 175.54 205.487 176.454 203.079 176.654C194.427 177.374 189.761 168.781 195.301 156.555L203.725 137.983L214.071 137.122L206.784 155.331C204.546 160.816 202.746 166.174 206.314 165.878C209.971 165.574 215.628 159.086 222.275 147.217L227.361 136.017L238.421 135.098L223.334 168.594C232.277 162.731 240.565 155.486 246.357 145.215L252.079 149.23C243.715 164.205 230.164 174.043 217.653 181.28C209.08 200.224 202.671 211.714 191.611 212.633ZM188.165 200.347C188.313 202.131 189.992 202.889 191.955 202.726C196.86 202.318 200.318 196.373 203.887 188.532C194.58 193.257 187.86 196.69 188.165 200.347Z" fill="#F5D155"/>
+</g>
+<path d="M277.909 131.025V84.439H295.759L312.803 104.804V84.439H330.921V131.025H313.071L296.027 110.66V131.025H277.909Z" fill="#FFFFFF"/>
+<path d="M223.292 131.025V84.439H259.709C264.683 84.439 268.412 85.5482 270.899 87.7665C273.431 89.9406 274.697 92.8466 274.697 96.4848C274.697 98.3039 274.313 100.034 273.544 101.676C272.775 103.273 271.487 104.648 269.678 105.802C267.915 106.956 265.496 107.754 262.422 108.198V109.529C265.496 109.973 267.915 110.616 269.678 111.459C271.487 112.302 272.775 113.455 273.544 114.92C274.313 116.384 274.697 118.292 274.697 120.643V131.025H255.301V122.573C255.301 119.467 253.719 117.914 250.554 117.914H242.687V131.025H223.292ZM242.687 104.471H252.656C253.515 104.471 254.193 104.205 254.691 103.672C255.188 103.096 255.437 102.386 255.437 101.543C255.437 100.655 255.188 99.9455 254.691 99.4131C254.193 98.8807 253.515 98.6144 252.656 98.6144H242.687V104.471Z" fill="#FFFFFF"/>
+<path d="M192.771 132.631C184.548 132.631 178.208 130.881 173.752 127.381C169.296 123.837 167.068 118.811 167.068 112.304V84.439H186.362V110.891C186.362 115.782 188.498 118.228 192.771 118.228C197.043 118.228 199.179 115.782 199.179 110.891V84.439H218.473V112.304C218.473 118.811 216.245 123.837 211.789 127.381C207.333 130.881 200.994 132.631 192.771 132.631Z" fill="#FFFFFF"/>
+<path d="M114.055 131.025V84.439H149.28C154.163 84.439 157.825 85.5038 160.267 87.6334C162.753 89.7631 163.996 92.5583 163.996 96.0189C163.996 97.7493 163.618 99.4131 162.864 101.01C162.109 102.563 160.844 103.872 159.068 104.937C157.337 106.002 154.962 106.645 151.943 106.867V108.198C156.649 108.464 160.067 109.595 162.198 111.592C164.373 113.544 165.461 116.029 165.461 119.046C165.461 122.551 164.195 125.435 161.665 127.697C159.179 129.916 155.761 131.025 151.411 131.025H114.055ZM132.433 102.608H142.088C142.932 102.608 143.598 102.364 144.086 101.875C144.574 101.387 144.818 100.744 144.818 99.9455C144.818 99.1469 144.574 98.5035 144.086 98.0155C143.598 97.5274 142.932 97.2834 142.088 97.2834H132.433V102.608ZM132.433 118.181H143.154C143.997 118.181 144.663 117.937 145.151 117.449C145.64 116.96 145.884 116.317 145.884 115.519C145.884 114.72 145.64 114.077 145.151 113.589C144.663 113.1 143.997 112.856 143.154 112.856H132.433V118.181Z" fill="#FFFFFF"/>
+<path d="M0 131.025L17.5611 84.439H41.8764L59.4374 131.025H40.1203L37.8914 123.771H21.6812L19.3172 131.025H0ZM26.8144 107.732L25.3284 112.324H34.4467L33.0283 107.732L30.5968 97.6827H29.381L26.8144 107.732Z" fill="#FFFFFF"/>
+</svg></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M3 8h22M3 14h22M3 20h22" stroke="currentColor" stroke-width="2.5"/></svg>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="#about">About</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#partners">Partner With Us</a>
+    <a href="#where">Map</a>
+    <a class="btn btn-gold" href="#rsvp" data-rsvp>RSVP</a>
+  </div>
+</nav>
+
+  <header class="hero" id="top">
+    <div class="hero-photo" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 1180px)" srcset="https://nicc2608.github.io/sweet-auburn-day/Landing/Photo/Hero%20Auburn%20square.webp" width="777" height="777">
+        <img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Photo/Hero%20Auburn.webp" alt="" width="743" height="777" data-parallax>
+      </picture>
+    </div>
+
+
+    <div class="hero-content" id="main">
+      <p class="hero-date hero-in" style="--i:0"><span>Tuesday 8 Dec</span><span>Auburn Avenue</span></p>
+      <h1 class="headline" aria-label="Enjoy Sweet Auburn">
+        <span class="line hero-in" style="--i:2" aria-hidden="true">ENJOY<span class="hero-badge">
+      <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <circle class="badge-disc" cx="100" cy="100" r="100"/>
+        <g class="badge-ring">
+          <path id="badge-path" fill="none" d="M100 100m-77 0a77 77 0 1 1 154 0a77 77 0 1 1 -154 0"/>
+          <text><textPath href="#badge-path" textLength="478" lengthAdjust="spacing">50TH ANNIVERSARY • 50TH ANNIVERSARY •</textPath></text>
+        </g>
+        <text class="badge-num" x="100" y="122" text-anchor="middle">50</text>
+      </svg>
+    </span></span>
+        <span class="line hero-in" style="--i:3" aria-hidden="true">SWEET</span>
+        <span class="line hero-in" style="--i:4" aria-hidden="true">AUBURN</span>
+      </h1>
+      <p class="hero-intro hero-in" style="--i:5">Fifty years after its historic designation, a day that belongs to all of Sweet Auburn.</p>
+      <div class="hero-actions hero-in" style="--i:6">
+        <a class="btn btn-gold" href="#rsvp" data-rsvp>RSVP</a>
+        <a class="btn btn-outline" href="#schedule">See event details</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="about" id="about">
+      <div class="about-copy">
+        <p class="eyebrow reveal">50th anniversary</p>
+        <h2 class="reveal years-title" style="--i:1"><span class="years"><span>1976</span><span aria-hidden="true">2026</span></span><span class="sr-only">–2026</span> <span class="accent script"><span class="sr-only">&amp; still sweet</span><svg class="script-svg" viewBox="30 -770 5859 820" aria-hidden="true" focusable="false"><path fill="currentColor" d="M746 37 797 -89C739 -89 688 -101 644 -122C680 -159 713 -201 743 -246H831L884 -350H600L547 -246H626C608 -222 587 -200 562 -178C509 -228 476 -294 462 -364C624 -413 720 -505 720 -597C720 -664 669 -720 567 -720C416 -720 331 -596 331 -437C331 -428 331 -419 332 -409C155 -367 40 -268 40 -147C40 -16 174 40 300 40C389 40 470 11 540 -35C604 11 675 37 746 37ZM177 -160C177 -224 247 -285 345 -323C366 -242 407 -168 459 -109C413 -87 362 -73 309 -73C232 -73 177 -102 177 -160ZM454 -442V-443C454 -567 512 -628 562 -628C589 -628 606 -611 606 -587C606 -538 535 -469 454 -442ZM1372 10C1473 10 1543 -49 1568 -120H1573C1645 -120 1712 -175 1770 -260L1702 -300C1666 -247 1635 -218 1574 -217C1564 -270 1533 -312 1533 -348C1533 -366 1541 -384 1563 -395L1509 -450C1442 -450 1376 -416 1264 -260L1304 -227C1255 -204 1229 -163 1229 -112C1229 -48 1272 10 1372 10ZM1321 -114C1321 -144 1359 -160 1400 -160C1422 -160 1442 -156 1461 -150C1447 -106 1407 -80 1367 -80C1338 -80 1321 -94 1321 -114ZM1349 -241C1377 -275 1404 -305 1425 -326C1428 -293 1444 -268 1455 -239C1436 -243 1418 -245 1396 -245C1379 -245 1364 -244 1349 -241ZM1720 10C1810 10 1914 -77 2031 -250L1971 -300C1886 -174 1807 -107 1765 -107C1726 -107 1749 -163 1779 -221L1916 -490H2152L2204 -592H1968L2054 -760H1928L1842 -592H1648L1596 -490H1790L1653 -221C1585 -87 1623 10 1720 10ZM1988 10C2078 10 2182 -77 2299 -250L2239 -300C2154 -174 2075 -107 2034 -107C1994 -107 2016 -167 2048 -224L2135 -380L2037 -430L1921 -221C1848 -90 1891 10 1988 10ZM2129 -472C2180 -472 2199 -514 2199 -549C2199 -590 2172 -616 2135 -616C2099 -616 2063 -592 2063 -541C2063 -499 2088 -472 2129 -472ZM2343 10C2455 10 2568 -77 2685 -250L2625 -300C2540 -174 2437 -86 2368 -86C2330 -86 2306 -113 2306 -173C2306 -184 2307 -196 2308 -208L2307 -192C2512 -319 2655 -529 2655 -644C2655 -683 2638 -730 2577 -730C2413 -730 2200 -385 2200 -159C2200 -50 2250 10 2343 10ZM2335 -314C2389 -472 2503 -646 2542 -646C2549 -646 2557 -640 2557 -622C2557 -558 2454 -413 2335 -314ZM2729 10C2841 10 2954 -77 3071 -250L3011 -300C2926 -174 2823 -86 2754 -86C2716 -86 2692 -113 2692 -173C2692 -184 2693 -196 2694 -208L2693 -192C2898 -319 3041 -529 3041 -644C3041 -683 3024 -730 2963 -730C2799 -730 2586 -385 2586 -159C2586 -50 2636 10 2729 10ZM2721 -314C2775 -472 2889 -646 2928 -646C2935 -646 2943 -640 2943 -622C2943 -558 2840 -413 2721 -314ZM3431 10C3532 10 3602 -49 3627 -120H3632C3704 -120 3771 -175 3829 -260L3761 -300C3725 -247 3694 -218 3633 -217C3623 -270 3592 -312 3592 -348C3592 -366 3600 -384 3622 -395L3568 -450C3501 -450 3435 -416 3323 -260L3363 -227C3314 -204 3288 -163 3288 -112C3288 -48 3331 10 3431 10ZM3380 -114C3380 -144 3418 -160 3459 -160C3481 -160 3501 -156 3520 -150C3506 -106 3466 -80 3426 -80C3397 -80 3380 -94 3380 -114ZM3408 -241C3436 -275 3463 -305 3484 -326C3487 -293 3503 -268 3514 -239C3495 -243 3477 -245 3455 -245C3438 -245 3423 -244 3408 -241ZM4031 10C4105 10 4186 -46 4274 -147C4297 -114 4332 -93 4373 -93C4442 -93 4514 -151 4581 -250L4521 -300C4461 -210 4409 -198 4387 -198C4364 -198 4350 -210 4341 -230C4378 -280 4416 -338 4454 -400L4354 -440C4288 -412 4245 -349 4243 -265C4186 -184 4125 -118 4066 -108C4058 -143 4068 -181 4092 -224L4200 -420H4074L4007 -300C3922 -174 3863 -107 3821 -107C3782 -107 3807 -165 3837 -224L3935 -420H3819L3708 -221C3635 -90 3679 10 3776 10C3827 10 3876 -18 3929 -72C3939 -21 3977 10 4031 10ZM4640 10C4778 10 4891 -77 5008 -250L4948 -300C4863 -174 4750 -86 4668 -86C4625 -86 4603 -111 4596 -142C4721 -147 4837 -244 4837 -337C4837 -385 4806 -430 4729 -430C4588 -430 4463 -279 4463 -143C4463 -42 4533 10 4640 10ZM4604 -233C4623 -292 4665 -346 4706 -346C4719 -346 4732 -341 4732 -329C4732 -310 4702 -237 4604 -233ZM5068 10C5206 10 5319 -77 5436 -250L5376 -300C5291 -174 5178 -86 5096 -86C5053 -86 5031 -111 5024 -142C5149 -147 5265 -244 5265 -337C5265 -385 5234 -430 5157 -430C5016 -430 4891 -279 4891 -143C4891 -42 4961 10 5068 10ZM5032 -233C5051 -292 5093 -346 5134 -346C5147 -346 5160 -341 5160 -329C5160 -310 5130 -237 5032 -233ZM5395 10C5485 10 5589 -77 5706 -250L5646 -300C5561 -174 5482 -107 5440 -107C5401 -107 5424 -163 5454 -221L5591 -490H5827L5879 -592H5643L5729 -760H5603L5517 -592H5323L5271 -490H5465L5328 -221C5260 -87 5298 10 5395 10Z"/></svg></span></h2>
+        <p class="reveal" style="--i:2">On December 8, 1976, Sweet Auburn was designated a historic district. Fifty years later, HDDC is bringing churches, businesses, cultural institutions and neighbors together for a day that belongs to all of Sweet Auburn.</p>
+        <p class="reveal" style="--i:3">Sweet Auburn has always been a place of community, culture and celebration, and its 50th anniversary deserves a celebration to remember! Join us for Sweet Auburn Day, a neighborhood-wide event filled with music, food, local businesses and opportunities to connect with friends and neighbors. Together, we'll honor the people and places that shaped this historic district, celebrate the community that keeps it alive today and look ahead to the future we're building together.</p>
+      </div>
+      <img class="about-photo reveal" style="--i:1" src="https://nicc2608.github.io/sweet-auburn-day/Landing/Photo/Friends%20on%20Auburn.webp" alt="Two friends laughing and hugging on a sunny city street." width="700" height="540" loading="lazy">
+    </section>
+
+    <section class="schedule" id="schedule">
+      <div class="schedule-copy">
+        <p class="eyebrow reveal">The day at a glance</p>
+        <h2 class="reveal fit-title" style="--i:1">A full day <span class="tone script"><span class="sr-only">on Auburn</span><svg class="script-svg" viewBox="-43 -770 4939 930" aria-hidden="true" focusable="false"><path fill="currentColor" d="M94 10C168 10 246 -37 302 -107C320 -92 343 -83 371 -83C449 -83 521 -151 588 -250L528 -300C468 -210 416 -198 394 -198C379 -198 366 -203 360 -214C368 -239 373 -266 373 -292C373 -374 329 -430 244 -430C107 -430 -33 -283 -33 -130C-33 -32 25 10 94 10ZM128 -93C97 -93 79 -119 79 -152C79 -221 161 -334 229 -334C255 -334 277 -318 277 -280C277 -207 194 -93 128 -93ZM846 10C933 10 997 -77 1114 -250L1054 -300C969 -174 910 -107 868 -107C829 -107 851 -166 883 -224L905 -263C951 -344 927 -430 834 -430C774 -430 718 -394 668 -349L704 -420H580L361 10H487L533 -80C633 -216 730 -330 774 -330C803 -330 798 -295 781 -265L756 -221C684 -94 746 10 846 10ZM1974 150 2083 86C2046 31 2030 -30 2030 -88C2030 -113 2033 -141 2038 -168H2262L2328 -280H2067C2113 -420 2193 -573 2252 -676L2081 -720C1966 -638 1795 -467 1638 -280H1432L1366 -168H1547C1503 -112 1461 -55 1424 0L1561 60C1604 -9 1657 -89 1715 -168H1909C1901 -129 1896 -90 1896 -53C1896 39 1926 105 1974 150ZM1801 -280C1891 -393 1987 -498 2077 -570C2029 -485 1977 -383 1941 -280ZM2538 10C2628 10 2732 -77 2849 -250L2789 -300C2704 -174 2625 -107 2584 -107C2544 -107 2567 -166 2599 -224L2707 -420H2581L2514 -300C2429 -174 2360 -107 2319 -107C2279 -107 2304 -165 2334 -224L2432 -420H2316L2205 -221C2132 -90 2176 10 2273 10C2325 10 2378 -19 2435 -76C2444 -22 2482 10 2538 10ZM2624 10H2750L2781 -51C2797 -17 2830 10 2887 10C2962 10 3037 -35 3093 -99C3109 -89 3129 -83 3152 -83C3230 -83 3302 -151 3369 -250L3309 -300C3248 -210 3197 -198 3175 -198C3169 -198 3162 -199 3157 -201C3173 -238 3183 -278 3183 -316C3183 -396 3141 -430 3079 -430C3033 -430 2988 -410 2948 -380L3140 -760H3016ZM2901 -92C2866 -92 2840 -122 2837 -162L2858 -203C2937 -298 2991 -320 3022 -320C3049 -320 3063 -302 3063 -277C3063 -211 2970 -92 2901 -92ZM3589 10C3679 10 3783 -77 3900 -250L3840 -300C3755 -174 3676 -107 3635 -107C3595 -107 3618 -166 3650 -224L3758 -420H3632L3565 -300C3480 -174 3411 -107 3370 -107C3330 -107 3355 -165 3385 -224L3483 -420H3367L3256 -221C3183 -90 3227 10 3324 10C3376 10 3429 -19 3486 -76C3495 -22 3533 10 3589 10ZM4047 10C4137 10 4241 -77 4358 -250L4298 -300C4213 -174 4134 -107 4093 -107C4053 -107 4075 -167 4107 -224L4215 -420H4044L4076 -497L3969 -530C3951 -480 3924 -416 3812 -260L3872 -210C3925 -278 3957 -326 3977 -360H4057L3980 -221C3907 -90 3950 10 4047 10ZM4618 10C4705 10 4769 -77 4886 -250L4826 -300C4741 -174 4682 -107 4640 -107C4601 -107 4623 -166 4655 -224L4677 -263C4723 -344 4699 -430 4606 -430C4546 -430 4490 -394 4440 -349L4476 -420H4352L4133 10H4259L4305 -80C4405 -216 4502 -330 4546 -330C4575 -330 4570 -295 4553 -265L4528 -221C4456 -94 4518 10 4618 10Z"/></svg></span></h2>
+        <p class="reveal" style="--i:2">Tours and community activations run all day, with a luncheon, an exhibit and live music along the way.</p>
+      </div>
+      <ol class="events">
+        <li class="reveal"><article class="event event-y"><p class="time">All day</p><h3 class="act">Oral History Tour</h3><p class="tag">Self-guided, curated by the National Park Service.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Across the district</span></p></article></li>
+        <li class="reveal" style="--i:1"><article class="event event-k"><p class="time">All day</p><h3 class="act">Community Activations</h3><p class="tag">Church programs, a small business trail and storytelling, led by partners.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Across the district</span></p></article></li>
+        <li class="reveal" style="--i:2"><article class="event event-b"><p class="time">11:30 AM – 1:30 PM</p><h3 class="act">Sweet Auburn at 50 Luncheon</h3><p class="tag">This is a private event hosted by HDDC.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Oakland Cemetery Visitors Center</span></p></article></li>
+        <li class="reveal"><article class="event event-k"><p class="time">5 – 7 PM</p><h3 class="act">Sweet Auburn Exhibit</h3><p class="tag">Curated by Dashboard.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Haugabrooks Gallery</span></p></article></li>
+        <li class="reveal" style="--i:1"><article class="event event-b"><p class="time">5 – 8 PM</p><h3 class="act">Happy Hour</h3><p class="tag">Live music to close the day.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Front Porch on Auburn</span></p></article></li>
+        <li class="reveal" style="--i:2"><article class="event event-y"><p class="time">6 PM &amp; 7 PM</p><h3 class="act">Tiny Desk-Style Concert</h3><p class="tag">Two intimate sets.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Madam C.J. Walker Museum</span></p></article></li>
+      </ol>
+    </section>
+
+    <section class="partners" id="partners">
+      <div class="partners-top">
+        <div class="partners-copy">
+          <p class="eyebrow reveal">Community partners</p>
+          <h2 class="reveal" style="--i:1">Open your doors <span class="accent script"><span class="sr-only">with us</span><svg class="script-svg" viewBox="-69 -770 3310 790" aria-hidden="true" focusable="false"><path fill="currentColor" d="M300 10C374 10 455 -46 543 -147C566 -114 601 -93 642 -93C711 -93 783 -151 850 -250L790 -300C730 -210 678 -198 656 -198C633 -198 619 -210 610 -230C647 -280 685 -338 723 -400L623 -440C557 -412 514 -349 512 -265C455 -184 394 -118 335 -108C327 -143 337 -181 361 -224L469 -420H343L276 -300C191 -174 132 -107 90 -107C51 -107 76 -165 106 -224L204 -420H88L-23 -221C-96 -90 -52 10 45 10C96 10 145 -18 198 -72C208 -21 246 10 300 10ZM805 10C895 10 999 -77 1116 -250L1056 -300C971 -174 892 -107 851 -107C811 -107 833 -167 865 -224L952 -380L854 -430L738 -221C665 -90 708 10 805 10ZM946 -472C997 -472 1016 -514 1016 -549C1016 -590 989 -616 952 -616C916 -616 880 -592 880 -541C880 -499 905 -472 946 -472ZM1076 10C1166 10 1270 -77 1387 -250L1327 -300C1242 -174 1163 -107 1121 -107C1082 -107 1105 -163 1135 -221L1272 -490H1508L1560 -592H1324L1410 -760H1284L1198 -592H1004L952 -490H1146L1009 -221C941 -87 979 10 1076 10ZM1162 10H1288L1332 -77C1433 -214 1536 -330 1583 -330C1609 -330 1604 -295 1587 -265L1562 -221C1489 -90 1532 10 1629 10C1719 10 1823 -77 1940 -250L1880 -300C1795 -174 1716 -107 1674 -107C1635 -107 1657 -167 1689 -224L1711 -263C1757 -344 1733 -430 1640 -430C1577 -430 1518 -390 1466 -342L1678 -760H1554ZM2502 10C2592 10 2696 -77 2813 -250L2753 -300C2668 -174 2589 -107 2548 -107C2508 -107 2531 -166 2563 -224L2671 -420H2545L2478 -300C2393 -174 2324 -107 2283 -107C2243 -107 2268 -165 2298 -224L2396 -420H2280L2169 -221C2096 -90 2140 10 2237 10C2289 10 2342 -19 2399 -76C2408 -22 2446 10 2502 10ZM2833 10C2934 10 3004 -49 3029 -120H3034C3106 -120 3173 -175 3231 -260L3163 -300C3127 -247 3096 -218 3035 -217C3025 -270 2994 -312 2994 -348C2994 -366 3002 -384 3024 -395L2970 -450C2903 -450 2837 -416 2725 -260L2765 -227C2716 -204 2690 -163 2690 -112C2690 -48 2733 10 2833 10ZM2782 -114C2782 -144 2820 -160 2861 -160C2883 -160 2903 -156 2922 -150C2908 -106 2868 -80 2828 -80C2799 -80 2782 -94 2782 -114ZM2810 -241C2838 -275 2865 -305 2886 -326C2889 -293 2905 -268 2916 -239C2897 -243 2879 -245 2857 -245C2840 -245 2825 -244 2810 -241Z"/></svg></span></h2>
+          <p class="reveal" style="--i:2">We invite churches, businesses and cultural institutions to tell their story and be part of the day.</p>
+        </div>
+        <ol class="ways">
+          <li class="way reveal"><span class="way-num" aria-hidden="true">01</span><h3>Host an activation</h3><p>Open your church, museum, lodge or storefront with a talk, tour, performance or open house.</p></li>
+          <li class="way reveal"><span class="way-num" aria-hidden="true">02</span><h3>Join the Business Heritage Trail</h3><p>Offer an anniversary special, storefront display or demo, and take part in "Spend $50 on Sweet Auburn."</p></li>
+          <li class="way reveal"><span class="way-num" aria-hidden="true">03</span><h3>Spread the word</h3><p>Share Sweet Auburn Day with your members, congregation and customers through your own channels.</p></li>
+        </ol>
+      </div>
+      <div class="partner-cards">
+        <div class="partner-card card-ink reveal">
+          <h3>What partners receive</h3>
+          <ul class="receive">
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 01-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0112 0" /> <path d="M4.474 15h-.197a1 1 0 00-.969.753l-1.097 4.35a1.5 1.5 0 001.444 1.898L20.344 22a1.5 1.5 0 001.446-1.897l-1.098-4.35a1 1 0 00-.969-.753h-.197" /> <circle cx="12" cy="8" r="2" /></svg><span>Listing on the Sweet Auburn Day website and map</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /> <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /> <path d="M8 6v8" /></svg><span>Promotion through HDDC's email and social channels</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 13v8" /> <path d="M12 3v3" /> <path d="M2.354 10.354a1.207 1.207 0 0 1 0-1.708l2.06-2.06A2 2 0 0 1 5.828 6h12.344a2 2 0 0 1 1.414.586l2.06 2.06a1.207 1.207 0 0 1 0 1.708l-2.06 2.06a2 2 0 0 1-1.414.586H5.828a2 2 0 0 1-1.414-.586z" /></svg><span>Day-of coordination and wayfinding support</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.8 11.3 2 22l10.7-3.79" /> <path d="M4 3h.01" /> <path d="M22 8h.01" /> <path d="M15 2h.01" /> <path d="M22 20h.01" /> <path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" /> <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17" /> <path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7" /> <path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" /></svg><span>A place in a district-wide celebration</span></li>
+          </ul>
+        </div>
+        <div class="partner-card card-brown reveal" style="--i:1">
+          <h3>Community support levels</h3>
+          <dl class="levels">
+            <div><dt>Block Partner</dt><dd class="amount">$1,000</dd><dd class="perk">Logo on website and day-of signage</dd></div>
+            <div><dt>Friend of Sweet Auburn</dt><dd class="amount">$500</dd><dd class="perk">Name on website, social thank-you</dd></div>
+            <div><dt>Community Partner</dt><dd class="amount amount-free">Complimentary</dd><dd class="perk">Partner with us through your own programming and help bring Sweet Auburn Day to life. Participation is welcome at no cost.</dd></div>
+          </dl>
+        </div>
+        <div class="partner-card card-yellow reveal" style="--i:2">
+          <h3>Next steps</h3>
+          <ol class="steps">
+            <li><span class="step-num" aria-hidden="true">1</span><p>Confirm your activation, time and location by <strong>November 20</strong>.</p></li>
+            <li><span class="step-num" aria-hidden="true">2</span><p>Send your logo and a short description for the website and map.</p></li>
+            <li><span class="step-num" aria-hidden="true">3</span><p>Share Sweet Auburn Day with EVERYONE!</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="where" id="where">
+      <div class="where-head">
+        <p class="eyebrow reveal">Follow the Business Heritage Trail</p>
+        <h2 class="reveal fit-title" style="--i:1">Spend $50 in <span class="tone script"><span class="sr-only">Sweet Auburn!</span><svg class="script-svg" viewBox="0 -770 6843 930" aria-hidden="true" focusable="false"><path fill="currentColor" d="M291 90C466 90 582 -20 582 -151C582 -311 394 -402 394 -536C394 -589 428 -620 479 -620C531 -620 560 -587 560 -542C560 -520 553 -480 510 -456L581 -400C645 -421 684 -483 684 -545C684 -626 617 -720 471 -720C309 -720 264 -605 264 -522C264 -351 452 -259 452 -144C452 -79 392 -28 303 -28C210 -28 140 -84 140 -172C140 -221 162 -272 215 -317L125 -358C60 -324 10 -260 10 -165C10 -20 126 90 291 90ZM994 10C1068 10 1149 -46 1237 -147C1260 -114 1295 -93 1336 -93C1405 -93 1477 -151 1544 -250L1484 -300C1424 -210 1372 -198 1350 -198C1327 -198 1313 -210 1304 -230C1341 -280 1379 -338 1417 -400L1317 -440C1251 -412 1208 -349 1206 -265C1149 -184 1088 -118 1029 -108C1021 -143 1031 -181 1055 -224L1163 -420H1037L970 -300C885 -174 826 -107 784 -107C745 -107 770 -165 800 -224L898 -420H782L671 -221C598 -90 642 10 739 10C790 10 839 -18 892 -72C902 -21 940 10 994 10ZM1603 10C1741 10 1854 -77 1971 -250L1911 -300C1826 -174 1713 -86 1631 -86C1588 -86 1566 -111 1559 -142C1684 -147 1800 -244 1800 -337C1800 -385 1769 -430 1692 -430C1551 -430 1426 -279 1426 -143C1426 -42 1496 10 1603 10ZM1567 -233C1586 -292 1628 -346 1669 -346C1682 -346 1695 -341 1695 -329C1695 -310 1665 -237 1567 -233ZM2031 10C2169 10 2282 -77 2399 -250L2339 -300C2254 -174 2141 -86 2059 -86C2016 -86 1994 -111 1987 -142C2112 -147 2228 -244 2228 -337C2228 -385 2197 -430 2120 -430C1979 -430 1854 -279 1854 -143C1854 -42 1924 10 2031 10ZM1995 -233C2014 -292 2056 -346 2097 -346C2110 -346 2123 -341 2123 -329C2123 -310 2093 -237 1995 -233ZM2358 10C2448 10 2552 -77 2669 -250L2609 -300C2524 -174 2445 -107 2403 -107C2364 -107 2387 -163 2417 -221L2554 -490H2790L2842 -592H2606L2692 -760H2566L2480 -592H2286L2234 -490H2428L2291 -221C2223 -87 2261 10 2358 10ZM3529 150 3638 86C3601 31 3585 -30 3585 -88C3585 -113 3588 -141 3593 -168H3817L3883 -280H3622C3668 -420 3748 -573 3807 -676L3636 -720C3521 -638 3350 -467 3193 -280H2987L2921 -168H3102C3058 -112 3016 -55 2979 0L3116 60C3159 -9 3212 -89 3270 -168H3464C3456 -129 3451 -90 3451 -53C3451 39 3481 105 3529 150ZM3356 -280C3446 -393 3542 -498 3632 -570C3584 -485 3532 -383 3496 -280ZM4093 10C4183 10 4287 -77 4404 -250L4344 -300C4259 -174 4180 -107 4139 -107C4099 -107 4122 -166 4154 -224L4262 -420H4136L4069 -300C3984 -174 3915 -107 3874 -107C3834 -107 3859 -165 3889 -224L3987 -420H3871L3760 -221C3687 -90 3731 10 3828 10C3880 10 3933 -19 3990 -76C3999 -22 4037 10 4093 10ZM4179 10H4305L4336 -51C4352 -17 4385 10 4442 10C4517 10 4592 -35 4648 -99C4664 -89 4684 -83 4707 -83C4785 -83 4857 -151 4924 -250L4864 -300C4803 -210 4752 -198 4730 -198C4724 -198 4717 -199 4712 -201C4728 -238 4738 -278 4738 -316C4738 -396 4696 -430 4634 -430C4588 -430 4543 -410 4503 -380L4695 -760H4571ZM4456 -92C4421 -92 4395 -122 4392 -162L4413 -203C4492 -298 4546 -320 4577 -320C4604 -320 4618 -302 4618 -277C4618 -211 4525 -92 4456 -92ZM5144 10C5234 10 5338 -77 5455 -250L5395 -300C5310 -174 5231 -107 5190 -107C5150 -107 5173 -166 5205 -224L5313 -420H5187L5120 -300C5035 -174 4966 -107 4925 -107C4885 -107 4910 -165 4940 -224L5038 -420H4922L4811 -221C4738 -90 4782 10 4879 10C4931 10 4984 -19 5041 -76C5050 -22 5088 10 5144 10ZM5602 10C5692 10 5796 -77 5913 -250L5853 -300C5768 -174 5689 -107 5648 -107C5608 -107 5630 -167 5662 -224L5770 -420H5599L5631 -497L5524 -530C5506 -480 5479 -416 5367 -260L5427 -210C5480 -278 5512 -326 5532 -360H5612L5535 -221C5462 -90 5505 10 5602 10ZM6173 10C6260 10 6324 -77 6441 -250L6381 -300C6296 -174 6237 -107 6195 -107C6156 -107 6178 -166 6210 -224L6232 -263C6278 -344 6254 -430 6161 -430C6101 -430 6045 -394 5995 -349L6031 -420H5907L5688 10H5814L5860 -80C5960 -216 6057 -330 6101 -330C6130 -330 6125 -295 6108 -265L6083 -221C6011 -94 6073 10 6173 10ZM6507 -220H6587L6833 -700H6675ZM6499 10C6549 10 6589 -27 6589 -71C6589 -105 6567 -132 6523 -132C6472 -132 6433 -95 6433 -51C6433 -17 6455 10 6499 10Z"/></svg></span></h2>
+        <p class="where-intro reveal" style="--i:2">Celebrate 50 years of Sweet Auburn's historic district by investing in the businesses that keep our neighborhood thriving! Follow the Heritage Trail, explore the neighborhood using our interactive map, and make a commitment to spend at least $50 with local businesses. Grab a bite, shop local, discover neighborhood gems and make every dollar count. It's a simple way to celebrate Sweet Auburn's legacy while supporting its future.</p>
+      </div>
+
+      <figure class="map-card reveal">
+        <div class="map" id="map" role="group" aria-label="Map of Sweet Auburn Day locations"></div>
+        <figcaption>Select a number to open that location in Google Maps.</figcaption>
+      </figure>
+
+      <div class="where-info">
+        <ol class="places">
+          <li class="place reveal"><span class="place-num" aria-hidden="true">1</span><h3>Oakland Cemetery Visitors Center</h3><p>Sweet Auburn at 50 Luncheon, 11:30 AM – 1:30 PM</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">2</span><h3>Haugabrooks Gallery</h3><p>Sweet Auburn Exhibit, 5 – 7 PM</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">3</span><h3>Front Porch on Auburn</h3><p>Happy Hour, 5 – 8 PM</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">4</span><h3>Madam C.J. Walker Museum</h3><p>Tiny Desk-Style Concert, 6 PM &amp; 7 PM</p></li>
+        </ol>
+        <p class="where-note reveal">The Oral History Tour and Community Activations run all day across the district.</p>
+        <div class="where-cta reveal">
+          <p>Tuesday, December 8, 2026</p>
+          <a class="btn btn-ink" id="final-rsvp" href="#rsvp" data-rsvp>RSVP</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Logo/sweet-auburn-negative.svg" alt="Sweet Auburn Day" width="331" height="220" loading="lazy">
+    <p><span>Tuesday, December 8, 2026</span><span class="sep">|</span><a href="https://hddc.org/sweetauburnday">hddc.org/sweetauburnday</a></p>
+  </footer>
+
+  <a class="sticky-rsvp btn btn-gold" href="#rsvp" data-rsvp aria-hidden="true" tabindex="-1">RSVP</a>
+  <p class="toast" role="status" aria-live="polite"></p>
+</div>
+<script>
+(function () {
+  var landing = document.getElementById('sad-landing');
+  landing.classList.add('js');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) landing.classList.add('motion');
+})();
+</script>
+<script>
+(function () {
+const landing = document.getElementById('sad-landing');
+// Paste the registration link here and every RSVP button on the page will use it.
+const RSVP_URL = '';
+
+const motion = landing.classList.contains('motion');
+
+/* RSVP buttons */
+const toast = landing.querySelector('.toast');
+let toastTimer;
+landing.querySelectorAll('[data-rsvp]').forEach((link) => {
+  if (RSVP_URL) {
+    link.href = RSVP_URL;
+    return;
+  }
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    toast.textContent = 'RSVP link coming soon.';
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+  });
+});
+
+/* Mobile menu */
+const toggle = landing.querySelector('.menu-toggle');
+const links = landing.querySelector('.nav-links');
+const setMenu = (open) => {
+  links.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+};
+toggle.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+links.addEventListener('click', (event) => {
+  if (event.target.closest('a')) setMenu(false);
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && links.classList.contains('open')) {
+    setMenu(false);
+    toggle.focus();
+  }
+});
+
+/* Menu turns solid once the page leaves the top */
+const nav = landing.querySelector('.nav');
+const setNav = () => nav.classList.toggle('solid', window.scrollY > 8);
+setNav();
+window.addEventListener('scroll', setNav, { passive: true });
+
+/* Scroll reveals */
+if (motion) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  landing.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+  /* Mural parallax, desktop layout only */
+  const photo = landing.querySelector('[data-parallax]');
+  const hero = landing.querySelector('.hero');
+  const desktop = matchMedia('(min-width: 1181px)');
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const offset = desktop.matches ? Math.min(window.scrollY, hero.offsetHeight) * 0.04 : 0;
+    photo.style.setProperty('--parallax', `${offset.toFixed(1)}px`);
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }, { passive: true });
+  desktop.addEventListener('change', update);
+
+  /* Mural follows the pointer a little, on devices with a mouse or trackpad */
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const movePhoto = (x = 0, y = 0) => {
+    photo.style.setProperty('--mx', `${x.toFixed(1)}px`);
+    photo.style.setProperty('--my', `${y.toFixed(1)}px`);
+  };
+  hero.addEventListener('pointermove', (event) => {
+    if (!desktop.matches || !finePointer.matches) return;
+    const box = hero.getBoundingClientRect();
+    movePhoto(((event.clientX - box.left) / box.width - 0.5) * 24, ((event.clientY - box.top) / box.height - 0.5) * 16);
+  });
+  hero.addEventListener('pointerleave', () => movePhoto());
+}
+
+/* Event map: MapLibre with free OpenFreeMap tiles, loaded only when the section gets close.
+   Locations are approximate until HDDC confirms them. Offsets (in pixels) keep the close pins apart. */
+const MAP_PLACES = [
+  { n: 1, name: 'Oakland Cemetery Visitors Center', query: 'Oakland Cemetery Visitors Center, Atlanta, GA', lng: -84.3742, lat: 33.7487, offset: [0, 0] },
+  { n: 2, name: 'Haugabrooks Gallery', query: 'Haugabrooks Gallery, 364 Auburn Ave NE, Atlanta, GA', lng: -84.37572, lat: 33.75567, offset: [20, 6] },
+  { n: 3, name: 'Front Porch on Auburn', query: 'Front Porch on Auburn, 348 Auburn Ave NE, Atlanta, GA', lng: -84.37617, lat: 33.75559, offset: [-6, 18] },
+  { n: 4, name: 'Madam C.J. Walker Museum', query: 'Madam C.J. Walker Museum, 54 Hilliard St NE, Atlanta, GA', lng: -84.37672, lat: 33.75578, offset: [-16, -14] },
+];
+const MAPLIBRE = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl';
+
+const brandMap = (map) => {
+  const css = getComputedStyle(landing);
+  const color = (name) => css.getPropertyValue(name).trim();
+  const paint = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
+  const layers = map.getStyle().layers;
+
+  paint('background', 'background-color', color('--white'));
+  paint('park', 'fill-color', color('--gold'));
+  paint('park', 'fill-opacity', 0.35);
+  paint('water', 'fill-color', color('--gold'));
+  paint('water', 'fill-opacity', 0.5);
+  paint('landuse_residential', 'fill-color', color('--white'));
+  paint('building', 'fill-color', color('--gold'));
+  paint('building', 'fill-opacity', 0.25);
+  layers.forEach(({ id, type }) => {
+    if (type === 'line' && /^highway_(minor|major)/.test(id)) {
+      paint(id, 'line-color', color('--ink'));
+      paint(id, 'line-opacity', 0.14);
+    }
+    if (type === 'line' && /motorway.*inner|motorway_subtle/.test(id)) paint(id, 'line-color', color('--white'));
+    if (type === 'line' && /motorway.*casing/.test(id)) paint(id, 'line-color', color('--gold'));
+    if (type === 'symbol') paint(id, 'text-color', color('--ink'));
+  });
+
+  const firstLabel = layers.find(({ type }) => type === 'symbol');
+  map.addLayer({
+    id: 'auburn-avenue',
+    type: 'line',
+    source: 'openmaptiles',
+    'source-layer': 'transportation_name',
+    filter: ['==', ['index-of', 'Auburn Avenue', ['get', 'name']], 0],
+    layout: { 'line-cap': 'round', 'line-join': 'round' },
+    paint: { 'line-color': color('--brown'), 'line-width': 5 },
+  }, firstLabel && firstLabel.id);
+};
+
+const startMap = (container) => {
+  const lngs = MAP_PLACES.map((place) => place.lng);
+  const lats = MAP_PLACES.map((place) => place.lat);
+  const map = new maplibregl.Map({
+    container,
+    style: 'https://tiles.openfreemap.org/styles/positron',
+    bounds: [[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]],
+    fitBoundsOptions: { padding: { top: 60, right: 60, bottom: 100, left: 60 } },
+    minZoom: 12,
+    maxZoom: 18,
+    cooperativeGestures: true,
+    dragRotate: false,
+    pitchWithRotate: false,
+  });
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
+  map.once('style.load', () => brandMap(map));
+
+  MAP_PLACES.forEach(({ n, name, query, lng, lat, offset }) => {
+    const pin = document.createElement('a');
+    pin.className = 'map-pin';
+    pin.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+    pin.target = '_blank';
+    pin.rel = 'noopener';
+    pin.setAttribute('aria-label', `${n}. ${name}, open in Google Maps`);
+    pin.innerHTML = `<span aria-hidden="true">${n}</span>`;
+    new maplibregl.Marker({ element: pin, offset }).setLngLat([lng, lat]).addTo(map);
+  });
+};
+
+const mapContainer = landing.querySelector('#' + 'map');
+const hideMap = () => { mapContainer.closest('.map-card').hidden = true; };
+const loadMap = () => {
+  const style = document.createElement('link');
+  style.rel = 'stylesheet';
+  style.href = `${MAPLIBRE}.css`;
+  document.head.append(style);
+  const script = document.createElement('script');
+  script.src = `${MAPLIBRE}.js`;
+  script.onload = () => {
+    try {
+      startMap(mapContainer);
+    } catch {
+      hideMap();
+    }
+  };
+  script.onerror = hideMap;
+  document.head.append(script);
+};
+new IntersectionObserver((entries, observer) => {
+  if (!entries.some((entry) => entry.isIntersecting)) return;
+  observer.disconnect();
+  loadMap();
+}, { rootMargin: '600px 0px' }).observe(mapContainer);
+
+/* Sticky RSVP on phones: shows after the hero, hides once the final RSVP is on screen */
+const sticky = landing.querySelector('.sticky-rsvp');
+const heroSection = landing.querySelector('.hero');
+const finalRsvp = landing.querySelector('#' + 'final-rsvp');
+let pastHero = false;
+let atFinal = false;
+const stickyObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.target === heroSection) pastHero = !entry.isIntersecting;
+    if (entry.target === finalRsvp) atFinal = entry.isIntersecting;
+  });
+  const show = pastHero && !atFinal;
+  sticky.classList.toggle('show', show);
+  sticky.setAttribute('aria-hidden', String(!show));
+  sticky.tabIndex = show ? 0 : -1;
+});
+stickyObserver.observe(heroSection);
+stickyObserver.observe(finalRsvp);
+
+})();
+</script>
