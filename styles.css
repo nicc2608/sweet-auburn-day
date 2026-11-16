@@ -37,9 +37,9 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 /* Script words are drawn as SVG lettering (matching the logo); the real words stay in the page for screen readers and search. */
 /* Script sits on its own line, smaller than the headline, tilted and tucked up so it can overlap the line above. */
 .script { display: block; margin-top: .06em; }
-/* "&" leads the script line in the 1976–2026 headline. */
-.script:has(.amp) { display: flex; align-items: flex-start; gap: .22em; }
-.script .amp { color: var(--ink); }
+/* 1976 over 2026, a size up from the other headlines, with "& still sweet" in script below. */
+.years { display: block; font-size: 1.45em; line-height: .9; }
+.years span { display: block; }
 .script .script-svg { display: block; height: .92em; width: auto; overflow: visible; transform: rotate(-7deg); transform-origin: 0 60%; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
