@@ -49,6 +49,9 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 /* Long phrase, so a gentler tilt. */
 .where-head .fit-title .script .script-svg { transform: rotate(-3deg); }
 .fit-title .script .script-svg { width: 100%; height: auto; }
+/* Two-line script: sized by height (about the same letter size as the one-line scripts), not stretched to the headline width. */
+.fit-title .script.two-line { margin-top: .35em; }
+.fit-title .script.two-line .script-svg { width: auto; height: 1.95em; max-width: 100%; }
 .script .script-svg { display: block; height: .92em; width: auto; overflow: visible; transform: rotate(-7deg); transform-origin: 0 60%; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
@@ -181,12 +184,17 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .passport li::before { content: counter(step); display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin-top: 1px; border-radius: 50%; background: var(--gold); font: 400 14px/1 var(--display); }
 .passport strong { font-weight: 700; }
 
-/* Sponsors and partners: yellow paper texture, logos in white tiles. */
-.sponsors { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); align-items: center; gap: 48px 80px; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply; }
-.sponsors-copy { display: grid; gap: 24px; }
+/* Sponsors and partners: yellow paper texture, logos straight on the yellow. */
+.sponsors { display: grid; justify-items: center; gap: 72px; text-align: center; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply; }
+.sponsors-copy { display: grid; justify-items: center; gap: 36px; max-width: 640px; }
+.sponsors .script .script-svg { margin-inline: auto; transform-origin: 50% 60%; }
+/* Sponsors script: tucked closer to the headline, a little larger and flatter. */
+.sponsors .fit-title .script.two-line { margin-top: .04em; }
+.sponsors .fit-title .script.two-line .script-svg { height: 2.25em; transform: rotate(-3deg); }
 .sponsors-copy > p { font-size: 18px; }
-.logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
-.logos li { display: flex; align-items: center; justify-content: center; aspect-ratio: 1; padding: 28px; background: var(--white); }
+/* Centered row that wraps as more logos are added. */
+.logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px 40px; width: 100%; max-width: 1080px; }
+.logos li { display: flex; align-items: center; justify-content: center; width: 112px; height: 112px; }
 .logos img { width: 100%; height: 100%; object-fit: contain; }
 
 .footer { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px var(--gutter); background: var(--ink); color: var(--white); font-size: 16px; }
@@ -251,9 +259,10 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .event .act { font-size: 22px; }
   .event .tag { font-size: 16px; }
   .where { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "map" "info"; grid-template-rows: none; gap: 24px; }
-  .sponsors { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .logos li { padding: 20px; }
+  .sponsors { gap: 48px; }
+  .sponsors-copy { gap: 28px; }
+  .logos { gap: 20px 28px; }
+  .logos li { width: 88px; height: 88px; }
   .passport { font-size: 16px; }
   .where-head { gap: 20px; }
   .map-card { padding: 8px; }

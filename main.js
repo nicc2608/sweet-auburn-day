@@ -91,8 +91,8 @@ if (motion) {
 /* Event map: MapLibre with free OpenFreeMap tiles, loaded only when the section gets close.
    Locations are approximate until HDDC confirms them. Offsets (in pixels) keep the close pins apart. */
 const MAP_PLACES = [
-  // Coffee Was Black: placed next to Haugabrooks until HDDC confirms the exact address.
-  { n: 1, name: 'Coffee Was Black (passport pickup)', query: 'Coffee Was Black, Auburn Ave NE, Atlanta, GA', lng: -84.37545, lat: 33.75572, offset: [22, -16] },
+  // Coffee Was Black shares 364 Auburn Ave NE with Haugabrooks (Suite 2); the pin is offset so both show. Its link is HDDC's own Maps link.
+  { n: 1, name: 'Coffee Was Black (passport pickup)', query: 'Coffee Was Black, 364 Auburn Ave NE Suite 2, Atlanta, GA 30312', url: 'https://maps.app.goo.gl/wnTWb2xQXyA9SAuaA', lng: -84.37572, lat: 33.75567, offset: [24, -22] },
   { n: 2, name: 'Haugabrooks Gallery & Events', query: 'Haugabrooks Gallery, 364 Auburn Ave NE, Atlanta, GA', lng: -84.37572, lat: 33.75567, offset: [20, 6] },
   { n: 3, name: 'Municipal Market', query: 'Sweet Auburn Municipal Market, 209 Edgewood Ave SE, Atlanta, GA', lng: -84.37970, lat: 33.75432, offset: [0, 0] },
   { n: 4, name: 'Front Porch on Auburn', query: 'Front Porch on Auburn, 348 Auburn Ave NE, Atlanta, GA', lng: -84.37617, lat: 33.75559, offset: [-6, 18] },
@@ -153,10 +153,10 @@ const startMap = (container) => {
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
   map.once('style.load', () => brandMap(map));
 
-  MAP_PLACES.forEach(({ n, name, query, lng, lat, offset }) => {
+  MAP_PLACES.forEach(({ n, name, query, url, lng, lat, offset }) => {
     const pin = document.createElement('a');
     pin.className = 'map-pin';
-    pin.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+    pin.href = url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
     pin.target = '_blank';
     pin.rel = 'noopener';
     pin.setAttribute('aria-label', `${n}. ${name}, open in Google Maps`);
@@ -190,7 +190,7 @@ new IntersectionObserver((entries, observer) => {
   loadMap();
 }, { rootMargin: '600px 0px' }).observe(mapContainer);
 
-/* Sticky RSVP on phones: shows after the hero, hides once the final RSVP is on screen */
+/* Sticky RSVP on phones: shows after the hero, hides once the final RSVP is reached */
 const sticky = document.querySelector('.sticky-rsvp');
 const heroSection = document.querySelector('.hero');
 const finalRsvp = document.getElementById('final-rsvp');
@@ -199,7 +199,8 @@ let atFinal = false;
 const stickyObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.target === heroSection) pastHero = !entry.isIntersecting;
-    if (entry.target === finalRsvp) atFinal = entry.isIntersecting;
+    // Stays hidden from the final RSVP to the end of the page (sponsors and footer), not only while it's on screen.
+    if (entry.target === finalRsvp) atFinal = entry.isIntersecting || entry.boundingClientRect.top < 0;
   });
   const show = pastHero && !atFinal;
   sticky.classList.toggle('show', show);
