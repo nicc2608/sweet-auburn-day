@@ -190,7 +190,7 @@ new IntersectionObserver((entries, observer) => {
   loadMap();
 }, { rootMargin: '600px 0px' }).observe(mapContainer);
 
-/* Sticky RSVP on phones: shows after the hero, hides once the final RSVP is on screen */
+/* Sticky RSVP on phones: shows after the hero, hides once the final RSVP is reached */
 const sticky = document.querySelector('.sticky-rsvp');
 const heroSection = document.querySelector('.hero');
 const finalRsvp = document.getElementById('final-rsvp');
@@ -199,7 +199,8 @@ let atFinal = false;
 const stickyObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.target === heroSection) pastHero = !entry.isIntersecting;
-    if (entry.target === finalRsvp) atFinal = entry.isIntersecting;
+    // Stays hidden from the final RSVP to the end of the page (sponsors and footer), not only while it's on screen.
+    if (entry.target === finalRsvp) atFinal = entry.isIntersecting || entry.boundingClientRect.top < 0;
   });
   const show = pastHero && !atFinal;
   sticky.classList.toggle('show', show);
