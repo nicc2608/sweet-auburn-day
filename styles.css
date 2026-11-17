@@ -121,7 +121,9 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .about-copy { display: grid; gap: 24px; }
 .accent { display: block; color: var(--brown); }
 .about .accent { color: var(--brown); }
-.about-photo { width: 100%; aspect-ratio: 640 / 500; object-fit: cover; }
+/* Portrait on desktop and tablet to sit beside the long copy; landscape on phones. */
+.about-picture { display: block; }
+.about-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 
 .schedule { display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background: var(--white); }
 /* Centered heading block: eyebrow, headline with script, and intro. */
