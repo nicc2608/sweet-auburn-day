@@ -123,7 +123,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 /* Centered heading block: eyebrow, headline with script, and intro. */
 .schedule-copy { display: grid; justify-items: center; gap: 24px; text-align: center; }
 .schedule-copy p:last-child { max-width: 600px; font-size: 18px; }
-.schedule-copy .script .script-svg { transform-origin: 50% 60%; }
+.schedule-copy .fit-title .script { margin-top: .08em; }
+.schedule-copy .fit-title .script .script-svg { transform: rotate(-4deg); transform-origin: 50% 60%; }
 .events { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: event; }
 .events > li { display: grid; }
 /* Six cards in three colors; each has a large faint number, the time, the title, a note and the location. */
