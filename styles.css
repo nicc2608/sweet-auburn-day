@@ -120,9 +120,10 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .about-photo { width: 100%; aspect-ratio: 640 / 500; object-fit: cover; }
 
 .schedule { display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background: var(--white); }
-.schedule-copy { display: grid; grid-template-columns: 480px minmax(0, 560px); justify-content: space-between; align-items: end; gap: 24px 80px; }
-.schedule-copy .eyebrow { grid-column: 1 / -1; }
-.schedule-copy p:last-child { font-size: 18px; }
+/* Centered heading block: eyebrow, headline with script, and intro. */
+.schedule-copy { display: grid; justify-items: center; gap: 24px; text-align: center; }
+.schedule-copy p:last-child { max-width: 600px; font-size: 18px; }
+.schedule-copy .script .script-svg { transform-origin: 50% 60%; }
 .events { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: event; }
 .events > li { display: grid; }
 /* Six cards in three colors; each has a large faint number, the time, the title, a note and the location. */
@@ -223,7 +224,6 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .where { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 48px; }
   .footer { padding: 48px 40px; }
   .schedule { gap: 48px; }
-  .schedule-copy { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; }
   .events { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   :root { --h2: 60px; }
 }
@@ -242,7 +242,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .about-copy { gap: 20px; }
   .about-photo { aspect-ratio: 350 / 270; }
   .schedule { gap: 32px; }
-  .schedule-copy { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .schedule-copy { gap: 20px; }
   .schedule-copy p:last-child { font-size: 17px; }
   .events { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .event { min-height: 0; padding: 24px 20px; gap: 10px; }
