@@ -18,6 +18,7 @@ IMAGES = {
     'Landing/Photo/Hero%20Auburn.webp': '',
     'Landing/Photo/Hero%20Auburn%20square.webp': '',
     'Landing/Photo/Friends%20on%20Auburn.webp': '',
+    'Landing/Photo/Friends%20on%20Auburn%20tall.webp': '',
     'Landing/Partners/dashboard.png': '',
     'Landing/Partners/downtown-atl.png': '',
 }

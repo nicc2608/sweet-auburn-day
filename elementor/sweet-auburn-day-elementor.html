@@ -102,7 +102,8 @@
 #sad-landing .about-copy{display: grid; gap: 24px;}
 #sad-landing .accent{display: block; color: var(--brown);}
 #sad-landing .about .accent{color: var(--brown);}
-#sad-landing .about-photo{width: 100%; aspect-ratio: 640 / 500; object-fit: cover;}
+#sad-landing .about-picture{display: block;}
+#sad-landing .about-photo{width: 100%; aspect-ratio: 4 / 5; object-fit: cover;}
 #sad-landing .schedule{display: grid; gap: 72px; padding: var(--section-y) var(--gutter); background: var(--white);}
 #sad-landing .schedule-copy{display: grid; justify-items: center; gap: 24px; text-align: center;}
 #sad-landing .schedule-copy p:last-child{max-width: 600px; font-size: 18px;}
@@ -353,7 +354,10 @@ body.admin-bar #sad-landing .nav{top:32px}
         <p class="reveal" style="--i:2">On December 8, 1976, Sweet Auburn was designated a historic district. Fifty years later, HDDC is bringing churches, businesses, cultural institutions and neighbors together for a day that belongs to all of Sweet Auburn.</p>
         <p class="reveal" style="--i:3">Sweet Auburn has always been a place of community, culture and celebration, and its 50th anniversary deserves a celebration to remember! Join us for Sweet Auburn Day, a neighborhood-wide event filled with music, food, local businesses and opportunities to connect with friends and neighbors. Together, we'll honor the people and places that shaped this historic district, celebrate the community that keeps it alive today and look ahead to the future we're building together.</p>
       </div>
-      <img class="about-photo reveal" style="--i:1" src="https://nicc2608.github.io/sweet-auburn-day/Landing/Photo/Friends%20on%20Auburn.webp" alt="Two friends laughing and hugging on a sunny city street." width="700" height="540" loading="lazy">
+      <picture class="about-picture reveal" style="--i:1">
+        <source media="(min-width: 821px)" srcset="https://nicc2608.github.io/sweet-auburn-day/Landing/Photo/Friends%20on%20Auburn%20tall.webp" width="560" height="700">
+        <img class="about-photo" src="https://nicc2608.github.io/sweet-auburn-day/Landing/Photo/Friends%20on%20Auburn.webp" alt="A laughing girl swinging between her parents on a cobblestone street." width="700" height="540" loading="lazy">
+      </picture>
     </section>
 
     <section class="schedule" id="schedule">
