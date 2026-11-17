@@ -79,6 +79,7 @@
 #sad-landing .menu-toggle{display: none; padding: 0; border: 0; background: none; color: var(--toggle); cursor: pointer; transition: color .3s;}
 #sad-landing .hero-photo{position: absolute; top: 0; right: min(0px, calc((100vw - 1440px) * .5)); height: 100%; aspect-ratio: 743 / 777;}
 #sad-landing .hero-photo picture{display: contents;}
+@media (min-width: 1181px){#sad-landing .hero-photo img{-webkit-mask-image: linear-gradient(to bottom, transparent 0, rgb(0 0 0 / .35) 90px, #000 200px); mask-image: linear-gradient(to bottom, transparent 0, rgb(0 0 0 / .35) 90px, #000 200px);}}
 #sad-landing .hero-photo img{width: 100%; height: 100%; object-fit: cover; transform: translate(var(--mx, 0px), calc(var(--parallax, 0px) + var(--my, 0px))) scale(1.06); transform-origin: 70% 50%; transition: transform .6s var(--ease); will-change: transform;}
 #sad-landing .hero-content{position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px;}
 #sad-landing .hero-date{font: 400 clamp(30px, 3.2vw, 46px)/1.08 var(--display); text-transform: uppercase; color: var(--brown);}
