@@ -18,7 +18,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* Pulling past the ends of the page shows white above (the hero) and ink below (the footer). */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: linear-gradient(var(--white) 50%, var(--ink) 50%); }
 body { margin: 0; background: var(--white); color: var(--ink); font: 400 20px/1.5 var(--body); -webkit-font-smoothing: antialiased; overflow-x: clip; }
 h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
 ul, ol { list-style: none; }
@@ -271,8 +272,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .place p, .where-note { font-size: 16px; }
   .where-cta p { font-size: 18px; }
   .where-cta .btn { width: 100%; }
-  .footer { flex-direction: column; align-items: flex-start; gap: 20px; padding: 40px 20px; font-size: 15px; }
-  .footer p { flex-direction: column; gap: 4px; }
+  .footer { flex-direction: column; align-items: center; gap: 20px; padding: 40px 20px calc(40px + env(safe-area-inset-bottom)); font-size: 15px; text-align: center; }
+  .footer p { flex-direction: column; align-items: center; gap: 4px; }
   .footer .sep { display: none; }
 
   .sticky-rsvp { position: fixed; left: 20px; right: 20px; bottom: 16px; z-index: 20; display: flex; border-color: var(--ink); box-shadow: 0 8px 24px rgb(2 2 2 / .35); opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity .25s, transform .25s var(--ease), visibility .25s; }
