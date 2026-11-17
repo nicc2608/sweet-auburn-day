@@ -26,7 +26,7 @@
   --h2: 76px;
   --ease: cubic-bezier(.2, .7, .2, 1);}
 #sad-landing *,#sad-landing *::before,#sad-landing *::after{box-sizing: border-box;}
-#sad-landing{scroll-behavior: smooth; -webkit-text-size-adjust: 100%;}
+#sad-landing{scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: linear-gradient(var(--white) 50%, var(--ink) 50%);}
 #sad-landing{margin: 0; background: var(--white); color: var(--ink); font: 400 20px/1.5 var(--body); -webkit-font-smoothing: antialiased; overflow-x: clip;}
 #sad-landing h1,#sad-landing h2,#sad-landing h3,#sad-landing p,#sad-landing ul,#sad-landing ol,#sad-landing dl,#sad-landing dd{margin: 0; padding: 0;}
 #sad-landing ul,#sad-landing ol{list-style: none;}
@@ -224,8 +224,8 @@
 #sad-landing .place p,#sad-landing .where-note{font-size: 16px;}
 #sad-landing .where-cta p{font-size: 18px;}
 #sad-landing .where-cta .btn{width: 100%;}
-#sad-landing .footer{flex-direction: column; align-items: flex-start; gap: 20px; padding: 40px 20px; font-size: 15px;}
-#sad-landing .footer p{flex-direction: column; gap: 4px;}
+#sad-landing .footer{flex-direction: column; align-items: center; gap: 20px; padding: 40px 20px calc(40px + env(safe-area-inset-bottom)); font-size: 15px; text-align: center;}
+#sad-landing .footer p{flex-direction: column; align-items: center; gap: 4px;}
 #sad-landing .footer .sep{display: none;}
 #sad-landing .sticky-rsvp{position: fixed; left: 20px; right: 20px; bottom: 16px; z-index: 20; display: flex; border-color: var(--ink); box-shadow: 0 8px 24px rgb(2 2 2 / .35); opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity .25s, transform .25s var(--ease), visibility .25s;}
 #sad-landing .sticky-rsvp.show{opacity: 1; visibility: visible; transform: none;}}
