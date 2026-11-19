@@ -230,7 +230,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .sponsors .fit-title .script.two-line .script-svg { height: 2.25em; transform: rotate(-3deg); }
 .sponsors-copy > p { font-size: 18px; }
 /* Centered row that wraps as more logos are added. */
-.logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px 48px; width: fit-content; max-width: 100%; padding: 32px 48px; background: var(--white); }
+.logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px 72px; width: fit-content; max-width: 100%; padding: 48px 72px; background: var(--white); }
 .logos li { display: flex; align-items: center; justify-content: center; height: 104px; }
 .logos img { width: auto; height: 100%; max-width: 280px; object-fit: contain; }
 
@@ -302,8 +302,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .where { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "map" "info"; grid-template-rows: none; gap: 24px; }
   .sponsors { gap: 48px; background-size: 360px 360px, 600px 600px; }
   .sponsors-copy { gap: 28px; }
-  .logos { gap: 20px 28px; padding: 24px 20px; }
-  .logos li { height: 80px; }
+  .logos { flex-direction: column; gap: 32px; width: 100%; padding: 40px 24px; }
+  .logos li { height: 88px; }
   .logos img { max-width: 220px; }
   .where-head { gap: 20px; }
   .map-card { padding: 8px; }
