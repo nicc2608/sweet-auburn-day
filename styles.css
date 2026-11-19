@@ -190,7 +190,12 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .passport-sec .script .script-svg { margin-inline: auto; transform-origin: 50% 60%; }
 .stamps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; width: 100%; max-width: 1120px; }
 .stamps li { display: grid; justify-items: center; align-content: start; gap: 16px; }
-.stamp { display: flex; align-items: center; justify-content: center; width: 120px; height: 120px; margin-bottom: 8px; border: 3px dashed var(--gold); border-radius: 50%; color: var(--gold); font: 400 56px/1 var(--display); box-shadow: inset 0 0 0 8px var(--ink), inset 0 0 0 10px rgb(245 209 85 / .45); }
+.stamp { position: relative; display: flex; align-items: center; justify-content: center; width: 120px; height: 120px; margin-bottom: 8px; color: var(--gold); font: 400 56px/1 var(--display); }
+/* The dashed ring turns slowly, like the 50th badge in the hero; the number stays put. */
+.stamp::before { content: ""; position: absolute; inset: 0; border: 3px dashed var(--gold); border-radius: 50%; box-shadow: inset 0 0 0 8px var(--ink), inset 0 0 0 10px rgb(245 209 85 / .45); }
+.motion .stamp::before { animation: spin 22s linear infinite; }
+.motion .stamps li:nth-child(2) .stamp::before { animation-direction: reverse; animation-duration: 26s; }
+.motion .stamps li:nth-child(3) .stamp::before { animation-duration: 18s; }
 .stamps li:nth-child(1) .stamp { transform: rotate(-8deg); }
 .stamps li:nth-child(2) .stamp { transform: rotate(5deg); }
 .stamps li:nth-child(3) .stamp { transform: rotate(-3deg); }
