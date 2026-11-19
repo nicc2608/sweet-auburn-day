@@ -1,5 +1,5 @@
 // Paste the registration link here and every RSVP button on the page will use it.
-const RSVP_URL = '';
+const RSVP_URL = 'https://www.eventbrite.com/e/sweet-auburn-day-tickets-2005031068901?aff=oddtdtcreator';
 
 const motion = document.documentElement.classList.contains('motion');
 
@@ -9,6 +9,8 @@ let toastTimer;
 document.querySelectorAll('[data-rsvp]').forEach((link) => {
   if (RSVP_URL) {
     link.href = RSVP_URL;
+    link.target = '_blank';
+    link.rel = 'noopener';
     return;
   }
   link.addEventListener('click', (event) => {
