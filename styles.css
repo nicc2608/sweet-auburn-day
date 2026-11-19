@@ -221,7 +221,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .motion .passport-art.in-view .pp-face { animation: pp-face 16s calc(var(--f) * 4s) ease-in-out infinite backwards; }
 @keyframes pp-face { 0% { opacity: 0; transform: translateY(6px); } 3% { opacity: 1; transform: none; } 22% { opacity: 1; transform: none; } 25%, 100% { opacity: 0; transform: none; } }
 
-/* Sponsors and partners: yellow paper texture, logos straight on the yellow. */
+/* Sponsors and partners: yellow paper texture, each logo on a white tile so color logos read well. */
 .sponsors { display: grid; justify-items: center; gap: 72px; text-align: center; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply; }
 .sponsors-copy { display: grid; justify-items: center; gap: 36px; max-width: 640px; }
 .sponsors .script .script-svg { margin-inline: auto; transform-origin: 50% 60%; }
@@ -231,8 +231,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .sponsors-copy > p { font-size: 18px; }
 /* Centered row that wraps as more logos are added. */
 .logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px 40px; width: 100%; max-width: 1080px; }
-.logos li { display: flex; align-items: center; justify-content: center; width: 112px; height: 112px; }
-.logos img { width: 100%; height: 100%; object-fit: contain; }
+.logos li { display: flex; align-items: center; justify-content: center; height: 136px; min-width: 136px; padding: 20px 24px; background: var(--white); }
+.logos img { width: auto; height: 100%; max-width: 280px; object-fit: contain; }
 
 .footer { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px var(--gutter); background: var(--ink); color: var(--white); font-size: 16px; }
 .footer img { width: 130px; }
@@ -304,7 +304,8 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .sponsors { gap: 48px; }
   .sponsors-copy { gap: 28px; }
   .logos { gap: 20px 28px; }
-  .logos li { width: 88px; height: 88px; }
+  .logos li { height: 104px; min-width: 104px; padding: 14px 16px; }
+  .logos img { max-width: 220px; }
   .where-head { gap: 20px; }
   .map-card { padding: 8px; }
   .map-card figcaption { padding: 8px 4px 4px; font-size: 13px; }

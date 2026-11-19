@@ -189,8 +189,8 @@
 #sad-landing .sponsors .fit-title .script.two-line .script-svg{height: 2.25em; transform: rotate(-3deg);}
 #sad-landing .sponsors-copy > p{font-size: 18px;}
 #sad-landing .logos{display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px 40px; width: 100%; max-width: 1080px;}
-#sad-landing .logos li{display: flex; align-items: center; justify-content: center; width: 112px; height: 112px;}
-#sad-landing .logos img{width: 100%; height: 100%; object-fit: contain;}
+#sad-landing .logos li{display: flex; align-items: center; justify-content: center; height: 136px; min-width: 136px; padding: 20px 24px; background: var(--white);}
+#sad-landing .logos img{width: auto; height: 100%; max-width: 280px; object-fit: contain;}
 #sad-landing .footer{display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px var(--gutter); background: var(--ink); color: var(--white); font-size: 16px;}
 #sad-landing .footer img{width: 130px;}
 #sad-landing .footer p{display: flex; gap: 10px;}
@@ -250,7 +250,8 @@
 #sad-landing .sponsors{gap: 48px;}
 #sad-landing .sponsors-copy{gap: 28px;}
 #sad-landing .logos{gap: 20px 28px;}
-#sad-landing .logos li{width: 88px; height: 88px;}
+#sad-landing .logos li{height: 104px; min-width: 104px; padding: 14px 16px;}
+#sad-landing .logos img{max-width: 220px;}
 #sad-landing .where-head{gap: 20px;}
 #sad-landing .map-card{padding: 8px;}
 #sad-landing .map-card figcaption{padding: 8px 4px 4px; font-size: 13px;}
@@ -534,6 +535,7 @@ body.admin-bar #sad-landing .nav{top:32px}
       <ul class="logos" aria-label="Sponsors and partners">
         <li class="reveal"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/downtown-atl.png" alt="Downtown ATL" width="480" height="480" loading="lazy"></li>
         <li class="reveal" style="--i:1"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/dashboard.png" alt="Dashboard" width="480" height="480" loading="lazy"></li>
+        <li class="reveal" style="--i:2"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/nps-mlk.png" alt="National Park Service, Martin Luther King, Jr. National Historical Park" width="900" height="342" loading="lazy"></li>
       </ul>
     </section>
   </main>
@@ -563,7 +565,7 @@ body.admin-bar #sad-landing .nav{top:32px}
 (function () {
 const landing = document.getElementById('sad-landing');
 // Paste the registration link here and every RSVP button on the page will use it.
-const RSVP_URL = '';
+const RSVP_URL = 'https://www.eventbrite.com/e/sweet-auburn-day-tickets-2005031068901?aff=oddtdtcreator';
 
 const motion = landing.classList.contains('motion');
 
@@ -573,6 +575,8 @@ let toastTimer;
 landing.querySelectorAll('[data-rsvp]').forEach((link) => {
   if (RSVP_URL) {
     link.href = RSVP_URL;
+    link.target = '_blank';
+    link.rel = 'noopener';
     return;
   }
   link.addEventListener('click', (event) => {

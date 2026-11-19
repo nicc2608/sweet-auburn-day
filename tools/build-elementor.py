@@ -21,6 +21,7 @@ IMAGES = {
     'Landing/Photo/Friends%20on%20Auburn%20tall.webp': '',
     'Landing/Partners/dashboard.png': '',
     'Landing/Partners/downtown-atl.png': '',
+    'Landing/Partners/nps-mlk.png': '',
 }
 
 def scope_selector(sel):
