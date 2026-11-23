@@ -20,10 +20,11 @@ IMAGES = {
     'Landing/Photo/Friends%20on%20Auburn.webp': '',
     'Landing/Photo/Friends%20on%20Auburn%20tall.webp': '',
     'Landing/Partners/dashboard.png': '',
+    'Landing/Partners/dashboard-white.png': '',
     'Landing/Partners/downtown-atl.png': '',
     'Landing/Partners/nps-mlk.png': '',
     'Landing/Partners/mayors-office.png': '',
-    'Landing/Partners/auc-woodruff.svg': '',
+    'Landing/Partners/auc-woodruff-white.svg': '',
 }
 
 def scope_selector(sel):

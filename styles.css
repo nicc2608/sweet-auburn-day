@@ -174,12 +174,12 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 /* Hero: small light line above the date. */
 .hero-presents { font: 400 15px/1.2 var(--body); letter-spacing: .22em; text-transform: uppercase; color: var(--ink); }
 
-/* Exhibits card: two exhibits, Dashboard logo beside the one it curates. */
-.exhibits { display: grid; gap: 14px; font-size: 17px; line-height: 1.4; }
-.exhibits li { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: center; }
-.exhibits li:has(.exhibit-logo) { grid-template-columns: 48px minmax(0, 1fr); }
+/* Exhibits card: two exhibits, each with its partner logo. */
+.exhibits { display: grid; gap: 20px; font-size: 17px; line-height: 1.4; }
+/* Each exhibit: its partner logo on top (same height for both), then the text. */
+.exhibits li { display: grid; justify-items: start; gap: 10px; }
 .exhibits strong { font-weight: 700; }
-.exhibit-logo { width: 48px; height: 48px; }
+.exhibit-logo { width: auto; height: 40px; }
 
 
 /* Passport: ink section with the three steps as dashed stamps. */
@@ -241,9 +241,6 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .tip-box::after { display: none; }
   .event:has(.tip.open), .event:has(.tip:hover), .event:has(.tip:focus-within) { overflow: hidden; }
 }
-/* The Woodruff logo is wide, so it sits above its exhibit on a small white chip. */
-.exhibits li:has(.exhibit-logo-wide) { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-.exhibit-logo-wide { width: 168px; height: auto; padding: 6px 8px; background: var(--white); border-radius: 4px; }
 .stop-tag { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: var(--gold); font: 500 11px/1.4 var(--body); letter-spacing: .06em; text-transform: uppercase; vertical-align: middle; }
 .where-more { padding-top: 12px; font-size: 17px; line-height: 1.4; }
 .where-more a { font-weight: 700; text-underline-offset: 3px; }
