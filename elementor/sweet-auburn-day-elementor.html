@@ -182,6 +182,26 @@
 #sad-landing .pp-face:not(:first-child){opacity: 0;}
 #sad-landing.motion .passport-art.in-view .pp-face{animation: sad-pp-face 16s calc(var(--f) * 4s) ease-in-out infinite backwards;}
 @keyframes sad-pp-face{ 0% { opacity: 0; transform: translateY(6px); } 3% { opacity: 1; transform: none; } 22% { opacity: 1; transform: none; } 25%, 100% { opacity: 0; transform: none; } }
+#sad-landing .tip{position: relative; display: inline-flex; vertical-align: middle; margin-left: 8px;}
+#sad-landing .tip-btn{display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: none; color: inherit; cursor: pointer;}
+#sad-landing .tip-btn svg{width: 20px; height: 20px;}
+#sad-landing .tip-box{position: absolute; z-index: 5; left: -14px; bottom: calc(100% + 10px); width: min(280px, 78vw); padding: 14px 16px; background: var(--ink); color: var(--white); font: 400 15px/1.45 var(--body); text-transform: none; text-align: left; box-shadow: 0 10px 24px rgb(2 2 2 / .3); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .18s, transform .18s, visibility .18s;}
+#sad-landing .tip-box::after{content: ""; position: absolute; top: 100%; left: 19px; border: 7px solid transparent; border-top-color: var(--ink);}
+#sad-landing .tip-box a{color: var(--gold); text-underline-offset: 2px;}
+#sad-landing .tip:hover .tip-box,#sad-landing .tip:focus-within .tip-box,#sad-landing .tip.open .tip-box{opacity: 1; visibility: visible; transform: none;}
+#sad-landing .event-k .tip-box,#sad-landing .event-b .tip-box{background: var(--white); color: var(--ink);}
+#sad-landing .event-k .tip-box::after,#sad-landing .event-b .tip-box::after{border-top-color: var(--white);}
+#sad-landing .event-k .tip-box a,#sad-landing .event-b .tip-box a{color: var(--brown);}
+#sad-landing .event:has(.tip.open),#sad-landing .event:has(.tip:hover),#sad-landing .event:has(.tip:focus-within){overflow: visible; z-index: 3;}
+@media (max-width: 600px){#sad-landing .tip{position: static;}
+#sad-landing .tip-box{left: 12px; right: 12px; bottom: auto; top: 56px; width: auto;}
+#sad-landing .tip-box::after{display: none;}
+#sad-landing .event:has(.tip.open),#sad-landing .event:has(.tip:hover),#sad-landing .event:has(.tip:focus-within){overflow: hidden;}}
+#sad-landing .exhibits li:has(.exhibit-logo-wide){grid-template-columns: minmax(0, 1fr); gap: 8px;}
+#sad-landing .exhibit-logo-wide{width: 168px; height: auto; padding: 6px 8px; background: var(--white); border-radius: 4px;}
+#sad-landing .stop-tag{display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: var(--gold); font: 500 11px/1.4 var(--body); letter-spacing: .06em; text-transform: uppercase; vertical-align: middle;}
+#sad-landing .where-more{padding-top: 12px; font-size: 17px; line-height: 1.4;}
+#sad-landing .where-more a{font-weight: 700; text-underline-offset: 3px;}
 #sad-landing .sponsors{display: grid; justify-items: center; gap: 72px; text-align: center; padding: var(--section-y) var(--gutter); background-color: var(--gold); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .3 0 0 0 0 .05 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); background-blend-mode: multiply;}
 #sad-landing .sponsors-copy{display: grid; justify-items: center; gap: 36px; max-width: 640px;}
 #sad-landing .sponsors .script .script-svg{margin-inline: auto; transform-origin: 50% 60%;}
@@ -190,7 +210,7 @@
 #sad-landing .sponsors-copy > p{font-size: 18px;}
 #sad-landing .logos{display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px 72px; width: fit-content; max-width: 100%; padding: 48px 72px; background: var(--white);}
 #sad-landing .logos li{display: flex; align-items: center; justify-content: center; height: 104px;}
-#sad-landing .logos img{width: auto; height: 100%; max-width: 280px; object-fit: contain;}
+#sad-landing .logos img{width: auto; height: 100%; max-width: 320px; object-fit: contain;}
 #sad-landing .footer{display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px var(--gutter); background: var(--ink); color: var(--white); font-size: 16px;}
 #sad-landing .footer img{width: 130px;}
 #sad-landing .footer p{display: flex; gap: 10px;}
@@ -339,8 +359,9 @@ body.admin-bar #sad-landing .nav{top:32px}
   <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
     <a href="#schedule">Schedule</a>
-    <a href="https://hddc.org/contact-us/">Contact Us</a>
     <a href="#where">Map</a>
+    <a href="https://hddc.org/">HDDC</a>
+    <a href="https://hddc.org/contact-us/">Contact Us</a>
     <a class="btn btn-gold" href="#rsvp" data-rsvp>Free RSVP</a>
   </div>
 </nav>
@@ -400,12 +421,12 @@ body.admin-bar #sad-landing .nav{top:32px}
         <p class="reveal" style="--i:2">A bus tour, exhibits, conversations and community activations fill the day, closing with a block party and live music.</p>
       </div>
       <ol class="events">
-        <li class="reveal"><article class="event event-y"><p class="time">10 AM – 3 PM</p><h3 class="act">Park Service Sweet Auburn Bus Tour</h3><p class="tag">Explore the rich history of Sweet Auburn aboard a guided National Park Service bus tour highlighting the people, places, and stories that shaped this historic neighborhood.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Across the district</span></p></article></li>
-        <li class="reveal" style="--i:1"><article class="event event-k"><p class="time">11 AM – 5 PM</p><h3 class="act">Community Activations</h3><p class="tag">Church programs, the Business and Culture Heritage Trail and storytelling, led by partners. Grab a drink at Coffee Was Black + take in the work of Contemporary Artist Brill Adium.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Across the district</span></p></article></li>
-        <li class="reveal" style="--i:2"><article class="event event-b"><p class="time">From 1 PM</p><h3 class="act">Sweet Auburn Exhibits</h3><ul class="exhibits"><li><img class="exhibit-logo" src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/dashboard.png" alt="Dashboard" width="48" height="48" loading="lazy"><p><strong>The Next 50 Years Art Exhibit</strong> curated by Dashboard.</p></li><li><p><strong>The Women of Sweet Auburn Archival Exhibit</strong> presented by the Atlanta University Center Robert W. Woodruff Library.</p></li></ul><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Haugabrooks Gallery &amp; Events</span></p></article></li>
-        <li class="reveal"><article class="event event-k"><p class="time">2:30 PM</p><h3 class="act">Salon: Sweet Auburn's Legacy</h3><p class="tag">Join intimate conversations with Sue Ross (PhotoGriot), Cheneé Joseph (HDDC) and the Mayor's Office of Cultural Affairs.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Location coming soon</span></p></article></li>
-        <li class="reveal" style="--i:1"><article class="event event-b"><p class="time">5 – 8 PM</p><h3 class="act">Block Party</h3><p class="tag">Close out the day with live music, local vendors, great food, and community.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Front Porch on Auburn</span></p></article></li>
-        <li class="reveal" style="--i:2"><article class="event event-y"><p class="time">6 PM &amp; 7 PM</p><h3 class="act">Tiny Desk-Style Concerts</h3><p class="tag">Two intimate sets, one incredible night. Details coming soon.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Madam C.J. Walker Museum</span></p></article></li>
+        <li class="reveal"><article class="event event-y"><p class="time">10 AM<span class="tip"><button class="tip-btn" type="button" aria-label="Ticket info" aria-expanded="false" aria-controls="tip-bus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-5M12 8h.01"/></svg></button><span class="tip-box" id="tip-bus" role="tooltip">Pick up tour tickets the day of at <a href="https://www.google.com/maps/search/?api=1&amp;query=450+Auburn+Avenue+NE+Atlanta+GA+30312" target="_blank" rel="noopener">Historic Fire Station No. 6, 450 Auburn Ave NE</a>. Tours begin at 10 AM. <a href="https://www.nps.gov/malu/planyourvisit/firestation_no_6.htm" target="_blank" rel="noopener">About the fire station</a></span></span></p><h3 class="act">Park Service Sweet Auburn Bus Tour</h3><p class="tag">Explore the rich history of Sweet Auburn aboard a guided National Park Service bus tour highlighting the people, places, and stories that shaped this historic neighborhood.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Historic Fire Station No. 6</span></p></article></li>
+        <li class="reveal" style="--i:1"><article class="event event-k"><p class="time">11 AM – 5 PM</p><h3 class="act">Community Activations</h3><p class="tag">Explore Sweet Auburn’s galleries, landmarks and local businesses. Collect passport stamps, hear live music at Madam CJ Walker Museum, and join the community block party. Free and open to all.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Across the district</span></p></article></li>
+        <li class="reveal" style="--i:2"><article class="event event-b"><p class="time">11 AM – 5 PM</p><h3 class="act">Block Party</h3><p class="tag">Close out the day with live music, local vendors, great food, and community.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Front Porch on Auburn</span></p></article></li>
+        <li class="reveal"><article class="event event-k"><p class="time">12:30 PM · Art Opening</p><h3 class="act">Sweet Auburn Exhibits</h3><ul class="exhibits"><li><img class="exhibit-logo" src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/dashboard.png" alt="Dashboard" width="48" height="48" loading="lazy"><p><strong>The Next 50 Years Art Exhibit</strong> curated by Dashboard.</p></li><li><img class="exhibit-logo exhibit-logo-wide" src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/auc-woodruff.svg" alt="Atlanta University Center Robert W. Woodruff Library" width="138" height="30" loading="lazy"><p><strong>The Women of Sweet Auburn Archival Exhibit</strong> presented by the Atlanta University Center Robert W. Woodruff Library.</p></li></ul><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Haugabrooks Gallery + Events</span></p></article></li>
+        <li class="reveal" style="--i:1"><article class="event event-b"><p class="time">2:30 PM</p><h3 class="act">Salon: Sweet Auburn's Legacy</h3><p class="tag">Join intimate conversations with Sue Ross (PhotoGriot), Cheneé Joseph (HDDC) and the Mayor's Office of Cultural Affairs.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Haugabrooks Gallery + Events</span></p></article></li>
+        <li class="reveal" style="--i:2"><article class="event event-y"><p class="time">4 PM &amp; 5 PM</p><h3 class="act">Tiny Desk-Style Concerts</h3><p class="tag">Two intimate sets, one incredible night. Details coming soon.</p><p class="loc"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg><span>Madam C.J. Walker Museum</span></p></article></li>
       </ol>
     </section>
 
@@ -473,16 +494,16 @@ body.admin-bar #sad-landing .nav{top:32px}
             </g>
             <g class="pp-right"><circle cx="368" cy="104" r="40" fill="none" stroke="#020202" stroke-opacity=".14" stroke-width="2" stroke-dasharray="5 6"/><circle cx="466" cy="96" r="40" fill="none" stroke="#020202" stroke-opacity=".14" stroke-width="2" stroke-dasharray="5 6"/><circle cx="418" cy="190" r="40" fill="none" stroke="#020202" stroke-opacity=".14" stroke-width="2" stroke-dasharray="5 6"/><circle cx="360" cy="276" r="40" fill="none" stroke="#020202" stroke-opacity=".14" stroke-width="2" stroke-dasharray="5 6"/><circle cx="470" cy="272" r="40" fill="none" stroke="#020202" stroke-opacity=".14" stroke-width="2" stroke-dasharray="5 6"/><g class="pp-stamp" style="--d:0.60s" transform="translate(368 104) rotate(-12)">
         <g class="pp-stamp-in"><circle r="40" fill="none" stroke="#854302" stroke-width="3.5"/><circle r="33" fill="none" stroke="#854302" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <text y="-6" fill="#854302" font-size="11" text-anchor="middle">COFFEE</text><text y="8" fill="#854302" font-size="10" textLength="54" lengthAdjust="spacingAndGlyphs" text-anchor="middle">WAS BLACK</text>
+        <text y="-6" fill="#854302" font-size="10" textLength="54" lengthAdjust="spacingAndGlyphs" text-anchor="middle">MUNICIPAL</text><text y="8" fill="#854302" font-size="11" text-anchor="middle">MARKET</text>
         <text y="24" fill="#854302" font-size="8" text-anchor="middle" letter-spacing="1">★ 01 ★</text></g></g><g class="pp-stamp" style="--d:1.15s" transform="translate(466 96) rotate(8)">
         <g class="pp-stamp-in"><circle r="40" fill="none" stroke="#020202" stroke-width="3.5"/><circle r="33" fill="none" stroke="#020202" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <text y="-6" fill="#020202" font-size="11" text-anchor="middle">HAUGA-</text><text y="8" fill="#020202" font-size="11" text-anchor="middle">BROOKS</text>
+        <text y="-6" fill="#020202" font-size="11" text-anchor="middle">LITTLE</text><text y="8" fill="#020202" font-size="11" text-anchor="middle">LOAF</text>
         <text y="24" fill="#020202" font-size="8" text-anchor="middle" letter-spacing="1">★ 02 ★</text></g></g><g class="pp-stamp" style="--d:1.70s" transform="translate(418 190) rotate(-5)">
         <g class="pp-stamp-in"><circle r="40" fill="none" stroke="#b8860b" stroke-width="3.5"/><circle r="33" fill="none" stroke="#b8860b" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <text y="-6" fill="#b8860b" font-size="10" textLength="54" lengthAdjust="spacingAndGlyphs" text-anchor="middle">MUNICIPAL</text><text y="8" fill="#b8860b" font-size="11" text-anchor="middle">MARKET</text>
+        <text y="-6" fill="#b8860b" font-size="11" text-anchor="middle">FIRE</text><text y="8" fill="#b8860b" font-size="10" textLength="54" lengthAdjust="spacingAndGlyphs" text-anchor="middle">STATION 6</text>
         <text y="24" fill="#b8860b" font-size="8" text-anchor="middle" letter-spacing="1">★ 03 ★</text></g></g><g class="pp-stamp" style="--d:2.25s" transform="translate(360 276) rotate(10)">
         <g class="pp-stamp-in"><circle r="40" fill="none" stroke="#854302" stroke-width="3.5"/><circle r="33" fill="none" stroke="#854302" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <text y="-6" fill="#854302" font-size="11" text-anchor="middle">FRONT</text><text y="8" fill="#854302" font-size="11" text-anchor="middle">PORCH</text>
+        <text y="-6" fill="#854302" font-size="11" text-anchor="middle">SWEET</text><text y="8" fill="#854302" font-size="10" textLength="54" lengthAdjust="spacingAndGlyphs" text-anchor="middle">ME GOOD</text>
         <text y="24" fill="#854302" font-size="8" text-anchor="middle" letter-spacing="1">★ 04 ★</text></g></g><g class="pp-stamp" style="--d:2.80s" transform="translate(470 272) rotate(-8)">
         <g class="pp-stamp-in"><circle r="40" fill="none" stroke="#020202" stroke-width="3.5"/><circle r="33" fill="none" stroke="#020202" stroke-width="1.5" stroke-dasharray="3 3"/>
         <text y="-6" fill="#020202" font-size="11" text-anchor="middle">C.J.</text><text y="8" fill="#020202" font-size="11" text-anchor="middle">WALKER</text>
@@ -492,9 +513,9 @@ body.admin-bar #sad-landing .nav{top:32px}
         </svg>
       </figure>
       <ol class="stamps">
-        <li class="reveal"><span class="stamp" aria-hidden="true">1</span><h3>Pick up</h3><p>Start your Business and Culture Heritage Trail adventure by picking up your passport at <strong>Coffee Was Black</strong> (364 Auburn Ave NE, Suite 2), in the same building as Haugabrooks Gallery &amp; Events.</p></li>
-        <li class="reveal" style="--i:1"><span class="stamp" aria-hidden="true">2</span><h3>Explore &amp; collect</h3><p>Explore the participating locations, discover the businesses and cultural treasures of Sweet Auburn, and collect a stamp at every stop.</p></li>
-        <li class="reveal" style="--i:2"><span class="stamp" aria-hidden="true">3</span><h3>Win</h3><p>Visit every stop and collect all your stamps to be entered into a raffle to win a gift basket!</p></li>
+        <li class="reveal"><span class="stamp" aria-hidden="true">1</span><h3>Pick up</h3><p>Start your Business and Culture Heritage Trail adventure by picking up your passport at <strong>Coffee Was Black / AKAZI ATL Gallery</strong> (364 Auburn Ave NE, Suite 2).</p></li>
+        <li class="reveal" style="--i:1"><span class="stamp" aria-hidden="true">2</span><h3>Explore &amp; collect</h3><p>Visit the passport stops on the map, discover the businesses and cultural treasures of Sweet Auburn, and collect a stamp at every stop.</p></li>
+        <li class="reveal" style="--i:2"><span class="stamp" aria-hidden="true">3</span><h3>Win</h3><p>Drop off your completed passport at <strong>Coffee Was Black / AKAZI ATL Gallery</strong> to be entered into a raffle to win a gift basket!</p></li>
       </ol>
       <a class="btn btn-gold reveal" href="#where">See the trail map</a>
     </section>
@@ -512,13 +533,17 @@ body.admin-bar #sad-landing .nav{top:32px}
 
       <div class="where-info">
         <ol class="places">
-          <li class="place reveal"><span class="place-num" aria-hidden="true">1</span><h3>Coffee Was Black</h3><p>Passport pickup for the Heritage Trail · 364 Auburn Ave NE, Suite 2</p></li>
-          <li class="place reveal"><span class="place-num" aria-hidden="true">2</span><h3>Haugabrooks Gallery &amp; Events</h3><p>Sweet Auburn Exhibits, from 1 PM</p></li>
-          <li class="place reveal"><span class="place-num" aria-hidden="true">3</span><h3>Municipal Market</h3><p>Lunch specials, 12 PM</p></li>
-          <li class="place reveal"><span class="place-num" aria-hidden="true">4</span><h3>Front Porch on Auburn</h3><p>Front Porch Block Party, 5 – 8 PM</p></li>
-          <li class="place reveal"><span class="place-num" aria-hidden="true">5</span><h3>Madam C.J. Walker Museum</h3><p>Tiny Desk-Style Concerts, 6 PM &amp; 7 PM</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">1</span><h3>Coffee Was Black / AKAZI ATL Gallery <span class="stop-tag">Passport stop</span></h3><p>Passport pick up + drop off · 364 Auburn Ave NE, Suite 2</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">2</span><h3>Municipal Market <span class="stop-tag">Passport stop</span></h3><p>Lunch specials, 12 PM · 209 Edgewood Ave SE</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">3</span><h3>Little Loaf Deli <span class="stop-tag">Passport stop</span></h3><p>381 Edgewood Ave SE</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">4</span><h3>Historic Fire Station No. 6 <span class="stop-tag">Passport stop</span></h3><p>Bus tour tickets + start, 10 AM · 450 Auburn Ave NE</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">5</span><h3>Sweet Me Good <span class="stop-tag">Passport stop</span></h3><p>321 Edgewood Ave SE</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">6</span><h3>Madam C.J. Walker Museum <span class="stop-tag">Passport stop</span></h3><p>Tiny Desk-Style Concerts, 4 PM &amp; 5 PM</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">7</span><h3>Haugabrooks Gallery + Events</h3><p>Exhibits, 12:30 PM · Salon, 2:30 PM</p></li>
+          <li class="place reveal"><span class="place-num" aria-hidden="true">8</span><h3>Front Porch on Auburn</h3><p>Block Party, 11 AM – 5 PM</p></li>
         </ol>
-        <p class="where-note reveal">The Park Service Sweet Auburn Bus Tour (10 AM – 3 PM) and Community Activations (11 AM – 5 PM) run across the district. Salon details coming soon.</p>
+        <p class="where-note reveal">Community Activations run 11 AM – 5 PM across the district.</p>
+        <p class="where-more reveal">Explore even more of the corridor at <a href="https://sageatlanta.plotsyft.com/" target="_blank" rel="noopener">sageatlanta.plotsyft.com</a></p>
         <div class="where-cta reveal">
           <p>Saturday, December 5, 2026</p>
           <a class="btn btn-ink" id="final-rsvp" href="#rsvp" data-rsvp>Free RSVP</a>
@@ -534,7 +559,8 @@ body.admin-bar #sad-landing .nav{top:32px}
       <ul class="logos" aria-label="Sponsors and partners">
         <li class="reveal"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/downtown-atl.png" alt="Downtown ATL" width="480" height="480" loading="lazy"></li>
         <li class="reveal" style="--i:1"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/nps-mlk.png" alt="National Park Service, Martin Luther King, Jr. National Historical Park" width="900" height="342" loading="lazy"></li>
-        <li class="reveal" style="--i:2"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/dashboard.png" alt="Dashboard" width="480" height="480" loading="lazy"></li>
+        <li class="reveal" style="--i:2"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/mayors-office.png" alt="Supported by ATL, Mayor’s Office of Cultural Affairs" width="1000" height="201" loading="lazy"></li>
+        <li class="reveal" style="--i:3"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/dashboard.png" alt="Dashboard" width="480" height="480" loading="lazy"></li>
       </ul>
     </section>
   </main>
@@ -612,6 +638,25 @@ const setNav = () => nav.classList.toggle('solid', window.scrollY > 8);
 setNav();
 window.addEventListener('scroll', setNav, { passive: true });
 
+/* Info tooltips: hover and focus open them via CSS; a tap toggles them, and a tap elsewhere or Esc closes. */
+landing.querySelectorAll('.tip').forEach((tip) => {
+  const btn = tip.querySelector('.tip-btn');
+  btn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const open = !tip.classList.contains('open');
+    landing.querySelectorAll('.tip.open').forEach((t) => { t.classList.remove('open'); t.querySelector('.tip-btn').setAttribute('aria-expanded', 'false'); });
+    tip.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+});
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.tip')) return;
+  landing.querySelectorAll('.tip.open').forEach((t) => { t.classList.remove('open'); t.querySelector('.tip-btn').setAttribute('aria-expanded', 'false'); });
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') landing.querySelectorAll('.tip.open').forEach((t) => { t.classList.remove('open'); t.querySelector('.tip-btn').setAttribute('aria-expanded', 'false'); });
+});
+
 /* Scroll reveals */
 if (motion) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -658,12 +703,16 @@ if (motion) {
 /* Event map: MapLibre with free OpenFreeMap tiles, loaded only when the section gets close.
    Locations are approximate until HDDC confirms them. Offsets (in pixels) keep the close pins apart. */
 const MAP_PLACES = [
-  // Coffee Was Black shares 364 Auburn Ave NE with Haugabrooks (Suite 2); the pin is offset so both show. Its link is HDDC's own Maps link.
-  { n: 1, name: 'Coffee Was Black (passport pickup)', query: 'Coffee Was Black, 364 Auburn Ave NE Suite 2, Atlanta, GA 30312', url: 'https://maps.app.goo.gl/wnTWb2xQXyA9SAuaA', lng: -84.37572, lat: 33.75567, offset: [24, -22] },
-  { n: 2, name: 'Haugabrooks Gallery & Events', query: 'Haugabrooks Gallery, 364 Auburn Ave NE, Atlanta, GA', lng: -84.37572, lat: 33.75567, offset: [20, 6] },
-  { n: 3, name: 'Municipal Market', query: 'Sweet Auburn Municipal Market, 209 Edgewood Ave SE, Atlanta, GA', lng: -84.37970, lat: 33.75432, offset: [0, 0] },
-  { n: 4, name: 'Front Porch on Auburn', query: 'Front Porch on Auburn, 348 Auburn Ave NE, Atlanta, GA', lng: -84.37617, lat: 33.75559, offset: [-6, 18] },
-  { n: 5, name: 'Madam C.J. Walker Museum', query: 'Madam C.J. Walker Museum, 54 Hilliard St NE, Atlanta, GA', lng: -84.37672, lat: 33.75578, offset: [-16, -14] },
+  // Coffee Was Black / AKAZI shares 364 Auburn Ave NE with Haugabrooks (Suite 2); pins are offset so both show.
+  // Edgewood Ave stops are placed from their street numbers; the links open the exact address.
+  { n: 1, name: 'Coffee Was Black / AKAZI ATL Gallery (passport pick up + drop off)', query: 'Coffee Was Black, 364 Auburn Ave NE Suite 2, Atlanta, GA 30312', url: 'https://maps.app.goo.gl/wnTWb2xQXyA9SAuaA', lng: -84.37572, lat: 33.75567, offset: [24, -22] },
+  { n: 2, name: 'Municipal Market', query: 'Sweet Auburn Municipal Market, 209 Edgewood Ave SE, Atlanta, GA', lng: -84.37970, lat: 33.75432, offset: [0, 0] },
+  { n: 3, name: 'Little Loaf Deli', query: 'Little Loaf Deli, 381 Edgewood Ave SE, Atlanta, GA', lng: -84.37390, lat: 33.75438, offset: [0, 0] },
+  { n: 4, name: 'Historic Fire Station No. 6', query: '450 Auburn Avenue NE, Atlanta, GA 30312', lng: -84.37310, lat: 33.75562, offset: [0, 0] },
+  { n: 5, name: 'Sweet Me Good', query: 'Sweet Me Good, 321 Edgewood Ave SE, Atlanta, GA', lng: -84.37555, lat: 33.75436, offset: [0, 0] },
+  { n: 6, name: 'Madam C.J. Walker Museum', query: 'Madam C.J. Walker Museum, 54 Hilliard St NE, Atlanta, GA', lng: -84.37672, lat: 33.75578, offset: [-16, -14] },
+  { n: 7, name: 'Haugabrooks Gallery + Events', query: 'Haugabrooks Gallery, 364 Auburn Ave NE, Atlanta, GA', lng: -84.37572, lat: 33.75567, offset: [20, 6] },
+  { n: 8, name: 'Front Porch on Auburn', query: 'Front Porch on Auburn, 348 Auburn Ave NE, Atlanta, GA', lng: -84.37617, lat: 33.75559, offset: [-6, 18] },
 ];
 const MAPLIBRE = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl';
 

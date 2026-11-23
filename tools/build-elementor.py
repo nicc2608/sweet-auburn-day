@@ -22,6 +22,8 @@ IMAGES = {
     'Landing/Partners/dashboard.png': '',
     'Landing/Partners/downtown-atl.png': '',
     'Landing/Partners/nps-mlk.png': '',
+    'Landing/Partners/mayors-office.png': '',
+    'Landing/Partners/auc-woodruff.svg': '',
 }
 
 def scope_selector(sel):
