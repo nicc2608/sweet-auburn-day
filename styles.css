@@ -241,7 +241,6 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .tip-box::after { display: none; }
   .event:has(.tip.open), .event:has(.tip:hover), .event:has(.tip:focus-within) { overflow: hidden; }
 }
-.stop-tag { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: var(--gold); font: 500 11px/1.4 var(--body); letter-spacing: .06em; text-transform: uppercase; vertical-align: middle; }
 .where-more { padding-top: 12px; font-size: 17px; line-height: 1.4; }
 .where-more a { font-weight: 700; text-underline-offset: 3px; }
 
