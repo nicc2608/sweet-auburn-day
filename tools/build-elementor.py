@@ -82,7 +82,7 @@ css = open('styles.css').read()
 js = open('main.js').read()
 
 fonts = re.search(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">', html).group(1)
-body = html[html.index('<body>') + 6:html.index('<script src="main.js"></script>')].strip()
+body = html[html.index('<body>') + 6:html.index('<script src="main.js')].strip()
 # Footer logo inline: WordPress often blocks SVG uploads.
 logo = open('Landing/Logo/sweet-auburn-negative.svg').read().strip()
 logo = logo.replace('<svg ', '<svg class="footer-logo" role="img" aria-label="Sweet Auburn Day" ', 1)
