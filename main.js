@@ -112,16 +112,12 @@ if (motion) {
 /* Event map: MapLibre with free OpenFreeMap tiles, loaded only when the section gets close.
    Locations are approximate until HDDC confirms them. Offsets (in pixels) keep the close pins apart. */
 const MAP_PLACES = [
-  // Coffee Was Black / AKAZI shares 364 Auburn Ave NE with Haugabrooks (Suite 2); pins are offset so both show.
-  // Edgewood Ave stops are placed from their street numbers; the links open the exact address.
-  { n: 1, name: 'Coffee Was Black / AKAZI ATL Gallery (passport pick up + drop off)', query: 'Coffee Was Black, 364 Auburn Ave NE Suite 2, Atlanta, GA 30312', url: 'https://maps.app.goo.gl/wnTWb2xQXyA9SAuaA', lng: -84.37572, lat: 33.75567, offset: [24, -22] },
-  { n: 2, name: 'Municipal Market', query: 'Sweet Auburn Municipal Market, 209 Edgewood Ave SE, Atlanta, GA', lng: -84.37970, lat: 33.75432, offset: [0, 0] },
-  { n: 3, name: 'Little Loaf Deli', query: 'Little Loaf Deli, 381 Edgewood Ave SE, Atlanta, GA', lng: -84.37390, lat: 33.75438, offset: [0, 0] },
-  { n: 4, name: 'Historic Fire Station No. 6', query: '450 Auburn Avenue NE, Atlanta, GA 30312', lng: -84.37310, lat: 33.75562, offset: [0, 0] },
-  { n: 5, name: 'Sweet Me Good', query: 'Sweet Me Good, 321 Edgewood Ave SE, Atlanta, GA', lng: -84.37555, lat: 33.75436, offset: [0, 0] },
-  { n: 6, name: 'Madam C.J. Walker Museum', query: 'Madam C.J. Walker Museum, 54 Hilliard St NE, Atlanta, GA', lng: -84.37672, lat: 33.75578, offset: [-16, -14] },
-  { n: 7, name: 'Haugabrooks Gallery + Events', query: 'Haugabrooks Gallery, 364 Auburn Ave NE, Atlanta, GA', lng: -84.37572, lat: 33.75567, offset: [20, 6] },
-  { n: 8, name: 'Front Porch on Auburn', query: 'Front Porch on Auburn, 348 Auburn Ave NE, Atlanta, GA', lng: -84.37617, lat: 33.75559, offset: [-6, 18] },
+  // The five passport stops. Edgewood Ave stops are placed from their street numbers; the links open the exact address.
+  { n: 1, name: 'Municipal Market', query: 'Sweet Auburn Municipal Market, 209 Edgewood Ave SE, Atlanta, GA', lng: -84.37970, lat: 33.75432, offset: [0, 0] },
+  { n: 2, name: 'Little Loaf Deli', query: 'Little Loaf Deli, 381 Edgewood Ave SE, Atlanta, GA', lng: -84.37390, lat: 33.75438, offset: [0, 0] },
+  { n: 3, name: 'Historic Fire Station No. 6', query: '450 Auburn Avenue NE, Atlanta, GA 30312', lng: -84.37310, lat: 33.75562, offset: [0, 0] },
+  { n: 4, name: 'Sweet Me Good', query: 'Sweet Me Good, 321 Edgewood Ave SE, Atlanta, GA', lng: -84.37555, lat: 33.75436, offset: [0, 0] },
+  { n: 5, name: 'Madam C.J. Walker Museum', query: 'Madam C.J. Walker Museum, 54 Hilliard St NE, Atlanta, GA', lng: -84.37672, lat: 33.75578, offset: [0, 0] },
 ];
 const MAPLIBRE = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl';
 
