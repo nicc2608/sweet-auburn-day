@@ -1,4 +1,4 @@
-<!-- Sweet Auburn Day popup. Paste into an Elementor HTML widget inside the popup (designed at 600 x 800; it scales down to fit smaller widths). -->
+<!-- Sweet Auburn Day popup. Paste into an Elementor HTML widget inside the popup. Desktop: 600 x 800. Phones: its own stacked layout, full width of the popup. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=DM+Sans:wght@400;500&display=swap">
@@ -43,6 +43,27 @@
 @keyframes sap-open { from { clip-path: circle(0 at 50% 55%); } to { clip-path: circle(75% at 50% 55%); } }
 @keyframes sap-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes sap-spin { to { transform: rotate(360deg); } }
+/* Phones: a different layout, like the landing's mobile hero. The photo runs edge to edge across the top
+   and fades into the white, the negative logo sits on the photo, and the text stacks below at phone sizes. */
+@media (max-width: 600px) {
+  #sad-popup .sap { aspect-ratio: auto; display: flex; flex-direction: column; padding: 0 20px 24px; }
+  #sad-popup .sap-photo { position: relative; top: auto; right: auto; width: auto; height: 250px; aspect-ratio: auto; margin: 0 -20px; border-radius: 0; flex-shrink: 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 96%); mask-image: linear-gradient(to bottom, #000 50%, transparent 96%); }
+  #sad-popup .sap-photo img { object-position: 50% 45%; }
+  @keyframes sap-open-m { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+  #sad-popup .sap-photo { animation-name: sap-open-m; }
+  #sad-popup .sap-logo { top: 16px; left: 20px; width: 96px; filter: drop-shadow(0 1px 6px rgb(2 2 2 / .35)); }
+  #sad-popup .sap-logo path[fill="#020202"] { fill: #ffffff; }
+  #sad-popup .sap-logo path[fill="#854302"] { fill: #f5d155; }
+  #sad-popup .sap-body { position: relative; left: auto; right: auto; bottom: auto; margin-top: -44px; gap: 10px; }
+  #sad-popup .sap-presents { font-size: 12px; }
+  #sad-popup .sap-date { font-size: clamp(20px, 6.6vw, 26px); }
+  #sad-popup .sap-head { font-size: calc((min(600px, 100vw - 32px) - 40px) * .175); }
+  #sad-popup .sap-badge { width: clamp(64px, 20vw, 84px); left: calc(100% + 10px); }
+  #sad-popup .sap-intro { max-width: none; font-size: 15px; }
+  #sad-popup .sap-actions { padding-top: 6px; }
+  #sad-popup .sap-btn { width: 100%; padding: 16px 20px; font-size: 15px; }
+}
 @media (prefers-reduced-motion: reduce) { #sad-popup * { animation: none !important; transition: none !important; } }
 </style>
 <div id="sad-popup">
