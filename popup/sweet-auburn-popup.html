@@ -3,10 +3,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=DM+Sans:wght@400;500&display=swap">
 <style>
-/* Everything is scoped to #sad-popup and sized in --u (1/600 of the popup width), so the layout scales as one piece. */
-#sad-popup { container-type: inline-size; width: 100%; max-width: 600px; margin: 0 auto; }
+/* Everything is scoped to #sad-popup and sized in --u (1/600 of the popup width), so the layout scales as one piece.
+   The width comes from the screen, not the popup container: 600px, or the screen width minus 32px on phones.
+   (No container queries: inside a popup sized to its content they collapse to zero width on some phones.) */
+#sad-popup { --w: min(600px, calc(100vw - 32px)); width: var(--w); max-width: 100%; margin: 0 auto; }
 #sad-popup * { box-sizing: border-box; margin: 0; padding: 0; }
-#sad-popup .sap { --u: calc(100cqw / 600); --ink: #020202; --brown: #7c4816; --gold: #f5d155; --white: #ffffff;
+#sad-popup .sap { --u: calc(var(--w) / 600); --ink: #020202; --brown: #7c4816; --gold: #f5d155; --white: #ffffff;
   position: relative; overflow: hidden; aspect-ratio: 600 / 800; background: var(--white); color: var(--ink); font-family: "DM Sans", system-ui, sans-serif; text-align: left; }
 #sad-popup .sap-photo { position: absolute; top: calc(-100 * var(--u)); right: calc(-120 * var(--u)); width: calc(500 * var(--u)); aspect-ratio: 1; border-radius: 50%; overflow: hidden; }
 #sad-popup .sap-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; border: 0; max-width: none; }
