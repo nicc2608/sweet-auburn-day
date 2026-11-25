@@ -256,6 +256,13 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 .logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px 72px; width: fit-content; max-width: 100%; padding: 48px 72px; background: var(--white); }
 .logos li { display: flex; align-items: center; justify-content: center; height: 104px; }
 .logos img { width: auto; height: 100%; max-width: 320px; object-fit: contain; }
+/* Sponsors and partners without a logo yet, listed by name below the logo plate. */
+.names { display: grid; gap: 40px; width: 100%; max-width: 1080px; }
+.names-group { display: grid; gap: 18px; }
+.names-title { font: 500 14px/1.2 var(--body); letter-spacing: .18em; text-transform: uppercase; color: var(--brown); }
+.names-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 32px; font-size: 18px; line-height: 1.35; }
+.names-sponsors { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 0; font-weight: 700; }
+.names-sponsors li + li::before { content: "·"; margin: 0 14px; font-weight: 400; }
 
 .footer { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px var(--gutter); background: var(--ink); color: var(--white); font-size: 16px; }
 .footer img { width: 130px; }
@@ -298,6 +305,7 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
 }
 
 @media (max-width: 1000px) {
+  .names-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 820px) {
@@ -327,6 +335,10 @@ h2 { font: 400 var(--h2)/1 var(--display); text-transform: uppercase; }
   .sponsors-copy { gap: 28px; }
   .logos { flex-direction: column; gap: 32px; width: 100%; padding: 40px 24px; }
   .logos li { height: 88px; }
+  .names { gap: 32px; }
+  .names-list { grid-template-columns: minmax(0, 1fr); gap: 10px; font-size: 16px; }
+  .names-sponsors { flex-direction: column; align-items: center; gap: 10px; }
+  .names-sponsors li + li::before { content: none; }
   .logos img { max-width: 220px; }
   .where-head { gap: 20px; }
   .map-card { padding: 8px; }

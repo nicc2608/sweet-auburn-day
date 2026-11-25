@@ -207,6 +207,12 @@
 #sad-landing .logos{display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px 72px; width: fit-content; max-width: 100%; padding: 48px 72px; background: var(--white);}
 #sad-landing .logos li{display: flex; align-items: center; justify-content: center; height: 104px;}
 #sad-landing .logos img{width: auto; height: 100%; max-width: 320px; object-fit: contain;}
+#sad-landing .names{display: grid; gap: 40px; width: 100%; max-width: 1080px;}
+#sad-landing .names-group{display: grid; gap: 18px;}
+#sad-landing .names-title{font: 500 14px/1.2 var(--body); letter-spacing: .18em; text-transform: uppercase; color: var(--brown);}
+#sad-landing .names-list{display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 32px; font-size: 18px; line-height: 1.35;}
+#sad-landing .names-sponsors{display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 0; font-weight: 700;}
+#sad-landing .names-sponsors li + li::before{content: "·"; margin: 0 14px; font-weight: 400;}
 #sad-landing .footer{display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px var(--gutter); background: var(--ink); color: var(--white); font-size: 16px;}
 #sad-landing .footer img{width: 130px;}
 #sad-landing .footer p{display: flex; gap: 10px;}
@@ -239,7 +245,7 @@
 #sad-landing .schedule{gap: 48px;}
 #sad-landing .events{grid-template-columns: repeat(2, minmax(0, 1fr));}
 #sad-landing{--h2: 60px;}}
-@media (max-width: 1000px){}
+@media (max-width: 1000px){#sad-landing .names-list{grid-template-columns: repeat(2, minmax(0, 1fr));}}
 @media (max-width: 820px){#sad-landing{--section-y: 64px; --h2: clamp(36px, 12.4vw, 50px);}
 #sad-landing{font-size: 17px;}
 #sad-landing .eyebrow{font-size: 14px;}
@@ -266,6 +272,10 @@
 #sad-landing .sponsors-copy{gap: 28px;}
 #sad-landing .logos{flex-direction: column; gap: 32px; width: 100%; padding: 40px 24px;}
 #sad-landing .logos li{height: 88px;}
+#sad-landing .names{gap: 32px;}
+#sad-landing .names-list{grid-template-columns: minmax(0, 1fr); gap: 10px; font-size: 16px;}
+#sad-landing .names-sponsors{flex-direction: column; align-items: center; gap: 10px;}
+#sad-landing .names-sponsors li + li::before{content: none;}
 #sad-landing .logos img{max-width: 220px;}
 #sad-landing .where-head{gap: 20px;}
 #sad-landing .map-card{padding: 8px;}
@@ -555,6 +565,16 @@ body.admin-bar #sad-landing .nav{top:32px}
         <li class="reveal" style="--i:2"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/mayors-office.png" alt="Supported by ATL, Mayor’s Office of Cultural Affairs" width="1000" height="201" loading="lazy"></li>
         <li class="reveal" style="--i:3"><img src="https://nicc2608.github.io/sweet-auburn-day/Landing/Partners/dashboard.png" alt="Dashboard" width="480" height="480" loading="lazy"></li>
       </ul>
+      <div class="names reveal">
+        <div class="names-group">
+          <h3 class="names-title">Sponsors</h3>
+          <ul class="names-list names-sponsors"><li>Butler Street CDC</li><li>The Conservation Fund</li><li>Gorman USA</li><li>Self Help Credit Union</li><li>Slaton Properties</li></ul>
+        </div>
+        <div class="names-group">
+          <h3 class="names-title">Partners</h3>
+          <ul class="names-list"><li>AKAZI Atl</li><li>Atlanta History Center</li><li>Auburn Avenue Church Collaborative</li><li>Auburn Avenue Research Library</li><li>AUC Woodruff Library</li><li>Brill Adium</li><li>City of Atlanta Design – Historic Preservation</li><li>Coffee Was Black</li><li>Ebenezer Baptist Church</li><li>Goodr</li><li>Historic MLK Business Association</li><li>Historic Oakland Foundation</li><li>Madam CJ Walker Museum</li><li>Mount Zion 2nd Baptist Church</li><li>Municipal Market</li><li>Nic Cappon</li><li>Old Fourth Ward Neighborhood Association</li><li>Sheffield Hale</li></ul>
+        </div>
+      </div>
     </section>
   </main>
 
